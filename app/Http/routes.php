@@ -12,5 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('inicio');
 });
+
+Route::get('/login/login', 'UsuarioController@login');
+Route::get('/usuario/lista', 'UsuarioController@lista');
+Route::get('/usuario/crear','UsuarioController@crear');
+Route::post('/usuario/almacenar','UsuarioController@almacenar');
+Route::get('/usuario/eliminar/{id}', 'UsuarioController@eliminar');
