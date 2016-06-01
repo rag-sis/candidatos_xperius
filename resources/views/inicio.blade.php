@@ -10,6 +10,7 @@
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="{{ asset('css/estilos.css') }}" rel="stylesheet" type="text/css">
 
     <!-- Le styles -->
     <!-- Use new way for google web fonts 

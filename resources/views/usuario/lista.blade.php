@@ -26,13 +26,16 @@
 				<button class="boton_nuevo" onClick="boton_nuevo_click()" type="button"><img src="{{ asset('img/add-icon.gif') }}" width="16" height="16"> Nuevo </button>
 				
 			</div><br />
-		  <div class="select-bar">
-		    <label>
-		    <input type="text" name="textfield" />
-		    <input type="submit" name="buscar" value="Buscar" />
-		    </label>
-		    
-		  </div>
+		  
+		  <form class="navbar navbar-form navbar-right espacio_contenido" action="/usuario/lista">
+					<div class="input-group">
+						<input type="text" name="nombre" class="form-control" placeholder="Nombre" />
+						<span class="input-group-btn">
+							<button type="submit" class="btn btn-default">Buscar</button>
+						</span>
+					</div>
+			</form>
+
 			<div class="table-responsive">
 				<img src="{{asset('img/bg-th-left.gif')}}" width="8" height="7" alt="" class="left" />
 				<img src="{{asset('img/bg-th-right.gif')}}" width="7" height="7" alt="" class="right" />
@@ -48,7 +51,7 @@
 					</tr>
 					</thead>
 					<tbody>
-					@foreach($usuarios as $usuario)
+					@forelse($usuarios as $usuario)
 
 					<tr>
 				
@@ -67,7 +70,11 @@
 							</td>
 								
 					</tr>
-					@endforeach
+					@empty
+				<tr class="text-center">
+					<td colspan="5">No exiten Usuarios</td>
+				</tr>
+				@endforelse
 					</tbody>
 				</table>
 				<div class="select">
