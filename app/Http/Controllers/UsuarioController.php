@@ -148,4 +148,16 @@ class UsuarioController extends Controller
             abort(500);
         else return $usuario;
     }
+    public function editar($id){
+        $usuario = $this->getUsuario($id);
+        $parametros = ['usuario' => $usuario];
+        return view('usuario.editar', $parametros);
+    }
+    public function actualizar($id, Request $peticion){
+        $usuario = $this->getUsuario($id);
+        $usuario->fill($peticion->all());
+        $usuario->save();
+        //Session::flash('usu_edi', 'Usuario modificado');
+        return redirect('/usuario/lista');
+    }
 }

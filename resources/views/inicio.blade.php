@@ -28,7 +28,7 @@
 
     <!--El siguiente codigo corrresponde al template constelation-->
 	<!-- Generic libs -->
-	<script type="text/javascript" src="{{ asset('/js/scripts_buttons.js') }}"></script>
+	
 	<!-- Global stylesheets -->
 	<link href="{{ asset('css/reset.css') }}" rel="stylesheet" type="text/css">
 	<link href="{{ asset('css/common.css') }}" rel="stylesheet" type="text/css">
@@ -44,6 +44,7 @@
 	<script type="text/javascript" src="{{ asset('js/standard.js') }}"></script>
 	<!--[if lte IE 8]><script type="text/javascript" src="js/standard.ie.js"></script><![endif]-->
 	<script type="text/javascript" src="{{ asset('js/jquery.tip.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/scripts_buttons.js') }}"></script>
 	
 	<!-- Example context menu -->
 	<script type="text/javascript">
@@ -97,7 +98,6 @@
     <link href="{{ asset('css/main.css') }}" rel="stylesheet" type="text/css" /> 
 
     <!-- Custom stylesheets ( Put your own changes here ) -->
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css" /> 
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -113,7 +113,7 @@
     
     <script type="text/javascript">
         //adding load class to body and hide page
-        document.documentElement.className += 'loadstate';
+        //document.documentElement.className += 'loadstate';
     </script>
  	 <!-- Le javascript
     ================================================== -->

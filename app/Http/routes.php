@@ -20,3 +20,5 @@ Route::get('/usuario/lista', 'UsuarioController@lista');
 Route::get('/usuario/crear','UsuarioController@crear');
 Route::post('/usuario/almacenar','UsuarioController@almacenar');
 Route::get('/usuario/eliminar/{id}', 'UsuarioController@eliminar');
+Route::get('/usuario/editar/{id}', 'UsuarioController@editar');
+Route::post('/usuario/actualizar/{id}', 'UsuarioController@actualizar');

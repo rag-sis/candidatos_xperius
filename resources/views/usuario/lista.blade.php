@@ -44,7 +44,6 @@
 					<tr>
 				
 						<th class="first">Nombre</th>
-						<th class="first">Apellidos </th>
 						<th class="first">E-mail</th>
 						<th class="first">Tipo</th>
 						<th class="last">Acciones</th>
@@ -56,17 +55,22 @@
 					<tr>
 				
 						<td>{{ $usuario->getNombreCompleto() }}</td>
-						<td>Alcón Llusco</td>
+				
 						<td>{{ $usuario->email_u }}</td>
-						<td>{{ $usuario->usuario }}</td>
+						<td>{{ $usuario->tipo }}
+							</td>
 						<td class="last">
 							<img src="{{asset('img/add-icon.gif')}}" width="16" height="16" alt="add" />
-							<img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="edit" />
 							
+							
+							<a href="/usuario/editar/{{$usuario->cod_u}}" title="Editar">
+								<img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="edit" />
+							</a>
 								
-							<a class="boton_eliminar" href="/usuario/eliminar/{{$usuario->cod_u}}">
+							<a class="eliminar" title="eliminar" href="/usuario/eliminar/{{$usuario->cod_u}}">
 								<img src="{{asset('img/hr.gif')}}" width="16" height="16" alt="" />
 								</a>
+						</a>
 							</td>
 								
 					</tr>
