@@ -18,7 +18,7 @@
                             <li class="active">Usuarios</li>
                         </ul>
 
-                    </div><!-- End .heading-->
+</div><!-- End .heading-->
 <div class="col-lg-6 col-lg-offset-3">
 	<div class="panel panel-primary">
 		<div class="panel-heading">

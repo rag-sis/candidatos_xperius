@@ -21,7 +21,21 @@
 
                     </div><!-- End .heading-->
 
-
+             @if(Session::has('usu_cre'))
+			<div class="alert alert-success">
+				{{ Session::get('usu_cre') }}
+			</div>
+			@endif
+			@if(Session::has('usu_edi'))
+			<div class="alert alert-info">
+				{{ Session::get('usu_edi') }}
+			</div>
+			@endif
+			@if(Session::has('usu_eli'))
+			<div class="alert alert-warning">
+				{{ Session::get('usu_eli') }}
+			</div>
+			@endif
 			<div class="top-bar">
 				<button class="boton_nuevo" onClick="boton_nuevo_click()" type="button"><img src="{{ asset('img/add-icon.gif') }}" width="16" height="16"> Nuevo </button>
 				
@@ -33,6 +47,13 @@
 						<span class="input-group-btn">
 							<button type="submit" class="btn btn-default">Buscar</button>
 						</span>
+
+						<a href="/lista_usr_pdf" class="float-right">
+						<span class="box1">
+                        <span aria-hidden="true" class="icomoon-icon-file-pdf"></span>
+                        &nbsp;Descargar lista
+                        </span>
+                        </a>
 					</div>
 			</form>
 
@@ -60,7 +81,7 @@
 						<td>{{ $usuario->tipo }}
 							</td>
 						<td class="last">
-							<img src="{{asset('img/add-icon.gif')}}" width="16" height="16" alt="add" />
+							<!--<img src="{{asset('img/add-icon.gif')}}" width="16" height="16" alt="add" />-->
 							
 							
 							<a href="/usuario/editar/{{$usuario->cod_u}}" title="Editar">

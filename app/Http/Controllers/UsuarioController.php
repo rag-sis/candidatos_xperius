@@ -189,4 +189,12 @@ class UsuarioController extends Controller
         Auth::logout();
         return redirect('/');
     }
+
+    public function listapdf(){
+        $lista= Usuario::all();
+        //enviando parametros a una vista en un arreglo
+        $parametros=['usuarios'=> $lista];
+        $pdf = \PDF::loadView('usuario/lista_candidatos_pdf',$parametros);
+        return $pdf->download('lista_candidatos.pdf');
+    }
 }

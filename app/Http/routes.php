@@ -27,3 +27,4 @@ Route::post('/usuario/actualizar/{id}', 'UsuarioController@actualizar');
 Route::get('/login/login', 'UsuarioController@login');
 Route::post('/usuario/autenticar', 'UsuarioController@autenticar');
 Route::get('/usuario/logout', 'UsuarioController@logout');
+Route::get('/lista_usr_pdf', 'UsuarioController@listapdf');
