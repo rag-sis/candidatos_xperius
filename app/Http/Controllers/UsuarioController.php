@@ -1,18 +1,18 @@
 <?php
 
-use App\Http\Requests\FormCrearUsuario;
-
-use \Session;
-
-//use Auth;
-
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+
 use App\Usuario;
+
+use App\Http\Requests\FormCrearUsuario;
+
+use \Session;
+
+use Auth;
 
 class UsuarioController extends Controller
 {
@@ -21,6 +21,12 @@ class UsuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct(){
+        $this->middleware('autenticado', ['except' => ['login', 'autenticar']]);
+        $this->middleware('usuario', ['except' => ['login', 'autenticar', 'logout']]);
+    }
+
     public function index()
     {
         //
@@ -159,5 +165,28 @@ class UsuarioController extends Controller
         $usuario->save();
         //Session::flash('usu_edi', 'Usuario modificado');
         return redirect('/usuario/lista');
+    }
+
+    //Autentificación
+    public function autenticar(Request $peticion){
+        $credenciales = [
+            'usuario' => $peticion->input('login'),
+            'password' => $peticion->input('pass'),
+            'activo' => 1,
+        ];
+        if(Auth::attempt($credenciales)){
+            return redirect('/');
+            
+        }
+        else{
+            return redirect('/login/login')->withErrors([
+                    'login' => 'Usuario y/o contraseña incorrectos',
+                ])->withInput($peticion->only('usuario'));
+        }
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect('/');
     }
 }

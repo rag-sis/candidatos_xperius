@@ -28,6 +28,7 @@
 	<script type="text/javascript" src="{{asset('js/jquery.tip.js')}}"></script>
 	
 	<!-- example login script -->
+	<!--
 	<script type="text/javascript">
 	
 		$(document).ready(function()
@@ -127,6 +128,7 @@
 		});
 	
 	</script>
+-->
 	
 </head>
 
@@ -143,9 +145,14 @@
 				
 			<div class="block-header">Ingrese su Login</div>
 				
-			<p class="message error no-margin">Error message</p>
+			<!--<p class="message error no-margin">Error message</p>-->
+			@if($errors->has('login'))
+				<div class="alert alert-danger">
+					{{ $errors->first('login') }}
+				</div>
+				@endif
 			
-			<form class="form with-margin" name="login-form" id="login-form" method="post" action="">
+			<form class="form with-margin" name="login-form" id="login-form" method="post" action="/usuario/autenticar">
 				<input type="hidden" name="a" id="a" value="send">
 				<p class="inline-small-label">
 					<label for="login"><span class="big">Usuario</span></label>
@@ -155,7 +162,7 @@
 					<label for="pass"><span class="big">Contraseña</span></label>
 					<input type="password" name="pass" id="pass" class="full-width" value="">
 				</p>
-				
+				{!! csrf_field() !!}
 				<button type="submit" class="float-right">Ingresar</button>
 				<p class="input-height">
 					<input type="checkbox" name="keep-logged" id="keep-logged" value="1" class="mini-switch" checked="checked">

@@ -150,6 +150,17 @@
     <script type="text/javascript" src="{{ asset('js/main.js') }}"></script><!-- Core js functions -->
     <script type="text/javascript" src="{{ asset('js/empty.js') }}"></script><!-- Init plugins only for page -->
 
+
+
+
+
+@if(!Auth::check())
+<script type="text/javascript">
+    cerrar_sesion();
+</script>                            
+@else
+                            
+
     </head>
       
     <body>
@@ -176,7 +187,7 @@
 		<div class="float-right"> 
 
 			<ul id="status-infos">
-            <li class="spaced">Usuario: <strong>Administrador</strong></li>
+            <li class="spaced">Usuario: <strong>{{ Auth::user()->tipo }}</strong></li>
             <li>
                 
                 <button class="boton_nuevo" title="5 messages" onClick="boton_nuevo_click()" type="button"> <img src="{{asset('images/icons/fugue/mail.png')}}" width="16" height="16"> 5 </button>
@@ -214,7 +225,7 @@
             <li>
 
                 
-                <button class="boton_nuevo" title="Logout" onClick="boton_nuevo_click()" type="button"><img src="{{ asset('img/hr.gif') }}" width="16" height="16"> Cerrar Sesión </button>
+                <button class="boton_nuevo" title="Logout" onClick="cerrar_sesion()" type="button"><img src="{{ asset('img/hr.gif') }}" width="16" height="16"> Cerrar Sesión </button>
             </li>
         </ul>
 
@@ -241,65 +252,21 @@
                 <!--Sidebar background-->
                 <div id="sidebarbg"></div>
                 <!--Sidebar content-->
-                <div id="sidebar">
-
-                    
+                <div id="sidebar">    
                     <div class="sidenav">
-
-                        <div class="sidebar-widget" style="margin: -1px 0 0 0;">
-                            <h5 class="title" style="margin-bottom:0">Navegación</h5>
-
-                        </div><!-- End .sidenav-widget -->
-
-                        <div class="mainnav">
-                            <ul>
-                                <li><a href="charts.html"><span class="icon16 icomoon-icon-stats-up"></span>Vacantes</a></li>
-                                
-                                <li><a href="typo.html"><span class="icon16 icomoon-icon-font"></span>Examenes</a></li>
-                                <li><a href="/usuario/lista"><span class="icon16 icomoon-icon-grid-view"></span>Usuarios</a></li>
-                                <li><a href="calendar.html"><span class="icon16 icomoon-icon-calendar"></span>Postulaciones</a></li>
-                                <li><a href="calendar.html"><span class="icon16 icomoon-icon-calendar"></span>Resultados</a></li>
-                                
-                            </ul>
-                        </div>
-                        <div class="sidebar-widget" style="margin: -1px 0 0 0;">
-                            <h5 class="title" style="margin-bottom:0">Navegación</h5>
-
-                        </div><!-- End .sidenav-widget -->
-                        <div class="mainnav">
-                            <ul>
-                                <li><a href="charts.html"><span class="icon16 icomoon-icon-stats-up"></span>Reportes</a></li>
-                                
-                                <li><a href="typo.html"><span class="icon16 icomoon-icon-font"></span>Tareas</a></li>
-                                
-                            </ul>
-                        </div>
+                        @include('menu', ['tipo' => Auth::user()->tipo])
                     </div><!-- End sidenav -->
-
-                    
-
-
-
                 </div><!-- End #sidebar -->
-            
-
-            </div><!-- End .span4 -->
+            </div><!-- End .span3 -->
 
             <!--content area -->
             <div class="span9">
 
                 <!--Body content-->
                 <div id="content" class="clearfix">
-                                  
-                    
-
                     <!-- Build page from here: -->
                    @yield('contenido')
 					<!-- Page end here -->
-                    
-                    
-
-
                 </div>
 
             </div><!-- End .span9 -->
@@ -311,4 +278,4 @@
    
     </body>
 </html>
-
+@endif

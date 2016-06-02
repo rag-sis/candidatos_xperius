@@ -2,9 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User;
 use Hash;
-class Usuario extends Model
+class Usuario extends User
 {
     //
     public $table = 'usuarios';
