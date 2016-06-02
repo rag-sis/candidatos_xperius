@@ -29,10 +29,14 @@ class FormCrearUsuario extends Request
             $pass = 'required|min:6';
         else $pass = 'min:6';
         return [
-            'nombres' => 'required|alpha',
-            'ape_pat' => 'required|alpha',
-            'ape_mat' => 'required|alpha',
-            'email' => 'required|email',
+            'nom_u' => 'required|alpha',
+            'ape_pat_u' => 'required|alpha',
+            'ape_mat_u' => 'required|alpha',
+            'ci_u'=>'required|digits_between:5,8',
+            'email_u' => 'required|email',
+            'direccion_u' => 'required|String',
+            'telefono_u' => 'required|digits_between:7,8',
+            'celular_u' => 'required|digits:8',
             'usuario' => 'required|alpha_num',
             'password' => $pass,
             'rpassword' => $pass,

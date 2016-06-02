@@ -1,11 +1,11 @@
 <div class="panel-body">
-	@if($errors->has('nombres'))
+	@if($errors->has('nom_u'))
 	<div class="alert alert-danger">
-		{{ $errors->first('nombres') }}
+		{{ $errors->first('nom_u') }}
 	</div>
 	@endif
 	<div class="form-group">
-		{!! Form::label('nombres', 'Nombres', ['class' => 'control-label']) !!}
+		{!! Form::label('nom_u', 'Nombres', ['class' => 'control-label']) !!}
 		{!! Form::text('nom_u', null, ['class' => 'form-control']) !!}
 	</div>
 	@if($errors->has('ape_pat_u'))
@@ -56,7 +56,7 @@
 	</div>
 	@if($errors->has('telefono_u'))
 	<div class="alert alert-danger">
-		{{ $errors->first('telefono') }}
+		{{ $errors->first('telefono_u') }}
 	</div>
 	@endif
 	<div class="form-group">
@@ -111,7 +111,7 @@
 	@endif
 	<div class="form-group">
 		{!! Form::label('tipo', 'Tipo de usuario') !!}
-		{!! Form::select('tipo', ['adm' => 'Administrador', 'pro' => 'Profesor', 'can' => 'Candidato' ], null, ['placeholder' => 'Seleccione un tipo de usuario', 'class' => 'form-control']) !!}
+		{!! Form::select('tipo', ['pro' => 'Profesor', 'can' => 'Candidato' ], null, ['placeholder' => 'Seleccione un tipo de usuario', 'class' => 'form-control']) !!}
 	</div>
 </div>
 <div class="panel-footer text-center">

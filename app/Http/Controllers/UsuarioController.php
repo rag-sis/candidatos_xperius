@@ -125,11 +125,11 @@ class UsuarioController extends Controller
     public function crear(){
         return view('usuario.crear');
     }
-     public function almacenar(Request $peticion){
+     public function almacenar(FormCrearUsuario $peticion){
         if($peticion->input('password') === $peticion->input('rpassword'))
         {
             Usuario::create($peticion->all());
-          //  Session::flash('usu_cre', 'Usuario creado');
+            Session::flash('usu_cre', 'Usuario creado');
             return redirect('/usuario/lista');
         }        
         else
@@ -144,7 +144,7 @@ class UsuarioController extends Controller
         $usuario = $this->getUsuario($id);
         $usuario->activo = 0;
         $usuario->save();
-        //Session::flash('usu_eli', 'Usuario eliminado');
+        Session::flash('usu_eli', 'Usuario eliminado');
         return redirect('/usuario/lista');
     }
       public function getUsuario($id){
@@ -163,7 +163,7 @@ class UsuarioController extends Controller
         $usuario = $this->getUsuario($id);
         $usuario->fill($peticion->all());
         $usuario->save();
-        //Session::flash('usu_edi', 'Usuario modificado');
+        Session::flash('usu_edi', 'Usuario modificado');
         return redirect('/usuario/lista');
     }
 
