@@ -4,7 +4,7 @@
 @if($tipo === 'adm')
 <div class="mainnav">
  <ul>
- <li><a href="#"><span class="icon16 entypo-icon-grid"></span>Vacantes</a></li>
+ <li><a href="/vacante/lista"><span class="icon16 entypo-icon-grid"></span>Vacantes</a></li>
  <li><a href="#"><span class="icon16 entypo-icon-grid"></span>Examenes</a></li>
  <li><a href="/usuario/lista"><span class="icon16 entypo-icon-grid"></span>Candidatos</a></li>
  <li><a href="#"><span class="icon16 entypo-icon-grid"></span>Postulaciones</a></li>

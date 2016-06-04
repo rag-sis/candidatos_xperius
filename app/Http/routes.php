@@ -28,3 +28,14 @@ Route::get('/login/login', 'UsuarioController@login');
 Route::post('/usuario/autenticar', 'UsuarioController@autenticar');
 Route::get('/usuario/logout', 'UsuarioController@logout');
 Route::get('/lista_usr_pdf', 'UsuarioController@listapdf');
+
+//Rutas para vacantes
+Route::get('/vacante/lista', 'VacanteController@lista');
+Route::get('/vacante/eliminar/{id}', 'VacanteController@eliminar');
+Route::get('/vacante/crear','VacanteController@crear');
+Route::post('/vacante/almacenar','VacanteController@almacenar');
+Route::get('/lista_v_pdf', 'VacanteController@listapdf');
+Route::get('/vacante/editar/{id}', 'VacanteController@editar');
+Route::post('/vacante/actualizar/{id}', 'VacanteController@actualizar');
+
+

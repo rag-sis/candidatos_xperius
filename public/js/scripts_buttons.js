@@ -6,9 +6,13 @@ $(document).ready(function(){
 		}
 	});
 });
-function boton_nuevo_click(){
+function boton_nuevo_usuario(){
 
 	window.location = '/usuario/crear';
+}
+function boton_nuevo_vacante(){
+
+	window.location = '/vacante/crear';
 }
 function cerrar_sesion(){
 

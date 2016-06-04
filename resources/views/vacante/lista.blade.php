@@ -2,7 +2,7 @@
 @section('contenido')
 <div class="heading">
 
-                        <h3>Usuarios</h3>                    
+                        <h3>Vacantes</h3>                    
 
                         
                         
@@ -16,39 +16,39 @@
                                     <span class="icon16 icomoon-icon-arrow-right-2"></span>
                                 </span>
                             </li>
-                            <li class="active">Usuarios</li>
+                            <li class="active">Vacantes</li>
                         </ul>
 
                     </div><!-- End .heading-->
 
-             @if(Session::has('usu_cre'))
+             @if(Session::has('vac_cre'))
 			<div class="alert alert-success">
-				{{ Session::get('usu_cre') }}
+				{{ Session::get('vac_cre') }}
 			</div>
 			@endif
-			@if(Session::has('usu_edi'))
+			@if(Session::has('vac_edi'))
 			<div class="alert alert-info">
-				{{ Session::get('usu_edi') }}
+				{{ Session::get('vac_edi') }}
 			</div>
 			@endif
-			@if(Session::has('usu_eli'))
+			@if(Session::has('vac_eli'))
 			<div class="alert alert-warning">
-				{{ Session::get('usu_eli') }}
+				{{ Session::get('vac_eli') }}
 			</div>
 			@endif
 			<div class="top-bar">
-				<button class="boton_nuevo" onClick="boton_nuevo_usuario()" type="button"><img src="{{ asset('img/add-icon.gif') }}" width="16" height="16"> Nuevo </button>
+				<button class="boton_nuevo" onClick="boton_nuevo_vacante()" type="button"><img src="{{ asset('img/add-icon.gif') }}" width="16" height="16"> Nuevo </button>
 				
 			</div><br />
 		  
-		  <form class="navbar navbar-form navbar-right espacio_contenido" action="/usuario/lista">
+		  <form class="navbar navbar-form navbar-right espacio_contenido" action="/vacante/lista">
 					<div class="input-group">
-						<input type="text" name="nombre" class="form-control" placeholder="Nombre" />
+						<input type="text" name="titulo_v" class="form-control" placeholder="Titulo" />
 						<span class="input-group-btn">
 							<button type="submit" class="btn btn-default">Buscar</button>
 						</span>
 
-						<a href="/lista_usr_pdf" class="float-right">
+						<a href="/lista_v_pdf" class="float-right">
 						<span class="box1">
                         <span aria-hidden="true" class="icomoon-icon-file-pdf"></span>
                         &nbsp;Descargar lista
@@ -64,31 +64,31 @@
 					<thead>
 					<tr>
 				
-						<th class="first">Nombre</th>
-						<th class="first">E-mail</th>
-						<th class="first">Tipo</th>
+						<th class="first">Titulo</th>
+						<th class="first">Descripcion</th>
+						<th class="first">Estado</th>
 						<th class="last">Acciones</th>
 					</tr>
 					</thead>
 					<tbody>
-					@forelse($usuarios as $usuario)
+					@forelse($vacantes as $vacante)
 
 					<tr>
 				
-						<td>{{ $usuario->getNombreCompleto() }}</td>
+						<td>{{ $vacante->titulo_v }}</td>
 				
-						<td>{{ $usuario->email_u }}</td>
-						<td>{{ $usuario->tipo }}
+						<td>{{ $vacante->descripcion_v }}</td>
+						<td>{{ $vacante->estado_v }}
 							</td>
 						<td class="last">
 							<!--<img src="{{asset('img/add-icon.gif')}}" width="16" height="16" alt="add" />-->
 							
 							
-							<a href="/usuario/editar/{{$usuario->cod_u}}" title="Editar">
+							<a href="/vacante/editar/{{$vacante->cod_v}}" title="Editar">
 								<img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="edit" />
 							</a>
 								
-							<a class="eliminar" title="eliminar" href="/usuario/eliminar/{{$usuario->cod_u}}">
+							<a class="eliminar" title="eliminar" href="/vacante/eliminar/{{$vacante->cod_v}}">
 								<img src="{{asset('img/hr.gif')}}" width="16" height="16" alt="" />
 								</a>
 						</a>
@@ -97,21 +97,15 @@
 					</tr>
 					@empty
 				<tr class="text-center">
-					<td colspan="5">No exiten Usuarios</td>
+					<td colspan="5">No exiten Vacantes</td>
 				</tr>
 				@endforelse
 					</tbody>
 				</table>
 				<div class="select">
-				{!! $usuarios->appends(['nombre' => Request::input('nombre')])->render() !!}
+				{!! $vacantes->appends(['titulo_v' => Request::input('titulo_v')])->render() !!}
 				</div>
-				<!--
-				<div class="select">
-					<strong>Other Pages: </strong>
-					<select>
-						<option></option>
-					</select>
-			  </div>-->
+			
 			</div>
 
 			
