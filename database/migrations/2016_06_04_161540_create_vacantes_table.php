@@ -16,8 +16,8 @@ class CreateVacantesTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('cod_v');
             $table->string('titulo_v',100);
-            $table->string('lugar_v',100);
-            $table->string('area_v',100);
+            $table->enum('lugar_v',['Cochabamba','La Paz','Santa Cruz','Oruro','Chuquisaca','Beni','Potosi','Tarija','Pando']);
+            $table->string('posicion_v',100);
             $table->enum('tiempo_trabajo_v',['Tiempo Completo', 'Medio Tiempo']);
             $table->enum('tipo_trabajo_v',['Fuera de Oficina', 'Dentro de Oficina']);
             $table->text('descripcion_v');

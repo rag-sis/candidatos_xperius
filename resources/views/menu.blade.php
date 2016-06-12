@@ -16,7 +16,7 @@
  </div><!-- End .sidenav-widget -->
  <div class="mainnav">
   <ul>
-  	<li><a href="#"><span class="icon16 entypo-icon-grid"></span>Datos</a></li>
+  	<!--<li><a href="#"><span class="icon16 entypo-icon-grid"></span>Datos</a></li>-->
   <li><a href="#"><span class="icon16 entypo-icon-grid"></span>Programación de Entrevistas</a></li>
   <li><a href="#"><span class="icon16 entypo-icon-grid"></span>Entrevistas</a></li>
   </ul>
@@ -24,7 +24,7 @@
 @elseif($tipo === 'pro')
 <div class="mainnav">
  <ul>
- <li><a href="#"><span class="icon16 entypo-icon-grid"></span>Examenes</a></li>
+ <li><a href="/vacante/lista"><span class="icon16 entypo-icon-grid"></span>Examenes</a></li>
  <li><a href="#"><span class="icon16 entypo-icon-grid"></span>Resultados</a></li>
  </ul>
  </div>
@@ -40,6 +40,7 @@
 @elseif($tipo === 'can')
 <div class="mainnav">
  <ul>
+  <li><a href="/vacante/lista"><span class="icon16 entypo-icon-grid"></span>Vacantes</a></li>
  <li><a href="#"><span class="icon16 entypo-icon-grid"></span>Examenes</a></li>
  <li><a href="#"><span class="icon16 entypo-icon-grid"></span>Postulaciones</a></li>
  <li><a href="#"><span class="icon16 entypo-icon-grid"></span>Resultados</a></li>

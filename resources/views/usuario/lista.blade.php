@@ -66,7 +66,7 @@
 				
 						<th class="first">Nombre</th>
 						<th class="first">E-mail</th>
-						<th class="first">Tipo</th>
+						<th class="first">Rol</th>
 						<th class="last">Acciones</th>
 					</tr>
 					</thead>
@@ -83,7 +83,7 @@
 						<td class="last">
 							<!--<img src="{{asset('img/add-icon.gif')}}" width="16" height="16" alt="add" />-->
 							
-							
+							<a id="ver_dt" data-toggle="modal" href="?us={{$usuario->cod_u}}&#ver_datos"><strong>Ver</strong></a>
 							<a href="/usuario/editar/{{$usuario->cod_u}}" title="Editar">
 								<img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="edit" />
 							</a>
@@ -114,6 +114,29 @@
 			  </div>-->
 			</div>
 
+
+
+<div class="modal fade hide" id="ver_datos">
+ 	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        			<span aria-hidden="true">&times;</span>
+        		</button>
+        		<h4 class="modal-title">Datos de Usuario</h4>
+			</div>
+			<div class="modal-body">
+				Hola Mundo
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+				<button type="button" class="btn btn-primary" id="aceptar">Aceptar</button>
+			</div>
+			</div>
+		</div>
+		
+	
+</div>
 			
 		  
 

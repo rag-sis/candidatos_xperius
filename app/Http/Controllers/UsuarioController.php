@@ -108,7 +108,7 @@ class UsuarioController extends Controller
         $lista = Usuario::where('activo', 1)
             ->buscar($nombre)
             ->orderBy('cod_u')
-            ->paginate(5);
+            ->paginate(10);
         $parametros = ['usuarios' => $lista];
         return view('usuario.lista', $parametros);
     }

@@ -26,6 +26,7 @@ class Usuario extends User
     public function scopeBuscar($query, $nombre){
         return $query->where('nom_u', 'ilike', "%$nombre%")
                     ->orWhere('ape_pat_u', 'ilike', "%$nombre%")
-                    ->orWhere('ape_mat_u', 'ilike', "%$nombre%");
+                    ->orWhere('ape_mat_u', 'ilike', "%$nombre%")
+                    ->orWhere('tipo', 'ilike', "%$nombre%");
     }
 }

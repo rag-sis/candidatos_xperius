@@ -2,6 +2,8 @@
  * Global reset
  * Based on Eric Meyer's : http://meyerweb.com/eric/thoughts/2008/01/15/resetting-again/
  */ 
+
+ /*
 a, abbr, acronym, address, applet, article, aside, audio, 
 b, big, blockquote, body,
 canvas, caption, center, cite, code, command,
@@ -29,7 +31,7 @@ var, video {
 	vertical-align: baseline;
 	background: transparent;
 	z-index: 1;
-}
+}*/
 
 /*
  * Default HTML5 behaviour for older browsers

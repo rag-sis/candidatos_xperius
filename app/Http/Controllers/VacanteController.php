@@ -11,7 +11,7 @@ use App\Vacante;
 use App\Http\Requests\FormCrearVacante;
 
 use \Session;
-
+use Mail;
 use Auth;
 
 class VacanteController extends Controller
@@ -63,10 +63,12 @@ class VacanteController extends Controller
     }
 
     public function lista(Request $peticion){
+        $tipo_u=Auth::user()->tipo;
+        Session::flash('tipo_u', $tipo_u);
         $titulo_v = $peticion->input('titulo_v');
         $lista = Vacante::buscar($titulo_v)
             ->orderBy('cod_v')
-            ->paginate(5);
+            ->paginate(10);
         $parametros = ['vacantes' => $lista];
         return view('vacante.lista', $parametros);
     }
@@ -77,6 +79,16 @@ class VacanteController extends Controller
         $parametros=['vacantes'=> $lista];
         $pdf = \PDF::loadView('vacante/lista_pdf',$parametros);
         return $pdf->download('lista_vacantes.pdf');
+    }
+
+    public function enviar_email(){
+        $data=['hola','mundo'];
+        Mail::send('vacante.mensaje',$data,function($msg){
+        $msg->subject('Mensaje de Xperius');
+        $msg->to('goe.alcon@gmail.com');
+        Session::flash('message','Mensaje enviado correctamente');
+        });
+        return redirect('/vacante/lista');
     }
 
 

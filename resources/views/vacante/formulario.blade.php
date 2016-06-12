@@ -15,16 +15,17 @@
 	@endif
 	<div class="form-group">
 		{!! Form::label('lugar_v', 'Lugar', ['class' => 'control-label']) !!}
-		{!! Form::text('lugar_v', null, ['class' => 'form-control']) !!}
+		{!! Form::select('lugar_v', ['Cochabamba' => 'Cochabamba', 'La Paz' => 'La Paz', 'Santa Cruz' => 'Santa Cruz', 'Oruro' => 'Oruro', 'Chuquisaca' => 'Chuquisaca', 'Beni' => 'Beni', 'Potosi' => 'Potosi', 'Tarija' => 'Tarija', 'Pando' => 'Pando' ], null, ['placeholder' => 'Seleccione una ciudad', 'class' => 'form-control']) !!}
+		
 	</div>
-	@if($errors->has('area_v'))
+	@if($errors->has('posicion_v'))
 	<div class="alert alert-danger">
-		{{ $errors->first('area_v') }}
+		{{ $errors->first('posicion_v') }}
 	</div>
 	@endif
 	<div class="form-group">
-		{!! Form::label('area_v', 'Area', ['class' => 'control-label']) !!}
-		{!! Form::text('area_v', null, ['class' => 'form-control']) !!}
+		{!! Form::label('posicion_v', 'Posición', ['class' => 'control-label']) !!}
+		{!! Form::text('posicion_v', null, ['class' => 'form-control']) !!}
 	</div>
 	@if($errors->has('tiempo_trabajo_v'))
 	<div class="alert alert-danger">
@@ -49,9 +50,18 @@
 		{{ $errors->first('descripcion_v') }}
 	</div>
 	@endif
-	<div class="form-group">
+	
+	<!--<div class="form-group">
 		{!! Form::label('descripcion_v', 'Descripción', ['class' => 'control-label']) !!}
 		{!! Form::text('descripcion_v', null, ['class' => 'form-control']) !!}
+	</div>-->
+	<!--<div class="form-group">
+		<label for="descripcion_v">Descripción</label>
+		<textarea name="descripcion_v" id="descripcion_v" class="form-control"></textarea>
+	</div>-->
+	<div class="form-group">
+		{!! Form::label('descripcion_v', 'Descripción', ['class' => 'control-label']) !!}
+	{{ Form::textarea('descripcion_v',null, ['class' => 'form-control']) }}
 	</div>
 	@if($errors->has('estado_v'))
 	<div class="alert alert-danger">

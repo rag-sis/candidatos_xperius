@@ -187,7 +187,8 @@
 		<div class="float-right"> 
 
 			<ul id="status-infos">
-            <li class="spaced">Usuario: <strong>{{ Auth::user()->tipo }}</strong></li>
+            <li class="spaced">Usuario: <strong>{{ Auth::user()->usuario }}</strong></li>
+            <!--
             <li>
                 
                 <button class="boton_nuevo" title="5 messages" onClick="boton_nuevo_click()" type="button"> <img src="{{asset('images/icons/fugue/mail.png')}}" width="16" height="16"> 5 </button>
@@ -221,7 +222,7 @@
                     
                     <p id="comments-info" class="result-info"><a href="#">Manage comments &raquo;</a></p>
                 </div>
-            </li>
+            </li>-->
             <li>
 
                 

@@ -164,12 +164,14 @@
 				</p>
 				{!! csrf_field() !!}
 				<button type="submit" class="float-right">Ingresar</button>
+				<p>.</p>
+				<!--
 				<p class="input-height">
 					<input type="checkbox" name="keep-logged" id="keep-logged" value="1" class="mini-switch" checked="checked">
 					<label for="keep-logged" class="inline">Recordar contraseña</label>
-				</p>
+				</p>-->
 			</form>
-			
+			<!--
 			<form class="form" id="password-recovery" method="post" action="">
 				<fieldset class="grey-bg no-margin collapse">
 					<legend><a href="#">No recuerdas tu contraseña?</a></legend>
@@ -179,7 +181,7 @@
 						<button type="button">Enviar</button>
 					</p>
 				</fieldset>
-			</form>
+			</form>-->
 		</div></div>
 	</section>
 

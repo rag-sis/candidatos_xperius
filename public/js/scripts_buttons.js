@@ -5,6 +5,32 @@ $(document).ready(function(){
 			evento.preventDefault();
 		}
 	});
+
+	$('#ver_datos').blur(function(){
+		var a = $_GET("us");
+		//alert(a);
+		console.log(a);
+
+		//var idp = $('#dia-add-item #idprod').val();
+		//var url = '/producto/ver/' + idp;
+		/*$.ajax({
+			'url': url,
+			success: function(datos){
+				var producto = JSON.parse(datos);
+				$('#dia-add-item #nombre').val(producto.nombre);
+				$('#dia-add-item #precio').val(producto.precio);
+			}
+		});*/
+	});
+
+	$('#ver_dt').click(function(){
+
+		var a = $_GET['us'];
+		alert(a);
+		console.log(a);
+	});
+
+	
 });
 function boton_nuevo_usuario(){
 
@@ -23,3 +49,7 @@ function boton_eliminar(){
 			evento.preventDefault();
 		}
 }
+
+
+
+
