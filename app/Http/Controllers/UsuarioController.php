@@ -197,4 +197,9 @@ class UsuarioController extends Controller
         $pdf = \PDF::loadView('usuario/lista_candidatos_pdf',$parametros);
         return $pdf->download('lista_candidatos.pdf');
     }
+    public function ver_informacion_usuario($id){
+        $usuario = $this->getUsuario($id);
+        $parametros = ['usuario' => $usuario];
+        return view('usuario.ver_informacion_usuario',$parametros);
+    }
 }

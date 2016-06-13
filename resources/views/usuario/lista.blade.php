@@ -81,12 +81,11 @@
 						<td>{{ $usuario->tipo }}
 							</td>
 						<td class="last">
-							<!--<img src="{{asset('img/add-icon.gif')}}" width="16" height="16" alt="add" />-->
-							
-							<a id="ver_dt" data-toggle="modal" href="?us={{$usuario->cod_u}}&#ver_datos"><strong>Ver</strong></a>
+							<a class="boton" href="#" data-toggle="modal" data-target="#ver_datos" onclick="mostrar_datos_usuario('{{$usuario->cod_u}}')"> Ver</a>
 							<a href="/usuario/editar/{{$usuario->cod_u}}" title="Editar">
 								<img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="edit" />
 							</a>
+							
 								
 							<a class="eliminar" title="eliminar" href="/usuario/eliminar/{{$usuario->cod_u}}">
 								<img src="{{asset('img/hr.gif')}}" width="16" height="16" alt="" />
@@ -126,11 +125,24 @@
         		<h4 class="modal-title">Datos de Usuario</h4>
 			</div>
 			<div class="modal-body">
-				Hola Mundo
+				
+				 <div class="widget-body">
+                            <div class="modal-body datagrid table-responsive" >
+                                <center><div id="cargar_reporte" >
+                                        Espere!!! Cargando datos...
+                                    </div></center>
+ 
+                                <div class="panel-body" id="editar_resul" >
+ 
+                                </div>
+                            </div>
+                        </div>
+
+
+
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-				<button type="button" class="btn btn-primary" id="aceptar">Aceptar</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 			</div>
 			</div>
 		</div>

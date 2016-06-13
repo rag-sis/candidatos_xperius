@@ -49,6 +49,16 @@ function boton_eliminar(){
 			evento.preventDefault();
 		}
 }
+function mostrar_datos_usuario(id) {
+        $(document).ready(function () {
+            $("#result").hide("slow");
+            $("#cargar_reporte").show("slow");
+            $("#editar_resul").load("/usuario/ver_informacion_usuario/" + id, " ", function () {
+                $("#editar_resul").show("slow");
+                $("#cargar_reporte").hide("slow");
+            });
+        });
+    }
 
 
 
