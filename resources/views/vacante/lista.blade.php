@@ -68,10 +68,14 @@
 					</div>
 			</form>
 
-			<div class="table-responsive">
+				<div class="responsive">
+
 				<img src="{{asset('img/bg-th-left.gif')}}" width="8" height="7" alt="" class="left" />
 				<img src="{{asset('img/bg-th-right.gif')}}" width="7" height="7" alt="" class="right" />
-				<table class="table table-bordered table-hover table-condensed" cellpadding="0" cellspacing="0" >
+				<!--class="table table-bordered table-hover table-condensed"-->
+
+
+				<table class="table table-bordered table-hover table-condensed" width="80%"  cellpadding="0" cellspacing="0" >
 					<thead>
 					<tr>
 				
@@ -101,8 +105,8 @@
 							
 							
 							@if( ($tip === 'adm') or ($tip === 'pro') )
-							<td class="last">
-							<!--<img src="{{asset("img/add-icon.gif")}}" width="16" height="16" alt="add" />-->
+							<td class="last" width="100px">
+							<a class="boton" href="#" data-toggle="modal" data-target="#ver_datos_vacante" onclick="mostrar_datos_vacante('{{$vacante->cod_v}}')"> Ver</a>
 							<a href="/vacante/enviar_email" title="Invitar">
 								<img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="edit" />
 							</a>
@@ -129,10 +133,38 @@
 				<div class="select">
 				{!! $vacantes->appends(['titulo_v' => Request::input('titulo_v')])->render() !!}
 				</div>
-			
-			</div>
 
-			
+		</div>
+
+	<div class="modal fade hide" id="ver_datos_vacante">
+ 	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        			<span aria-hidden="true">&times;</span>
+        		</button>
+        		<h4 class="modal-title">Datos de Vacante</h4>
+			</div>
+			<div class="modal-body">
+				
+				 <div class="widget-body">
+                            <div class="modal-body datagrid table-responsive" >
+                                <center><div id="cargar_datos_vacante" >
+                                        Espere!!! Cargando datos...
+                                    </div></center>
+ 
+                                <div class="panel-body" id="datos_vacante" >
+ 
+                                </div>
+                            </div>
+                        </div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+			</div>
+			</div>
+		</div>
+</div>		
 		  
 
 @endsection

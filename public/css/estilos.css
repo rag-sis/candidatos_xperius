@@ -1,3 +1,23 @@
 .espacio_contenido{
 	padding-left: 10px;
 }
+.align-left{
+
+	text-align: left;
+}
+.vacante_datos{
+	text-align: left;
+}
+
+.vacante_datos td , th{    
+	padding: 8px;          
+	border-bottom: 1px solid #C4C4C4;
+    color: #000;    
+    border-top: 1px solid transparent;
+    font-style: inherit;
+     
+}
+.negrita{
+
+	font-size: inherit;
+}

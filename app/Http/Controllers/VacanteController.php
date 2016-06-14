@@ -91,5 +91,11 @@ class VacanteController extends Controller
         return redirect('/vacante/lista');
     }
 
+     public function ver_informacion_vacante($id){
+        $vacante = $this->getVacante($id);
+        $parametros = ['vacante' => $vacante];
+        return view('vacante.ver_informacion_vacante',$parametros);
+    }
+
 
 }

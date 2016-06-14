@@ -12,6 +12,9 @@
 	<b>Nombre de Usuario:</b> {{$usuario->usuario}}
 	</div>
 	<div>
+	<b>Tipo de Usuario:</b> {{$usuario->tipo}}
+	</div>
+	<div>
 	<b>E-mail:</b> {{$usuario->email_u}}
 	</div>
 	<div>

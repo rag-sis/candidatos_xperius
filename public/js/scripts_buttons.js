@@ -59,6 +59,16 @@ function mostrar_datos_usuario(id) {
             });
         });
     }
+ function mostrar_datos_vacante(id) {
+        $(document).ready(function () {
+            $("#result").hide("slow");
+            $("#cargar_datos_vacante").show("slow");
+            $("#datos_vacante").load("/vacante/ver_informacion_vacante/" + id, " ", function () {
+                $("#datos_vacante").show("slow");
+                $("#cargar_datos_vacante").hide("slow");
+            });
+        });
+    }
 
 
 

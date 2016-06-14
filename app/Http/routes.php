@@ -38,5 +38,7 @@ Route::get('/lista_v_pdf', 'VacanteController@listapdf');
 Route::get('/vacante/editar/{id}', 'VacanteController@editar');
 Route::post('/vacante/actualizar/{id}', 'VacanteController@actualizar');
 Route::get('/vacante/enviar_email', 'VacanteController@enviar_email');
+
 Route::get('/usuario/ver_informacion_usuario/{id}', 'UsuarioController@ver_informacion_usuario');
+Route::get('/vacante/ver_informacion_vacante/{id}', 'VacanteController@ver_informacion_vacante');
 
