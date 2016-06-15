@@ -14,7 +14,6 @@ return [
     | Supported: "local", "ftp", "s3", "rackspace"
     |
     */
-
     'default' => 'local',
 
     /*
@@ -61,6 +60,7 @@ return [
             'region' => 'your-region',
             'bucket' => 'your-bucket',
         ],
+
 
     ],
 

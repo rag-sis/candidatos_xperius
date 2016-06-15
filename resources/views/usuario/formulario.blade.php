@@ -111,8 +111,19 @@
 	@endif
 	<div class="form-group">
 		{!! Form::label('tipo', 'Tipo de usuario') !!}
-		{!! Form::select('tipo', ['pro' => 'Profesor', 'can' => 'Candidato' ], null, ['placeholder' => 'Seleccione un tipo de usuario', 'class' => 'form-control']) !!}
+		{!! Form::select('tipo', ['pro' => 'Profesor', 'can' => 'Candidato' ], null, ['placeholder' => 'Seleccione un tipo de usuario', 'class' => 'form-control','id'=>'tipo_usuario']) !!}
 	</div>
+	@if($errors->has('curriculum'))
+	<div class="alert alert-danger">
+		{{ $errors->first('curriculum') }}
+	</div>
+	@endif
+	<div class="form-group" id="curri">
+		{!! Form::label('curriculum', 'Archivo Curriculum', ['class' => 'control-label']) !!}
+		{!! Form::file('curriculum') !!}
+	</div>
+	<input type="hidden" name="_token" value="{{ csrf_token() }}">
+
 </div>
 <div class="panel-footer text-center">
 	{!! Form::submit('Aceptar', ['class' => 'btn btn-primary']) !!}

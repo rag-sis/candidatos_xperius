@@ -68,7 +68,7 @@
 					</div>
 			</form>
 
-				<div class="responsive">
+				<div class="table-responsive">
 
 				<img src="{{asset('img/bg-th-left.gif')}}" width="8" height="7" alt="" class="left" />
 				<img src="{{asset('img/bg-th-right.gif')}}" width="7" height="7" alt="" class="right" />

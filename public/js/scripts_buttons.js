@@ -6,29 +6,34 @@ $(document).ready(function(){
 		}
 	});
 
-	$('#ver_datos').blur(function(){
-		var a = $_GET("us");
-		//alert(a);
-		console.log(a);
-
-		//var idp = $('#dia-add-item #idprod').val();
-		//var url = '/producto/ver/' + idp;
-		/*$.ajax({
-			'url': url,
-			success: function(datos){
-				var producto = JSON.parse(datos);
-				$('#dia-add-item #nombre').val(producto.nombre);
-				$('#dia-add-item #precio').val(producto.precio);
-			}
-		});*/
-	});
-
-	$('#ver_dt').click(function(){
-
-		var a = $_GET['us'];
-		alert(a);
-		console.log(a);
-	});
+	 
+	
+   	$('#tipo_usuario').change(function(e) {
+    	//perform AJAX call
+    	
+        var lista=document.getElementById("tipo_usuario");
+    	var valorSeleccionado = lista.options[lista.selectedIndex].value;
+    	
+    	if(valorSeleccionado=='can'){
+    		$("#curri").show("slow");
+    	}else{
+    		$("#curri").hide("slow");		
+    	}
+   	});
+						
+    var lista=document.getElementById("tipo_usuario");
+    	var valorSeleccionado = lista.options[lista.selectedIndex].value;
+    	
+    	if(valorSeleccionado=='can'){
+    		$("#curri").show("slow");
+    	}else{
+    		$("#curri").hide("slow");		
+    	}
+    //document.getElementById("tipo_usuario").disabled=true;
+    
+                            
+                            
+            
 
 	
 });

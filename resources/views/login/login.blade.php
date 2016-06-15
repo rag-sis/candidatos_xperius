@@ -163,6 +163,7 @@
 					<input type="password" name="pass" id="pass" class="full-width" value="">
 				</p>
 				{!! csrf_field() !!}
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<button type="submit" class="float-right">Ingresar</button>
 				<p>.</p>
 				<!--

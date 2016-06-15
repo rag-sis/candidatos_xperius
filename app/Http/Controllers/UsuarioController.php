@@ -126,9 +126,37 @@ class UsuarioController extends Controller
         return view('usuario.crear');
     }
      public function almacenar(FormCrearUsuario $peticion){
+
+       $file = $peticion->file('curriculum');
+       if ($file!=null){
+            $nombre = $file->getClientOriginalName();
+            $nombre=$peticion['usuario'].'_'.$nombre;
+            \Storage::disk('local')->put($nombre,  \File::get($file));
+            //$public_path = public_path();
+            //$direccion_final=$public_path."/files/".$nombre;
+       }else{
+            $nombre=null;
+       }
+       
+       
+
         if($peticion->input('password') === $peticion->input('rpassword'))
         {
-            Usuario::create($peticion->all());
+            Usuario::create([
+                'nom_u'=>$peticion['nom_u'], 
+                'ape_pat_u'=>$peticion['ape_pat_u'], 
+                'ape_mat_u'=>$peticion['ape_mat_u'],
+                'ci_u'=>$peticion['ci_u'], 
+                'email_u'=>$peticion['email_u'], 
+                'direccion_u'=>$peticion['direccion_u'],
+                'telefono_u'=>$peticion['telefono_u'],
+                'celular_u'=>$peticion['celular_u'],
+                'usuario'=>$peticion['usuario'], 
+                'password'=>$peticion['password'],
+                'curriculum'=>$nombre,
+                'tipo'=>$peticion['tipo'],
+
+                ]);
             Session::flash('usu_cre', 'Usuario creado');
             return redirect('/usuario/lista');
         }        
@@ -138,6 +166,7 @@ class UsuarioController extends Controller
                ->withErrors(['repetir' => 'Las contraseñas no coinciden',])
                 ->withInput($peticion->all());
         }
+        
     }
 
     public function eliminar($id){
@@ -160,9 +189,35 @@ class UsuarioController extends Controller
         return view('usuario.editar', $parametros);
     }
     public function actualizar($id, Request $peticion){
-        $usuario = $this->getUsuario($id);
-        $usuario->fill($peticion->all());
-        $usuario->save();
+        $file = $peticion->file('curriculum');
+        
+       if ($file!=null){
+            $nombre = $file->getClientOriginalName();
+            $nombre=$peticion['usuario'].'_'.$nombre;
+            \Storage::disk('local')->put($nombre,  \File::get($file));
+
+            $usuario = $this->getUsuario($id);
+            $usuario->fill([
+                'nom_u'=>$peticion['nom_u'], 
+                'ape_pat_u'=>$peticion['ape_pat_u'], 
+                'ape_mat_u'=>$peticion['ape_mat_u'],
+                'ci_u'=>$peticion['ci_u'], 
+                'email_u'=>$peticion['email_u'], 
+                'direccion_u'=>$peticion['direccion_u'],
+                'telefono_u'=>$peticion['telefono_u'],
+                'celular_u'=>$peticion['celular_u'],
+                'usuario'=>$peticion['usuario'], 
+                'password'=>$peticion['password'],
+                'curriculum'=>$nombre,
+                'tipo'=>$peticion['tipo'],
+                ]);
+            $usuario->save();
+            
+       }else{
+                $usuario = $this->getUsuario($id);
+                $usuario->fill($peticion->all());
+                $usuario->save();
+       }
         Session::flash('usu_edi', 'Usuario modificado');
         return redirect('/usuario/lista');
     }

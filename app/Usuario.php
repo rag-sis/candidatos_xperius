@@ -11,7 +11,7 @@ class Usuario extends User
     public $primaryKey = 'cod_u';
 
 
-    protected $fillable = ['nom_u', 'ape_pat_u', 'ape_mat_u','ci_u', 'email_u', 'direccion_u','telefono_u','celular_u','usuario', 'password', 'tipo'];
+    protected $fillable = ['nom_u', 'ape_pat_u', 'ape_mat_u','ci_u', 'email_u', 'direccion_u','telefono_u','celular_u','usuario', 'password','curriculum','tipo'];
 
     public function setPasswordAttribute($valor){
     	if($valor !== ''){

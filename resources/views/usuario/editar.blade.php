@@ -24,7 +24,7 @@
 		<div class="panel-heading">
 			<h4>Editar Usuario</h4>
 		</div>
-		{!! Form::model($usuario, ['url' => '/usuario/actualizar/' . $usuario->cod_u]) !!}
+		{!! Form::model($usuario, ['url' => '/usuario/actualizar/' . $usuario->cod_u , 'files' => true]) !!}
 		@include('usuario.formulario')			
 		{!! Form::close() !!}
 	</div>
