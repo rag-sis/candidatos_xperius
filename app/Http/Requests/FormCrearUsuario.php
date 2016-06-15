@@ -40,6 +40,7 @@ class FormCrearUsuario extends Request
             'usuario' => 'required|alpha_num',
             'password' => $pass,
             'rpassword' => $pass,
+            'curriculum'=>'mimes:doc,docx,pdf',
             'tipo' => 'required',
         ];
     }
@@ -52,6 +53,7 @@ class FormCrearUsuario extends Request
             'ape_mat.alpha' => 'El campo apellido materno solo puede contener letras',
             'password.required' => 'El campo contraseña el obligatorio',
             'rpassword.required' => 'El campo repita su contraseña el obligatorio',
+            'curriculum'=>'El archivo tiene que ser de extensión doc,docx,pdf',
         ];
     }
 }
