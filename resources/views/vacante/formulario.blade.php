@@ -70,7 +70,7 @@
 	@endif
 	<div class="form-group">
 		{!! Form::label('estado_v', 'Estado') !!}
-		{!! Form::select('estado_v', ['1' => '1', '0' => '0' ], null, ['placeholder' => 'Seleccione:', 'class' => 'form-control']) !!}
+		{!! Form::select('estado_v', ['1' => 'Habilitado', '0' => 'Deshabilitado' ], null, ['placeholder' => 'Seleccione:', 'class' => 'form-control']) !!}
 	</div>
 	
 </div>

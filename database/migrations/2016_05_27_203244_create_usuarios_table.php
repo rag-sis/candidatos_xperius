@@ -27,6 +27,7 @@ class CreateUsuariosTable extends Migration
             $table->string('usuario',20);
             $table->string('password',200);
             $table->string('curriculum')->nullable();
+            $table->string('url_curriculum')->nullable();
             $table->enum('tipo', ['adm', 'pro','can']);
             $table->enum('activo', [1, 0])->default(1);
             $table->rememberToken();

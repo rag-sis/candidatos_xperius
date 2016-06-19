@@ -85,6 +85,9 @@
 	</script>
 	<!-- FIN -->
     <!-- Core stylesheets do not remove -->
+    <link href="{{ asset('css/bootstrap/bootstrap.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/bootstrap/bootstrap-responsive.css') }}" rel="stylesheet" />
+
     <link href="{{ asset('css/bootstrap/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/bootstrap/bootstrap-responsive.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/supr-theme/jquery.ui.supr.css') }}" rel="stylesheet" type="text/css"/>
@@ -95,7 +98,8 @@
     <link href="{{ asset('plugins/forms/uniform/uniform.default.css') }}" type="text/css" rel="stylesheet" />
 
     <!-- Main stylesheets -->
-    <link href="{{ asset('css/main.css') }}" rel="stylesheet" type="text/css" /> 
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet" type="text/css" />
+    <!--<link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css" /> -->
 
     <!-- Custom stylesheets ( Put your own changes here ) -->
 
@@ -117,6 +121,8 @@
     </script>
  	 <!-- Le javascript
     ================================================== -->
+    <link href="{{ asset('plugins/forms/ibutton/jquery.ibutton.css') }}" type="text/css" rel="stylesheet" />
+    
     <!-- Important plugins put in all pages -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script type="text/javascript" src="{{ asset('js/bootstrap/bootstrap.js') }}"></script>  
@@ -135,21 +141,34 @@
     <script type="text/javascript" src="{{ asset('plugins/misc/search/tipuesearch_data.js') }}"></script><!-- JSON for searched results -->
     <script type="text/javascript" src="{{ asset('plugins/misc/search/tipuesearch.js') }}"></script>
 
+
     <!-- Form plugins -->
     <script type="text/javascript" src="{{ asset('plugins/forms/watermark/jquery.watermark.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('plugins/forms/uniform/jquery.uniform.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('plugins/forms/ibutton/jquery.ibutton.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('plugins/forms/select/select2.min.js')}}"></script>
+
+    <script type="text/javascript" src="{{ asset('plugins/forms/elastic/jquery.elastic.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('plugins/forms/inputlimiter/jquery.inputlimiter.1.3.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('plugins/forms/maskedinput/jquery.maskedinput-1.3.min.js')}}"></script>
+    <!--<script type="text/javascript" src="{{ asset('plugins/forms/togglebutton/jquery.toggle.buttons.js')}}"></script>-->
+    <!--<script type="text/javascript" src="{{ asset('plugins/forms/globalize/globalize.js')}}"></script>-->
+    <script type="text/javascript" src="{{ asset('plugins/forms/timeentry/jquery.timeentry.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('plugins/forms/dualselect/jquery.dualListBox-1.3.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('plugins/forms/tiny_mce/jquery.tinymce.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('plugins/forms/smartWizzard/jquery.smartWizard-2.0.min.js')}}"></script>
 
     <!-- Fix plugins -->
     <script type="text/javascript" src="{{ asset('plugins/fix/ios-fix/ios-orientationchange-fix.js') }}"></script>
 
     <!-- Important Place before main.js  -->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js"></script>
+    <!--<script type="text/javascript" src="{{ asset('js/jquery/1.9.2/jquery-ui.min.js')}}"></script>-->
     <script type="text/javascript" src="{{ asset('plugins/fix/touch-punch/jquery.ui.touch-punch.min.js') }}"></script><!-- Unable touch for JQueryUI -->
 
     <!-- Init plugins -->
     <script type="text/javascript" src="{{ asset('js/main.js') }}"></script><!-- Core js functions -->
     <script type="text/javascript" src="{{ asset('js/empty.js') }}"></script><!-- Init plugins only for page -->
-
+    <script type="text/javascript" src="{{ asset('js/forms.js') }}"></script>
 
 
 
@@ -182,6 +201,7 @@
                
             </div><!-- /navbar-inner -->
           </div><!-- /navbar --> 
+
         </div>
 		
 		<div class="float-right"> 
@@ -229,7 +249,7 @@
                 <button class="boton_nuevo" title="Logout" onClick="cerrar_sesion()" type="button"><img src="{{ asset('img/hr.gif') }}" width="16" height="16"> Cerrar Sesión </button>
             </li>
         </ul>
-
+        <h6 class="float-right">Versión 1.03</H6>
 		</div>
 
 			

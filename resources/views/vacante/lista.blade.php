@@ -1,5 +1,8 @@
 @extends('inicio')
 @section('contenido')
+<head>
+<script type="text/javascript" src="{{ asset('js/script_vacante.js') }}"></script>
+</head>
 <div class="heading">
 
                         <h3>Vacantes</h3>                    
@@ -100,16 +103,21 @@
 						<td>{{ $vacante->titulo_v }}</td>
 				
 						<td>{{ $vacante->descripcion_v }}</td>
-						<td>{{ $vacante->estado_v }}
-							</td>
+						<td>
+							<?php $est=$vacante->estado_v; 
+								  $cd=$vacante->cod_v;
+							?>
+						
+								<input type="checkbox" id="btn_estado_v<?php echo $cd ?>" <?php if($est == 1){ echo 'checked="checked"'; }  ?> class="ibuttonCheck nostyle" onchange="upd_estado('{{$vacante->cod_v}}')" />
+							 	
+						</td>
 							
 							
 							@if( ($tip === 'adm') or ($tip === 'pro') )
 							<td class="last" width="100px">
 							<a class="boton" href="#" data-toggle="modal" data-target="#ver_datos_vacante" onclick="mostrar_datos_vacante('{{$vacante->cod_v}}')"> Ver</a>
-							<a href="/vacante/enviar_email" title="Invitar">
-								<img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="edit" />
-							</a>
+							<a class="boton" href="#" data-toggle="modal" data-target="#enviar_email_vacante" onclick="enviar_email_vacante('{{$vacante->cod_v}}')"> Invitar</a>
+							
 							<a href="/vacante/editar/{{$vacante->cod_v}}" title="Editar">
 								<img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="edit" />
 							</a>
@@ -130,6 +138,8 @@
 				@endforelse
 					</tbody>
 				</table>
+				<div id="effect">
+				</div>
 				<div class="select">
 				{!! $vacantes->appends(['titulo_v' => Request::input('titulo_v')])->render() !!}
 				</div>
@@ -164,7 +174,37 @@
 			</div>
 			</div>
 		</div>
-</div>		
+</div>
+
+<div class="modal fade hide" id="enviar_email_vacante">
+ 	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        			<span aria-hidden="true">&times;</span>
+        		</button>
+        		<h4 class="modal-title">Enviar Invitación</h4>
+			</div>
+			<div class="modal-body">
+				
+				 <div class="widget-body">
+                            <div class="modal-body datagrid table-responsive" >
+                                <center><div id="cargar_vista_invitar" >
+                                        Espere!!! Cargando datos...
+                                    </div></center>
+ 
+                                <div class="panel-body" id="datos_invitar" >
+ 
+                                </div>
+                            </div>
+                        </div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+			</div>
+			</div>
+		</div>
+</div>			
 		  
 
 @endsection

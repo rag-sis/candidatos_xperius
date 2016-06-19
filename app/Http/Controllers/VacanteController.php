@@ -13,6 +13,7 @@ use App\Http\Requests\FormCrearVacante;
 use \Session;
 use Mail;
 use Auth;
+use App\Usuario;
 
 class VacanteController extends Controller
 {
@@ -81,14 +82,27 @@ class VacanteController extends Controller
         return $pdf->download('lista_vacantes.pdf');
     }
 
-    public function enviar_email(){
+    public function enviar_email(Request $peticion){
+        $email=$peticion['select1'];
         $data=['hola','mundo'];
-        Mail::send('vacante.mensaje',$data,function($msg){
+        Mail::send('vacante.mensaje',$data,function($msg) use($email){
         $msg->subject('Mensaje de Xperius');
-        $msg->to('goe.alcon@gmail.com');
+        $msg->to( $email );});
         Session::flash('message','Mensaje enviado correctamente');
-        });
         return redirect('/vacante/lista');
+
+        
+    }
+
+    public function enviar_invitacion($id){
+
+        $vacante = $this->getVacante($id);
+        $parametros = ['vacante' => $vacante];
+        $lista= Usuario::all();
+        $parametros_u=['usuarios'=> $lista];
+        Session::flash('id_vc', $id);
+        return view('vacante.envio_invitacion',$parametros,$parametros_u);
+
     }
 
      public function ver_informacion_vacante($id){
@@ -96,6 +110,19 @@ class VacanteController extends Controller
         $parametros = ['vacante' => $vacante];
         return view('vacante.ver_informacion_vacante',$parametros);
     }
-
+    
+    public function actualizar_estado_vacante($id, $val){
+        
+        $vacante = $this->getVacante($id);
+        if($val==1){
+            $vacante->estado_v = 1;    
+        }else{
+            $vacante->estado_v = 0;    
+        }
+        
+        $vacante->save();
+        return $val;
+     }
+   
 
 }

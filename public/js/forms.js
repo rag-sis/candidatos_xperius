@@ -94,20 +94,22 @@ $(document).ready(function() {
 	}
 	
     //------------- Time entry (picker) -------------//
+	/*
 	$('#timepicker').timeEntry({
 		show24Hours: true,
-		spinnerImage: ''
+		spinnerImage: '',
 	});
-	$('#timepicker').timeEntry('setTime', '22:15')
-
+	$('#timepicker').timeEntry('setTime', '22:15');
+	*/
 	//------------- Select plugin -------------//
 	$("#select1").select2();
 	$("#select2").select2();
 
 	//--------------- Dual multi select ------------------//
-	$.configureBoxes();
+	//$.configureBoxes();
 
 	//--------------- Tinymce ------------------//
+	/*
 	$('textarea.tinymce').tinymce({
 		// Location of TinyMCE script
 		script_url : 'plugins/forms/tiny_mce/tiny_mce.js',
@@ -141,7 +143,7 @@ $(document).ready(function() {
 			staffid : "991234"
 		}
 	});
-
+*/
 	//Boostrap modal
 	$('#myModal').modal({ show: false});
 	

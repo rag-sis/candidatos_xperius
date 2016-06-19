@@ -37,8 +37,11 @@ Route::post('/vacante/almacenar','VacanteController@almacenar');
 Route::get('/lista_v_pdf', 'VacanteController@listapdf');
 Route::get('/vacante/editar/{id}', 'VacanteController@editar');
 Route::post('/vacante/actualizar/{id}', 'VacanteController@actualizar');
-Route::get('/vacante/enviar_email', 'VacanteController@enviar_email');
+Route::post('/vacante/enviar_email', 'VacanteController@enviar_email');
+Route::get('/vacante/enviar_invitacion/{id}', 'VacanteController@enviar_invitacion');
 
 Route::get('/usuario/ver_informacion_usuario/{id}', 'UsuarioController@ver_informacion_usuario');
+Route::get('/usuario/ver_curriculum/{archivo}', 'UsuarioController@ver_curriculum');
 Route::get('/vacante/ver_informacion_vacante/{id}', 'VacanteController@ver_informacion_vacante');
+Route::get('/vacante/act_es/{id}/{val}','VacanteController@actualizar_estado_vacante');
 

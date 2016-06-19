@@ -6,6 +6,12 @@
 	<title></title>
 </head>
 <body>
+	<div>
+    <a class="float-right" href="/vacante/editar/{{$vacante->cod_v}}" title="Editar">
+			<img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="edit" />
+			Editar Vacante
+		</a>
+</div>
 	<table class=" table-condensed text-left vacante_datos" cellpadding="0" cellspacing="0">
 		<tr>
 			<th width="150px">Título</th>

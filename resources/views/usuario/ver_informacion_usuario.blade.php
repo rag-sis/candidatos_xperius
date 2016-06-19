@@ -6,6 +6,13 @@
 </head>
 <body>
 	<div>
+		<a class="float-right" href="/usuario/editar/{{$usuario->cod_u}}" title="Editar">
+			<img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="edit" />
+			Editar Usuario
+		</a>
+							
+	</div>
+	<div>
 	<b>Nombre:</b> {{$usuario->getNombreCompleto()}}
 	</div>
 	<div>
@@ -29,6 +36,15 @@
 	<div>
 	<b>Celular:</b> {{$usuario->celular_u}}
 	</div>
+	<div >
+	@if($usuario->tipo === 'can')	
+	<b>Curriculum:</b> 
+	<a href="/usuario/ver_curriculum/{{$usuario->curriculum}}" target="_blank">{{$usuario->curriculum}}</a>
+	</div>
+	<div>
+	<b>Dirección URL de Curriculum:</b> <a href="{{$usuario->url_curriculum}}" target="_blank">{{$usuario->url_curriculum}}</a>
+	</div>
+	@endif
 	
 
 </body>

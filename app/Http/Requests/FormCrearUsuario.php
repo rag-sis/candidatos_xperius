@@ -41,6 +41,7 @@ class FormCrearUsuario extends Request
             'password' => $pass,
             'rpassword' => $pass,
             'curriculum'=>'mimes:doc,docx,pdf',
+            'url_curriculum'=>'url',
             'tipo' => 'required',
         ];
     }

@@ -16,18 +16,33 @@ $(document).ready(function(){
     	
     	if(valorSeleccionado=='can'){
     		$("#curri").show("slow");
+            $("#url_curri").show("slow");
     	}else{
     		$("#curri").hide("slow");		
+            $("#url_curri").hide("slow");
     	}
    	});
+   
+
+    $('#btn_estado_v').on('click', function(e) {
+        if( $(this).is(':checked') ){
+        // Hacer algo si el checkbox ha sido seleccionado
+        alert("El checkbox con valor " + $(this).val() + " ha sido seleccionado");
+        } else {
+        // Hacer algo si el checkbox ha sido deseleccionado
+        alert("El checkbox con valor " + $(this).val() + " ha sido deseleccionado");
+        }
+    });
 						
     var lista=document.getElementById("tipo_usuario");
     	var valorSeleccionado = lista.options[lista.selectedIndex].value;
     	
     	if(valorSeleccionado=='can'){
     		$("#curri").show("slow");
+            $("#url_curri").show("slow");
     	}else{
-    		$("#curri").hide("slow");		
+    		$("#curri").hide("slow");
+            $("#url_curri").hide("slow");		
     	}
     //document.getElementById("tipo_usuario").disabled=true;
     
@@ -71,6 +86,17 @@ function mostrar_datos_usuario(id) {
             $("#datos_vacante").load("/vacante/ver_informacion_vacante/" + id, " ", function () {
                 $("#datos_vacante").show("slow");
                 $("#cargar_datos_vacante").hide("slow");
+            });
+        });
+    }
+
+    function enviar_email_vacante(id) {
+        $(document).ready(function () {
+            $("#result").hide("slow");
+            $("#cargar_vista_invitar").show("slow");
+            $("#datos_invitar").load("/vacante/enviar_invitacion/" + id, " ", function () {
+                $("#datos_invitar").show("slow");
+                $("#cargar_vista_invitar").hide("slow");
             });
         });
     }

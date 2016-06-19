@@ -19,6 +19,12 @@
                         </ul>
 
 </div><!-- End .heading-->
+<div>
+    <a class="float-right" href="/usuario/lista" title="Editar">
+            <img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="edit" />
+            Atras
+        </a>
+</div>
 <div class="col-lg-6 col-lg-offset-3">
 	<div class="panel panel-primary">
 		<div class="panel-heading">

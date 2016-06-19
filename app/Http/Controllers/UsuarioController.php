@@ -11,6 +11,7 @@ use App\Usuario;
 use App\Http\Requests\FormCrearUsuario;
 
 use \Session;
+use Illuminate\Http\Response;
 
 use Auth;
 
@@ -112,15 +113,8 @@ class UsuarioController extends Controller
         $parametros = ['usuarios' => $lista];
         return view('usuario.lista', $parametros);
     }
-    /*
-     public function lista(){
-
-        $lista= Usuario::all();
-        //enviando parametros a una vista en un arreglo
-        $parametros=['usuarios'=> $lista];
-        return view('usuario.lista', $parametros);
-
-    }*/
+    
+     
 
     public function crear(){
         return view('usuario.crear');
@@ -154,6 +148,7 @@ class UsuarioController extends Controller
                 'usuario'=>$peticion['usuario'], 
                 'password'=>$peticion['password'],
                 'curriculum'=>$nombre,
+                'url_curriculum'=>$peticion['url_curriculum'],
                 'tipo'=>$peticion['tipo'],
 
                 ]);
@@ -188,7 +183,7 @@ class UsuarioController extends Controller
         $parametros = ['usuario' => $usuario];
         return view('usuario.editar', $parametros);
     }
-    public function actualizar($id, Request $peticion){
+    public function actualizar($id, FormCrearUsuario $peticion){
         $file = $peticion->file('curriculum');
         
        if ($file!=null){
@@ -256,5 +251,19 @@ class UsuarioController extends Controller
         $usuario = $this->getUsuario($id);
         $parametros = ['usuario' => $usuario];
         return view('usuario.ver_informacion_usuario',$parametros);
+    }
+    public function ver_curriculum($archivo){
+        $storagePath  = \Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix();
+        $file=$storagePath.$archivo;
+
+        
+        if (\Storage::exists($archivo))
+        {
+            return response()->download($file);
+            
+        }
+        //si no se encuentra lanzamos un error 404.
+        abort(404);
+
     }
 }

@@ -122,6 +122,15 @@
 		{!! Form::label('curriculum', 'Archivo Curriculum', ['class' => 'control-label']) !!}
 		{!! Form::file('curriculum') !!}
 	</div>
+	@if($errors->has('url_curriculum'))
+	<div class="alert alert-danger">
+		{{ $errors->first('url_curriculum') }}
+	</div>
+	@endif
+	<div class="form-group" id="url_curri">
+		{!! Form::label('url_curriculum', 'Dirección URL de Curriculum', ['class' => 'control-label']) !!}
+		{!! Form::text('url_curriculum', null, ['class' => 'form-control']) !!}
+	</div>
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 </div>
