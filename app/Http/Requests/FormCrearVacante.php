@@ -29,8 +29,8 @@ class FormCrearVacante extends Request
            
         return [
             'titulo_v' => 'required|String',
-            'lugar_v' => 'required|alpha',
-            'area_v' => 'required|alpha',
+            'lugar_v' => 'required|String',
+            'posicion_v' => 'required|String',
             'tiempo_trabajo_v'=>'required|String',
             'tipo_trabajo_v' => 'required|String',
             'descripcion_v' => 'required|String',
@@ -44,15 +44,15 @@ class FormCrearVacante extends Request
             
             'titulo_v.required' => 'El campo Titulo es obligatorio ',
             'lugar_v.required' => 'El campo Lugar es obligatorio',
-            'area_v.required' => 'El campo Area es obligatorio',
+            'posicion_v.required' => 'El campo Posición es obligatorio',
             'tiempo_trabajo_v.required'=>'El campo Tiempo de trabajo es obligatorio',
             'tipo_trabajo_v.required' => 'El campo Tipo de trabajo es obligatorio',
             'descripcion_v.required' => 'El campo Descripcion es obligatorio',
             'estado_v.required' => 'El campo Estado es obligatorio',
 
             'titulo_v.String' => 'El título debe ser solo letras y números',
-            'lugar_v.alpha' => 'El campo lugar solo debe contener letras',
-            'area_v.alpha' => 'El campo area solo debe contener letras',
+            'lugar_v.String' => 'Seleccione un lugar',
+            'posicion_v.String' => 'El campo posición debe se solo letras y números',
             'descripcion_v.String' => 'La descripción debe ser solo letras y números',
 
         ];

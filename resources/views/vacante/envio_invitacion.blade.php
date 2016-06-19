@@ -9,7 +9,9 @@
         <option></option>
      <optgroup label="Seleccione el Candidato">
      	@forelse($usuarios as $usuario)
+     		@if($usuario->tipo === 'can')
            <option value="{{ $usuario->email_u }}">{{ $usuario->getNombreCompleto() }}</option>
+           @endif
            @empty
 		<option>No existe Usuarios</option>
 		@endforelse
