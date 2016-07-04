@@ -1,6 +1,8 @@
 @extends('inicio')
-
 @section('contenido')
+<head>
+<script type="text/javascript" src="{{ asset('js/scripts_list_usr.js') }}"></script>
+</head>
 <div class="heading">
 
                         <h3>Usuarios</h3>                    

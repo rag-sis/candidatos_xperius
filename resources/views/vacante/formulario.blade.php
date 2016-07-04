@@ -5,7 +5,7 @@
 	</div>
 	@endif
 	<div class="form-group">
-		{!! Form::label('titulo_v', 'Título', ['class' => 'control-label']) !!}
+		{!! Form::label('titulo_v', 'Título (*)', ['class' => 'control-label']) !!}
 		{!! Form::text('titulo_v', null, ['class' => 'form-control']) !!}
 	</div>
 	@if($errors->has('lugar_v'))
@@ -14,8 +14,8 @@
 	</div>
 	@endif
 	<div class="form-group">
-		{!! Form::label('lugar_v', 'Lugar', ['class' => 'control-label']) !!}
-		{!! Form::select('lugar_v', ['Cochabamba' => 'Cochabamba', 'La Paz' => 'La Paz', 'Santa Cruz' => 'Santa Cruz', 'Oruro' => 'Oruro', 'Chuquisaca' => 'Chuquisaca', 'Beni' => 'Beni', 'Potosi' => 'Potosi', 'Tarija' => 'Tarija', 'Pando' => 'Pando' ], null, ['placeholder' => 'Seleccione una ciudad', 'class' => 'form-control']) !!}
+		{!! Form::label('lugar_v', 'Lugar (*)', ['class' => 'control-label']) !!}
+		{!! Form::select('lugar_v', [ ], null, ['placeholder' => 'Seleccione una ciudad', 'class' => 'form-control','id'=>'sel_ciudad']) !!}
 		
 	</div>
 	@if($errors->has('posicion_v'))
@@ -24,7 +24,7 @@
 	</div>
 	@endif
 	<div class="form-group">
-		{!! Form::label('posicion_v', 'Posición', ['class' => 'control-label']) !!}
+		{!! Form::label('posicion_v', 'Posición (*)', ['class' => 'control-label']) !!}
 		{!! Form::text('posicion_v', null, ['class' => 'form-control']) !!}
 	</div>
 	@if($errors->has('tiempo_trabajo_v'))
@@ -33,7 +33,7 @@
 	</div>
 	@endif
 	<div class="form-group">
-		{!! Form::label('tiempo_trabajo_v', 'Tiempo de Trabajo') !!}
+		{!! Form::label('tiempo_trabajo_v', 'Tiempo de Trabajo (*)') !!}
 		{!! Form::select('tiempo_trabajo_v', ['Tiempo Completo' => 'Tiempo completo', 'Medio Tiempo' => 'Medio tiempo' ], null, ['placeholder' => 'Seleccione:', 'class' => 'form-control']) !!}
 	</div>
 	@if($errors->has('tipo_trabajo_v'))
@@ -42,7 +42,7 @@
 	</div>
 	@endif
 	<div class="form-group">
-		{!! Form::label('tipo_trabajo_v', 'Tipo de trabajo') !!}
+		{!! Form::label('tipo_trabajo_v', 'Tipo de trabajo (*)') !!}
 		{!! Form::select('tipo_trabajo_v', ['Fuera de Oficina' => 'Fuera de Oficina', 'Dentro de Oficina' => 'Dentro de Oficina' ], null, ['placeholder' => 'Seleccione:', 'class' => 'form-control']) !!}
 	</div>
 	@if($errors->has('descripcion_v'))
@@ -69,11 +69,12 @@
 	</div>
 	@endif
 	<div class="form-group">
-		{!! Form::label('estado_v', 'Estado') !!}
+		{!! Form::label('estado_v', 'Estado (*)') !!}
 		{!! Form::select('estado_v', ['1' => 'Habilitado', '0' => 'Deshabilitado' ], null, ['placeholder' => 'Seleccione:', 'class' => 'form-control']) !!}
 	</div>
 	
 </div>
+<br />
 <div class="panel-footer text-center">
-	{!! Form::submit('Aceptar', ['class' => 'btn btn-primary']) !!}
+	{!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
 </div>

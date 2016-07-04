@@ -1,6 +1,10 @@
+
 @extends('inicio')
 
 @section('contenido')
+<head>
+<script type="text/javascript" src="{{ asset('js/scripts_new_vac.js') }}"></script>
+</head>
 <div class="heading">
 
                         <h3>Vacantes</h3>                    

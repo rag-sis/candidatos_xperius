@@ -1,11 +1,10 @@
+
 @extends('inicio')
+
 @section('contenido')
 <div class="heading">
 
                         <h3>Usuarios</h3>                    
-
-                        
-                        
                         <ul class="breadcrumb">
                             <li>Tu estas en:</li>
                             <li>
@@ -45,7 +44,7 @@
 					<div class="input-group">
 						<input type="text" name="nombre" class="form-control" placeholder="Nombre" />
 						<span class="input-group-btn">
-							<button type="submit" class="btn btn-default">Buscar</button>
+							<button type="submit" class="btn btn-primary">Buscar</button>
 						</span>
 
 						<a href="/lista_usr_pdf" class="float-right">
@@ -75,10 +74,17 @@
 
 					<tr>
 				
-						<td>{{ $usuario->getNombreCompleto() }}</td>
+						<td>{{ $usuario->nom_u }}</td>
 				
 						<td>{{ $usuario->email_u }}</td>
-						<td>{{ $usuario->tipo }}
+						<td>
+							@if($usuario->tipo === 'can')
+							Candidato
+							@elseif($usuario->tipo === 'pro')
+							Evaluador
+							@elseif($usuario->tipo === 'adm')
+							Administrador
+							@endif
 							</td>
 						<td class="last">
 							<a class="boton" href="#" data-toggle="modal" data-target="#ver_datos" onclick="mostrar_datos_usuario('{{$usuario->cod_u}}')"> Ver</a>

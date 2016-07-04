@@ -28,9 +28,9 @@ class FormCrearVacante extends Request
         if($this->route()->uri() === 'vacante/almacenar')
            
         return [
-            'titulo_v' => 'required|String',
+            'titulo_v' => 'required|regex:/^[\pL\s\-]+$/u',
             'lugar_v' => 'required|String',
-            'posicion_v' => 'required|String',
+            'posicion_v' => 'required|regex:/^[\pL\s\-]+$/u',
             'tiempo_trabajo_v'=>'required|String',
             'tipo_trabajo_v' => 'required|String',
             'descripcion_v' => 'required|String',

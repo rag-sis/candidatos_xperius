@@ -2,6 +2,21 @@
 @section('contenido')
 <head>
 <script type="text/javascript" src="{{ asset('js/script_vacante.js') }}"></script>
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<link href="{{ asset('css/multi-switch.min.css') }}" rel="stylesheet" type="text/css">
+
+
+<!--<script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>-->
+<!--<script src="{{ asset('src/multi-switch.js') }}"></script>
+<script>
+$(document).ready(function(){
+                $('.multi-switch').multiSwitch({
+			//		functionOnChange: function ($element) {
+            	//algo
+           // }
+        });
+            });
+        </script>-->
 </head>
 <div class="heading">
 
@@ -59,7 +74,7 @@
 					<div class="input-group">
 						<input type="text" name="titulo_v" class="form-control" placeholder="Titulo" />
 						<span class="input-group-btn">
-							<button type="submit" class="btn btn-default">Buscar</button>
+							<button type="submit" class="btn btn-primary">Buscar</button>
 						</span>
 
 						<a href="/lista_v_pdf" class="float-right">
@@ -100,15 +115,15 @@
 
 					<tr>
 				
-						<td>{{ $vacante->titulo_v }}</td>
+						<td width="200px">{{ $vacante->titulo_v }}</td>
 				
 						<td>{{ $vacante->descripcion_v }}</td>
-						<td>
+						<td width="2px">
 							<?php $est=$vacante->estado_v; 
 								  $cd=$vacante->cod_v;
 							?>
-						
-								<input type="checkbox" id="btn_estado_v<?php echo $cd ?>" <?php if($est == 1){ echo 'checked="checked"'; }  ?> class="ibuttonCheck nostyle" onchange="upd_estado('{{$vacante->cod_v}}')" />
+							<!--ibuttonCheck nostyle-->
+								<input  type="checkbox" id="btn_estado_v<?php echo $cd ?>" <?php if($est == 1){ echo 'checked="checked"'; }  ?> class="ibuttonCheck nostyle" onchange="upd_estado('{{$vacante->cod_v}}')" />
 							 	
 						</td>
 							
@@ -116,7 +131,7 @@
 							@if( ($tip === 'adm') or ($tip === 'pro') )
 							<td class="last" width="100px">
 							<a class="boton" href="#" data-toggle="modal" data-target="#ver_datos_vacante" onclick="mostrar_datos_vacante('{{$vacante->cod_v}}')"> Ver</a>
-							<a class="boton" href="#" data-toggle="modal" data-target="#enviar_email_vacante" onclick="enviar_email_vacante('{{$vacante->cod_v}}')"> Invitar</a>
+							<!--<a class="boton" href="#" data-toggle="modal" data-target="#enviar_email_vacante" onclick="enviar_email_vacante('{{$vacante->cod_v}}')"> Invitar</a>-->
 							
 							<a href="/vacante/editar/{{$vacante->cod_v}}" title="Editar">
 								<img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="edit" />

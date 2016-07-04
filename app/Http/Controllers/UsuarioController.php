@@ -7,8 +7,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Usuario;
+use App\Vacante;
+use App\Invitacion;
 
 use App\Http\Requests\FormCrearUsuario;
+use App\Http\Requests\FormEditarUsuario;
 
 use \Session;
 use Illuminate\Http\Response;
@@ -26,6 +29,7 @@ class UsuarioController extends Controller
     public function __construct(){
         $this->middleware('autenticado', ['except' => ['login', 'autenticar']]);
         $this->middleware('usuario', ['except' => ['login', 'autenticar', 'logout']]);
+        Session::flash('menu', 'usuario');
     }
 
     public function index()
@@ -111,6 +115,7 @@ class UsuarioController extends Controller
             ->orderBy('cod_u')
             ->paginate(10);
         $parametros = ['usuarios' => $lista];
+        Session::flash('menu', 'usuario');
         return view('usuario.lista', $parametros);
     }
     
@@ -120,7 +125,8 @@ class UsuarioController extends Controller
         return view('usuario.crear');
     }
      public function almacenar(FormCrearUsuario $peticion){
-
+      $val_t=null;
+      $val_c=null;
        $file = $peticion->file('curriculum');
        if ($file!=null){
             $nombre = $file->getClientOriginalName();
@@ -136,15 +142,18 @@ class UsuarioController extends Controller
 
         if($peticion->input('password') === $peticion->input('rpassword'))
         {
+          if($peticion['telefono_u'] != null){
+            $val_t=$peticion['telefono_u'];
+          }
+          if($peticion['celular_u'] != null){
+            $val_t=$peticion['celular_u'];
+          }
             Usuario::create([
                 'nom_u'=>$peticion['nom_u'], 
-                'ape_pat_u'=>$peticion['ape_pat_u'], 
-                'ape_mat_u'=>$peticion['ape_mat_u'],
-                'ci_u'=>$peticion['ci_u'], 
                 'email_u'=>$peticion['email_u'], 
                 'direccion_u'=>$peticion['direccion_u'],
-                'telefono_u'=>$peticion['telefono_u'],
-                'celular_u'=>$peticion['celular_u'],
+                'telefono_u'=>$val_t,
+                'celular_u'=>$val_c,
                 'usuario'=>$peticion['usuario'], 
                 'password'=>$peticion['password'],
                 'curriculum'=>$nombre,
@@ -152,6 +161,18 @@ class UsuarioController extends Controller
                 'tipo'=>$peticion['tipo'],
 
                 ]);
+            
+            
+            if ($peticion['tipo'] == 'can') {
+                $cod_v=$peticion['vac'];
+                $usuario_creado=$this->getUsuarioA($peticion['usuario']);
+                $id_uc=$usuario_creado->cod_u;
+                Invitacion::create([
+                  'cod_u'=>$id_uc, 
+                  'cod_v'=>$cod_v,
+                ]);
+            }
+            
             Session::flash('usu_cre', 'Usuario creado');
             return redirect('/usuario/lista');
         }        
@@ -171,6 +192,13 @@ class UsuarioController extends Controller
         Session::flash('usu_eli', 'Usuario eliminado');
         return redirect('/usuario/lista');
     }
+      public function getUsuarioA($nombre_usuario){
+        $usuario = Usuario::where('usuario', $nombre_usuario)
+            ->where('activo', 1)->first();
+        if($usuario === null)
+            abort(500);
+        else return $usuario;
+    }
       public function getUsuario($id){
         $usuario = Usuario::where('cod_u', $id)
             ->where('activo', 1)->first();
@@ -183,9 +211,17 @@ class UsuarioController extends Controller
         $parametros = ['usuario' => $usuario];
         return view('usuario.editar', $parametros);
     }
-    public function actualizar($id, FormCrearUsuario $peticion){
+    public function actualizar($id, FormEditarUsuario $peticion){
         $file = $peticion->file('curriculum');
-        
+        $val_t=null;
+        $val_c=null;
+        if($peticion['telefono_u'] != null){
+            $val_t=$peticion['telefono_u'];
+          }
+          if($peticion['celular_u'] != null){
+            $val_t=$peticion['celular_u'];
+          }
+
        if ($file!=null){
             $nombre = $file->getClientOriginalName();
             $nombre=$peticion['usuario'].'_'.$nombre;
@@ -194,23 +230,32 @@ class UsuarioController extends Controller
             $usuario = $this->getUsuario($id);
             $usuario->fill([
                 'nom_u'=>$peticion['nom_u'], 
-                'ape_pat_u'=>$peticion['ape_pat_u'], 
-                'ape_mat_u'=>$peticion['ape_mat_u'],
-                'ci_u'=>$peticion['ci_u'], 
                 'email_u'=>$peticion['email_u'], 
                 'direccion_u'=>$peticion['direccion_u'],
-                'telefono_u'=>$peticion['telefono_u'],
-                'celular_u'=>$peticion['celular_u'],
+                'telefono_u'=>$val_t,
+                'celular_u'=>$val_c,
                 'usuario'=>$peticion['usuario'], 
                 'password'=>$peticion['password'],
                 'curriculum'=>$nombre,
+                'url_curriculum'=>$peticion['url_curriculum'],
                 'tipo'=>$peticion['tipo'],
                 ]);
             $usuario->save();
             
        }else{
                 $usuario = $this->getUsuario($id);
-                $usuario->fill($peticion->all());
+                //$usuario->fill($peticion->all());
+                $usuario->fill([
+                'nom_u'=>$peticion['nom_u'], 
+                'email_u'=>$peticion['email_u'], 
+                'direccion_u'=>$peticion['direccion_u'],
+                'telefono_u'=>$val_t,
+                'celular_u'=>$val_c,
+                'usuario'=>$peticion['usuario'], 
+                'password'=>$peticion['password'],
+                'url_curriculum'=>$peticion['url_curriculum'], 
+                'tipo'=>$peticion['tipo'],
+                ]);
                 $usuario->save();
        }
         Session::flash('usu_edi', 'Usuario modificado');
@@ -229,7 +274,7 @@ class UsuarioController extends Controller
             
         }
         else{
-            return redirect('/login/login')->withErrors([
+            return redirect('/login')->withErrors([
                     'login' => 'Usuario y/o contraseña incorrectos',
                 ])->withInput($peticion->only('usuario'));
         }
@@ -265,5 +310,16 @@ class UsuarioController extends Controller
         //si no se encuentra lanzamos un error 404.
         abort(404);
 
+    }
+
+    public function lista_vacantes(){
+        $lista= Vacante::all();
+        //$lista= Vacante::where('estado_v',1);
+        //enviando parametros a una vista en un arreglo
+        $parametros=['vacante'=> $lista];
+        
+        return json_encode($lista);
+
+        
     }
 }

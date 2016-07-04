@@ -25,13 +25,15 @@ class VacanteController extends Controller
 
     public function __construct(){
         $this->middleware('autenticado');
-       
+
+       Session::flash('menu','vacante');
     }
 
     
      public function eliminar($id){
         Vacante::destroy($id);
         Session::flash('vac_eli', 'Vacante eliminado');
+        Session::flash('menu','vacante');
         return redirect('/vacante/lista');
     }
     public function getVacante($id){
@@ -43,16 +45,19 @@ class VacanteController extends Controller
     }
 
      public function crear(){
+        Session::flash('menu','vacante');
         return view('vacante.crear');
     }
      public function almacenar(FormCrearVacante $peticion){
         Vacante::create($peticion->all());
+        Session::flash('menu','vacante');
         return redirect('/vacante/lista')->with('vac_cre', 'Vacante creada');
     }
 
     public function editar($id){
         $vacante = $this->getVacante($id);
         $parametros = ['vacante' => $vacante];
+        
         return view('vacante.editar', $parametros);
     }
 
@@ -71,6 +76,7 @@ class VacanteController extends Controller
             ->orderBy('cod_v')
             ->paginate(10);
         $parametros = ['vacantes' => $lista];
+        Session::flash('menu','vacante');
         return view('vacante.lista', $parametros);
     }
 

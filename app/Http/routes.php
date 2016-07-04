@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function () {
+	Session::flash('menu', '');
     return view('inicio');
 });
 
@@ -24,7 +25,7 @@ Route::get('/usuario/editar/{id}', 'UsuarioController@editar');
 Route::post('/usuario/actualizar/{id}', 'UsuarioController@actualizar');
 
 //Codigo para loguearse
-Route::get('/login/login', 'UsuarioController@login');
+Route::get('/login', 'UsuarioController@login');
 Route::post('/usuario/autenticar', 'UsuarioController@autenticar');
 Route::get('/usuario/logout', 'UsuarioController@logout');
 Route::get('/lista_usr_pdf', 'UsuarioController@listapdf');
@@ -45,3 +46,10 @@ Route::get('/usuario/ver_curriculum/{archivo}', 'UsuarioController@ver_curriculu
 Route::get('/vacante/ver_informacion_vacante/{id}', 'VacanteController@ver_informacion_vacante');
 Route::get('/vacante/act_es/{id}/{val}','VacanteController@actualizar_estado_vacante');
 
+Route::get('/ciudad/crear_ciudad','CiudadController@crear');
+Route::post('/ciudad/almacenar','CiudadController@almacenar');
+
+Route::get('/ciudad/lista_ciudades','CiudadController@lista_ciudades');
+Route::get('/vacante/lista_vacantes','UsuarioController@lista_vacantes');
+Route::get('/invitacion/lista','InvitacionController@lista');
+Route::post('/invitacion/invitar','InvitacionController@enviar_invitacion');

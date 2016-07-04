@@ -1,5 +1,5 @@
 <head>
-<link href="{{asset('/plugins/forms/select/select2.css')}}" type="text/css" rel="stylesheet" />
+<link href="{{asset('plugins/forms/select/select2.css')}}" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="{{asset('js/form-validation.js')}}"></script>
 </head>
 <div>

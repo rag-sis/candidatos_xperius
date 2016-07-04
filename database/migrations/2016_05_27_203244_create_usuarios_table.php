@@ -16,15 +16,12 @@ class CreateUsuariosTable extends Migration
             
             $table->engine = 'InnoDB';
             $table->increments('cod_u');
-            $table->string('nom_u',30);
-            $table->string('ape_pat_u',30);
-            $table->string('ape_mat_u',30);
-            $table->integer('ci_u');
+            $table->string('nom_u',100);
             $table->string('email_u',80)->unique();
-            $table->string('direccion_u',200);
+            $table->string('direccion_u',200)->nullable();
             $table->integer('telefono_u')->nullable();
-            $table->integer('celular_u');
-            $table->string('usuario',20);
+            $table->integer('celular_u')->nullable();
+            $table->string('usuario',20)->unique();
             $table->string('password',200);
             $table->string('curriculum')->nullable();
             $table->string('url_curriculum')->nullable();

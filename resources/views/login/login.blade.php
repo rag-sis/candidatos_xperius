@@ -138,12 +138,19 @@
 <!--[if lt IE 9]><div class="ie"><![endif]-->
 <!--[if lt IE 8]><div class="ie7"><![endif]-->
 
-	
+	<center>
+		<br>
+			<img width="150px" heigth="150px" src="{{ asset('/img/xp_mod.png') }}">
+		</center>
 	
 	<section id="login-block">
+
+		
 		<div class="block-border"><div class="block-content">
 				
-			<div class="block-header">Ingrese su Login</div>
+			<div class="block-header">Ingrese su Login
+
+			</div>
 				
 			<!--<p class="message error no-margin">Error message</p>-->
 			@if($errors->has('login'))
@@ -188,5 +195,4 @@
 
 <!--[if lt IE 8]></div><![endif]-->
 <!--[if lt IE 9]></div><![endif]-->
-<img src="http://designerz-crew.info/start/callb.png"></body>
 </html>

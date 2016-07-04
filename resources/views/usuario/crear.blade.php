@@ -1,6 +1,8 @@
 @extends('inicio')
-
 @section('contenido')
+<head>
+<script type="text/javascript" src="{{ asset('js/scripts_form_usr.js') }}"></script>
+</head>
 <div class="heading">
 
                         <h3>Usuarios</h3>                    
@@ -30,9 +32,11 @@
 		<div class="panel-heading">
 			<h4>Crear Usuario</h4>
 		</div>
+        <div class="well scroll" style="overflow:auto; margin-top:10px;">
 		{!! Form::open(['url' => '/usuario/almacenar', 'files' => true]) !!}
 		@include('usuario.formulario')
 		{!! Form::close() !!}
+        </div>
 	</div>
 </div>
 @endsection

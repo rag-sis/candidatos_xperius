@@ -81,9 +81,18 @@
           @forelse($vacantes as $vacante)
 
           <tr>
-            <td>{{ $vacante->titulo_v }}</td>
+            <td width="200px">{{ $vacante->titulo_v }}</td>
             <td>{{ $vacante->descripcion_v }}</td>
-            <td>{{ $vacante->estado_v }}</td>
+            <td>{{ $vacante->estado_v }}
+                 <?php
+                  $est=$vacante->estado_v; 
+                  if($est == 1){ 
+                    echo 'Habilitado';
+                     }else{
+                      echo 'Deshabilitado';
+                      }  
+                 ?>
+            </td>
           </tr>
           @empty
         <tr class="text-center">

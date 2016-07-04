@@ -18,7 +18,7 @@ class Autenticado
     public function handle($request, Closure $next)
     {
         if(!Auth::check())
-            return redirect('/login/login');
+            return redirect('/login');
         return $next($request);
     }
 }

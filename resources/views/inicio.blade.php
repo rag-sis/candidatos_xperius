@@ -35,54 +35,12 @@
 	<link href="{{ asset('css/standard.css') }}" rel="stylesheet" type="text/css">
 	<!-- Comment/uncomment one of these files to toggle between fixed and fluid layout -->
 	<!--<link href="css/960.gs.css" rel="stylesheet" type="text/css">-->
-	<link href="{{ asset('css/960.gs.fluid.css') }}" rel="stylesheet" type="text/css">
+	<!--<link href="{{ asset('css/960.gs.fluid.css') }}" rel="stylesheet" type="text/css"> cm30-06-->
 	<!-- Generic libs -->			<!-- this has to be loaded before anything else -->
-	<script type="text/javascript" src="{{ asset('js/jquery-1.4.2.min.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/old-browsers.js') }}"></script>		<!-- remove if you do not need older browsers detection -->
+	<!--<script type="text/javascript" src="{{ asset('js/jquery-1.4.2.min.js') }}"></script> cm30-06-->
+	<!--<script type="text/javascript" src="{{ asset('js/old-browsers.js') }}"></script>		<!- remove if you do not need older browsers detection -->
 	<!-- Template libs -->
-	<script type="text/javascript" src="{{ asset('js/common.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/standard.js') }}"></script>
-	<!--[if lte IE 8]><script type="text/javascript" src="js/standard.ie.js"></script><![endif]-->
-	<script type="text/javascript" src="{{ asset('js/jquery.tip.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/scripts_buttons.js') }}"></script>
 	
-	<!-- Example context menu -->
-	<script type="text/javascript">
-	
-		$(document).ready(function()
-		{
-			// Context menu for all favorites
-			$('.favorites li').bind('contextMenu', function(event, list)
-			{
-				var li = $(this);
-				
-				// Add links to the menu
-				if (li.prev().length > 0)
-				{
-					list.push({ text: 'Move up', link:'#', icon:'up' });
-				}
-				if (li.next().length > 0)
-				{
-					list.push({ text: 'Move down', link:'#', icon:'down' });
-				}
-				list.push(false);	// Separator
-				list.push({ text: 'Delete', link:'#', icon:'delete' });
-				list.push({ text: 'Edit', link:'#', icon:'edit' });
-			});
-			
-			// Extra options for the first one
-			$('.favorites li:first').bind('contextMenu', function(event, list)
-			{
-				list.push(false);	// Separator
-				list.push({ text: 'Settings', icon:'terminal', link:'#', subs:[
-					{ text: 'General settings', link: '#', icon: 'blog' },
-					{ text: 'System settings', link: '#', icon: 'server' },
-					{ text: 'Website settings', link: '#', icon: 'network' }
-				] });
-			});
-		});
-	
-	</script>
 	<!-- FIN -->
     <!-- Core stylesheets do not remove -->
     <link href="{{ asset('css/bootstrap/bootstrap.css') }}" rel="stylesheet" />
@@ -109,11 +67,6 @@
     <![endif]-->
 
     <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('images/apple-touch-icon-144-precomposed.png') }}" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('images/apple-touch-icon-114-precomposed.png') }}" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('images/apple-touch-icon-72-precomposed.png') }}" />
-    <link rel="apple-touch-icon-precomposed" href="{{ asset('images/apple-touch-icon-57-precomposed.png') }}" />
     
     <script type="text/javascript">
         //adding load class to body and hide page
@@ -124,7 +77,7 @@
     <link href="{{ asset('plugins/forms/ibutton/jquery.ibutton.css') }}" type="text/css" rel="stylesheet" />
     
     <!-- Important plugins put in all pages -->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ asset('/js/jquery/1.7.2/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/bootstrap/bootstrap.js') }}"></script>  
     <script type="text/javascript" src="{{ asset('js/jquery.cookie.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/jquery.mousewheel.js') }}"></script>
@@ -162,7 +115,7 @@
     <script type="text/javascript" src="{{ asset('plugins/fix/ios-fix/ios-orientationchange-fix.js') }}"></script>
 
     <!-- Important Place before main.js  -->
-    <!--<script type="text/javascript" src="{{ asset('js/jquery/1.9.2/jquery-ui.min.js')}}"></script>-->
+    <script type="text/javascript" src="{{ asset('js/jquery/1.9.2/jquery-ui.min.js')}}"></script>
     <script type="text/javascript" src="{{ asset('plugins/fix/touch-punch/jquery.ui.touch-punch.min.js') }}"></script><!-- Unable touch for JQueryUI -->
 
     <!-- Init plugins -->
@@ -172,6 +125,51 @@
 
 
 
+<!--Otros-->
+
+    <!--<script type="text/javascript" src="{{ asset('js/common.js') }}"></script>-->
+    <!--<script type="text/javascript" src="{{ asset('js/standard.js') }}"></script>-->
+    <!--[if lte IE 8]><script type="text/javascript" src="js/standard.ie.js"></script><![endif]-->
+    <script type="text/javascript" src="{{ asset('js/jquery.tip.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/scripts_buttons.js') }}"></script>
+    
+    <!-- Example context menu -->
+    <script type="text/javascript">
+    
+        $(document).ready(function()
+        {
+            // Context menu for all favorites
+            $('.favorites li').bind('contextMenu', function(event, list)
+            {
+                var li = $(this);
+                
+                // Add links to the menu
+                if (li.prev().length > 0)
+                {
+                    list.push({ text: 'Move up', link:'#', icon:'up' });
+                }
+                if (li.next().length > 0)
+                {
+                    list.push({ text: 'Move down', link:'#', icon:'down' });
+                }
+                list.push(false);   // Separator
+                list.push({ text: 'Delete', link:'#', icon:'delete' });
+                list.push({ text: 'Edit', link:'#', icon:'edit' });
+            });
+            
+            // Extra options for the first one
+            $('.favorites li:first').bind('contextMenu', function(event, list)
+            {
+                list.push(false);   // Separator
+                list.push({ text: 'Settings', icon:'terminal', link:'#', subs:[
+                    { text: 'General settings', link: '#', icon: 'blog' },
+                    { text: 'System settings', link: '#', icon: 'server' },
+                    { text: 'Website settings', link: '#', icon: 'network' }
+                ] });
+            });
+        });
+    
+    </script>
 
 @if(!Auth::check())
 <script type="text/javascript">

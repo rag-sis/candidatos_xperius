@@ -29,15 +29,12 @@ class FormCrearUsuario extends Request
             $pass = 'required|min:6';
         else $pass = 'min:6';
         return [
-            'nom_u' => 'required|alpha',
-            'ape_pat_u' => 'required|alpha',
-            'ape_mat_u' => 'required|alpha',
-            'ci_u'=>'required|digits_between:5,8',
-            'email_u' => 'required|email',
-            'direccion_u' => 'required|String',
-            'telefono_u' => 'required|digits_between:7,8',
-            'celular_u' => 'required|digits:8',
-            'usuario' => 'required|alpha_num',
+            'nom_u' => 'required|String',
+            'email_u' => 'required|email|unique:usuarios',
+            'direccion_u' => 'String',
+            'telefono_u' => 'digits_between:7,8',
+            'celular_u' => 'digits:8',
+            'usuario' => 'required|alpha_num|unique:usuarios',
             'password' => $pass,
             'rpassword' => $pass,
             'curriculum'=>'mimes:doc,docx,pdf',
@@ -48,10 +45,6 @@ class FormCrearUsuario extends Request
 
     public function messages(){
         return [
-            'ape_pat.required' => 'El campo apellido paterno es obligatorio',
-            'ape_pat.alpha' => 'El campo apellido paterno solo puede contener letras',
-            'ape_mat.required' => 'El campo apellido materno es obligatorio',
-            'ape_mat.alpha' => 'El campo apellido materno solo puede contener letras',
             'password.required' => 'El campo contraseña el obligatorio',
             'rpassword.required' => 'El campo repita su contraseña el obligatorio',
             'curriculum'=>'El archivo tiene que ser de extensión doc,docx,pdf',

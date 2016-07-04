@@ -1,6 +1,10 @@
+
 @extends('inicio')
 
 @section('contenido')
+<head>
+<script type="text/javascript" src="{{ asset('js/scripts_edt_vac.js') }}"></script>
+</head>
 <div class="heading">
 
                         <h3>Vacantes</h3>                    
@@ -31,7 +35,7 @@
 			<h4>Editar Vacante</h4>
 		</div>
 		{!! Form::model($vacante, ['url' => '/vacante/actualizar/' . $vacante->cod_v]) !!}
-		@include('vacante.formulario')			
+		@include('vacante.formulario_edt')			
 		{!! Form::close() !!}
 	</div>
 </div>

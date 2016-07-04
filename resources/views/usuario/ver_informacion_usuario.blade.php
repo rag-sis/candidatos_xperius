@@ -6,14 +6,11 @@
 </head>
 <body>
 	<div>
-		<a class="float-right" href="/usuario/editar/{{$usuario->cod_u}}" title="Editar">
-			<img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="edit" />
-			Editar Usuario
-		</a>
+		
 							
 	</div>
 	<div>
-	<b>Nombre:</b> {{$usuario->getNombreCompleto()}}
+	<b>Nombre:</b> {{$usuario->nom_u}}
 	</div>
 	<div>
 	<b>Nombre de Usuario:</b> {{$usuario->usuario}}
@@ -23,9 +20,6 @@
 	</div>
 	<div>
 	<b>E-mail:</b> {{$usuario->email_u}}
-	</div>
-	<div>
-	<b>C.I.:</b> {{$usuario->ci_u}}
 	</div>
 	<div>
 	<b>Dirección:</b> {{$usuario->direccion_u}}
