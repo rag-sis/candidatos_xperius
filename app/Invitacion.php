@@ -15,6 +15,12 @@ class Invitacion extends Model
 
     protected $fillable = ['cod_u', 'cod_v'	, 'invitado_i','estado_i'];
 
+    public function usuario(){
+        return $this->belongsTo('App\Usuario','cod_u');
+    }
+    public function usuario_v(){
+        return $this->belongsTo('App\Vacante','cod_v');
+    }
    
 /*
     public function scopeBuscar($query, $titulo_v){
@@ -62,5 +68,11 @@ class Invitacion extends Model
         } 
         	
     }
+
+    public function scopeBuscar($query, $nombre){
+        return $query->where('nom_u', 'ilike', "%$nombre%")
+                    ->orWhere('tipo', 'ilike', "%$nombre%");
+    }
+
 }
 

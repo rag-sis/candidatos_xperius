@@ -69,13 +69,17 @@ $(document).ready(function(){
 						</div><br />-->
 				@endif
 			
-		  
-		  <form class="navbar navbar-form navbar-right espacio_contenido" method="post" action="/invitacion/invitar">
+		  <form class="navbar navbar-form navbar-right espacio_contenido" method="post" action="/invitacion/lista">
 					<div class="input-group">
-						<input type="text" name="titulo_v" class="form-control" placeholder="Titulo" />
+						<input type="text" name="titulo_vacante" class="form-control" placeholder="Titulo" />
 						<span class="input-group-btn">
 							<button type="submit" class="btn btn-primary">Buscar</button>
 						</span>
+					</div>
+					</form>
+		  <form class="navbar navbar-form navbar-right espacio_contenido" method="post" action="/invitacion/invitar">
+					<div class="input-group">
+						
 						<!--
 						<a href="/lista_v_pdf" class="float-right">
 						<span class="box1">
@@ -114,12 +118,13 @@ $(document).ready(function(){
 
 					<tr>
 						
-						<td width="200px">{{ $invitacion->getEmailUsuario($invitacion->cod_u) }}</td>
+						<td width="200px">{{ $invitacion->usuario->email_u }}
+							</td>
 						<td>
 							{{ $invitacion->getNombresUsuario($invitacion->cod_u) }}
 							
 						</td>
-						<td>{{ $invitacion->getTituloVacante($invitacion->cod_v) }}</td>
+						<td>{{ $invitacion->usuario_v->titulo_v }}</td>
 						<td>
 							<input type="checkbox" name="invitacion[]" value="{{ $invitacion->cod_i }}">
 							

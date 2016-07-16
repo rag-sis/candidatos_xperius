@@ -6,6 +6,12 @@ $(document).ready(function(){
 		}
 	});
 
+    $('.deshabilitar').click(function(evento){
+        if(!confirm('¿Está seguro de deshabilitar este elemento?')){
+            evento.preventDefault();
+        }
+    });
+
 
     $('#btn_estado_v').on('click', function(e) {
         if( $(this).is(':checked') ){

@@ -19,7 +19,7 @@
   Vacantes
 @endif
   </a></li>
- <li><a href="#"><span class="icon16 entypo-icon-grid"></span>Exámenes</a></li>
+ <li><a href="/examen/lista"><span class="icon16 entypo-icon-grid"></span>Exámenes</a></li>
  <li><a href="/usuario/lista"><span class="icon16 entypo-icon-grid"></span>
 @if($valor === 'usuario')
 <em><b>Usuarios</b></em>

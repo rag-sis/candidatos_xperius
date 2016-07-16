@@ -53,3 +53,13 @@ Route::get('/ciudad/lista_ciudades','CiudadController@lista_ciudades');
 Route::get('/vacante/lista_vacantes','UsuarioController@lista_vacantes');
 Route::get('/invitacion/lista','InvitacionController@lista');
 Route::post('/invitacion/invitar','InvitacionController@enviar_invitacion');
+
+Route::get('/examen/lista','ExamenController@lista');
+Route::get('/examen/crear','ExamenController@crear');
+Route::post('/examen/almacenar','ExamenController@almacenar');
+Route::get('/examen/editar/{id}','ExamenController@editar');
+Route::get('/examen/deshabilitar/{id}', 'ExamenController@deshabilitar');
+Route::get('/pregunta/lista_preguntas/{id}','PreguntaController@lista_preguntas');
+Route::get('/respuesta/lista_respuestas/{id}','RespuestaController@lista_respuestas');
+Route::post('/examen/actualizar/{id}','ExamenController@actualizar');
+

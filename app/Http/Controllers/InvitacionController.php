@@ -31,12 +31,15 @@ class InvitacionController extends Controller
         //$tipo_u=Auth::user()->tipo;
         //Session::flash('tipo_u', $tipo_u);
         //$titulo_v = $peticion->input('titulo_v');
-        //$lista = Invitacion::all();
+        //$lista = Invitacion::orderBy('cod_i','ASC')->paginate(10);
         $lista = Invitacion::where('estado_i', 1)
             ->where('invitado_i',0)
             ->paginate(10);
             
         $parametros = ['invitaciones' => $lista];
+        //$usuario=$lista->usuario;
+        //dd($usuario);
+        //exit();
         return view('invitacion.lista', $parametros);
     }
 

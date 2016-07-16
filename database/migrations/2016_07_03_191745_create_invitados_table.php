@@ -37,6 +37,6 @@ class CreateInvitadosTable extends Migration
     public function down()
     {
         //
-        Schema::drop('invitado');
+        Schema::drop('invitacion');
     }
 }

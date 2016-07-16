@@ -1,11 +1,11 @@
 @extends('inicio')
 @section('contenido')
 <head>
-<script type="text/javascript" src="{{ asset('js/scripts_form_usr.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/script_examen.js') }}"></script>
 </head>
 <div class="heading">
 
-                        <h3>Usuarios</h3>                    
+                        <h3>Examenes</h3>                    
                         
                         <ul class="breadcrumb">
                             <li>Tu estas en:</li>
@@ -17,12 +17,12 @@
                                     <span class="icon16 icomoon-icon-arrow-right-2"></span>
                                 </span>
                             </li>
-                            <li class="active">Usuarios</li>
+                            <li class="active">Examenes</li>
                         </ul>
 
 </div><!-- End .heading-->
 <div>
-    <a class="float-right" href="/usuario/lista" title="Editar">
+    <a class="float-right" href="/examen/lista" title="Editar">
             <img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="edit" />
             Atras
         </a>
@@ -30,7 +30,7 @@
 <div class="col-lg-6 col-lg-offset-3">
 	<div class="panel panel-primary">
 		<div class="panel-heading">
-			<h4>Crear Usuario</h4>
+			<h4>Crear Examén</h4>
 		</div>
         <div class="well scroll" style="overflow:auto; margin-top:10px;">
 		{!! Form::open(['url' => '/examen/almacenar', 'files' => true]) !!}

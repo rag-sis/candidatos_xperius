@@ -3,7 +3,9 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User;
+
 use Hash;
+use App\Invitacion;
 class Usuario extends User 
 {
     //
@@ -13,6 +15,10 @@ class Usuario extends User
 
 
     protected $fillable = ['nom_u', 'email_u', 'direccion_u','telefono_u','celular_u','usuario', 'password','curriculum','url_curriculum','tipo'];
+
+    public function invitacion(){
+        return $this->hashOne('App\Invitacion','cod_u');
+    }
 
     public function setPasswordAttribute($valor){
     	if($valor !== ''){

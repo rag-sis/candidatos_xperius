@@ -33,25 +33,5 @@ class UsuarioSeeder extends Seeder
             'password' => '123456',
             'tipo' => 'pro',
             ]);
-        Usuario::create([
-            'nom_u' => 'Carlos Villazon Lopez',
-            'email_u' => 'carlos456@gmail.com',
-            'direccion_u'=>'dashdkjashdk',
-            'telefono_u'=>'2354234',
-            'celular_u'=>'23543234',
-            'usuario' => 'carlos987',
-            'password' => '123456',
-            'tipo' => 'can',
-            ]);
-        Usuario::create([
-            'nom_u' => 'Marco Chavez Lopez',
-            'email_u' => 'mcl6@gmail.com',
-            'direccion_u'=>'dashdkjashdk',
-            'telefono_u'=>'2354234',
-            'celular_u'=>'23542334',
-            'usuario' => 'marco123',
-            'password' => '123456',
-            'tipo' => 'can',
-            ]);
     }
 }
