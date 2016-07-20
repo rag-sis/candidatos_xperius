@@ -1,11 +1,9 @@
 @extends('inicio')
 @section('contenido')
-<head>
-<script type="text/javascript" src="{{ asset('js/scripts_form_usr.js') }}"></script>
-</head>
+
 <div class="heading">
 
-                        <h3>Usuarios</h3>                    
+                        <h3>Exámenes</h3>                    
                         
                         <ul class="breadcrumb">
                             <li>Tu estas en:</li>
@@ -17,26 +15,24 @@
                                     <span class="icon16 icomoon-icon-arrow-right-2"></span>
                                 </span>
                             </li>
-                            <li class="active">Usuarios</li>
+                            <li class="active">Exámenes <a class="float-right" href="/examen/lista" title="Editar">
+            <img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="edit" />
+            Atras
+        </a></li>
                         </ul>
 
 </div><!-- End .heading-->
 <div>
-    <a class="float-right" href="/usuario/lista" title="Editar">
-            <img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="edit" />
-            Atras
-        </a>
+    
 </div>
-<div class="col-lg-6 col-lg-offset-3">
+<div class="col-lg-8 col-md-8 col-sm-10 col-lg-offset-2 col-md-offset-2 col-sm-offset-1">
 	<div class="panel panel-primary">
 		<div class="panel-heading">
-			<h4>Crear Usuario</h4>
+			<h4></h4>
 		</div>
-        <div class="well scroll" style="overflow:auto; margin-top:10px;">
-		{!! Form::open(['url' => '/usuario/almacenar', 'files' => true]) !!}
-		@include('usuario.formulario')
+		{!! Form::model($examen, ['url' => '' . $examen->cod_e , 'files' => true]) !!}
+		@include('examen.formulario_examen_candidato')			
 		{!! Form::close() !!}
-        </div>
 	</div>
 </div>
 @endsection

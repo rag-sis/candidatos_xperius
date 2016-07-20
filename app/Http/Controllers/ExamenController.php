@@ -462,4 +462,15 @@ class ExamenController extends Controller
         return true;
     }
 
+    public function ver($id){
+        $examen = $this->getExamen($id);
+        $parametros = ['examen' => $examen];
+        return view('examen.ver', $parametros);
+    }
+    public function ver_examen($id){
+        $examen = $this->getExamen($id);
+        $parametros = ['examen' => $examen];
+        return view('examen.ver_can', $parametros);
+    }
+
 }

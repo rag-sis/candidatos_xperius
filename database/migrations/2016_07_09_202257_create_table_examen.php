@@ -16,7 +16,6 @@ class CreateTableExamen extends Migration
         Schema::create('examen', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('cod_e');
-            $table->integer('cod_v')->nullable();
             $table->integer('codigo_evaluador');
             $table->string('titulo_e',100);
             $table->enum('estado_e',[1, 0])->default(1);
@@ -26,7 +25,6 @@ class CreateTableExamen extends Migration
             $table->integer('num_preguntas_e');
             $table->rememberToken();
             $table->timestamps();
-            $table->foreign('cod_v')->references('cod_v')->on('vacante');
             $table->foreign('codigo_evaluador')->references('cod_u')->on('usuarios');
             
         });

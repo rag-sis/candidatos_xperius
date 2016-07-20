@@ -46,19 +46,28 @@ class InvitacionController extends Controller
     public function enviar_invitacion(Request $peticion){
 
         $checkbox=$peticion->invitacion;
-        foreach ($checkbox as $value) {
+        foreach ($checkbox as $cod_inv) {
           //  echo $value;
-            $cod_u_c=$this->getIdUsuario($value);
+            $cod_u_c=$this->getIdUsuario($cod_inv);
             $email=$this->getEmailUsuario($cod_u_c);
 
+            $invitacion = $this->getInvitacion($cod_inv);
+            $cod_vac=$invitacion->cod_v;
             //$email=$peticion['select1'];
+            //$data = $request->only('name', 'email', 'phone');
+            /*
+            $lista = Invitacion::where('estado_i', 1)
+            ->where('invitado_i',0)
+            ->paginate(10);*/
+            $parametros = ['invitacion' => $invitacion];
+
             $data=['hola','mundo'];
-            Mail::send('vacante.mensaje',$data,function($msg) use($email){
+            Mail::send('vacante.mensaje',$parametros,function($msg) use($email){
             $msg->subject('Mensaje de Xperius');
             $msg->to( $email );});
 
             //actualiza el enviado de invitacion
-            $invitacion = $this->getInvitacion($value);
+            
             $invitacion->invitado_i = 1;
             $invitacion->save();
         

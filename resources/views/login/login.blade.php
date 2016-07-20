@@ -6,6 +6,9 @@
 	<meta charset="utf-8">
 	
 	<!-- Global stylesheets -->
+
+
+
 	<link href="{{asset('css/reset.css')}}" rel="stylesheet" type="text/css">
 	<link href="{{asset('css/common.css')}}" rel="stylesheet" type="text/css">
 	<link href="{{asset('css/form.css')}}" rel="stylesheet" type="text/css">
@@ -141,6 +144,7 @@
 	<center>
 		<br>
 			<img width="150px" heigth="150px" src="{{ asset('/img/xp_mod.png') }}">
+
 		</center>
 	
 	<section id="login-block">
@@ -158,6 +162,13 @@
 					{{ $errors->first('login') }}
 				</div>
 				@endif
+
+			@if(Session::has('reg_ok'))
+			<div class="alert alert-success alert-su">
+				{{ Session::get('reg_ok') }}
+			</div>
+			@endif
+	
 			
 			<form class="form with-margin" name="login-form" id="login-form" method="post" action="/usuario/autenticar">
 				<input type="hidden" name="a" id="a" value="send">
@@ -192,6 +203,7 @@
 			</form>-->
 		</div></div>
 	</section>
+
 
 <!--[if lt IE 8]></div><![endif]-->
 <!--[if lt IE 9]></div><![endif]-->

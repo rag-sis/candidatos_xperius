@@ -3019,3 +3019,15 @@ form .image {
 	.loginContainer {width: 180px;margin-left: -100px;}
 	.ui-datepicker{ max-width: 180px;}
 }
+.datos_box{
+	max-width: 400px;
+	padding-top: 80px;
+	text-align: left;
+}
+.datos_content{
+	text-align: center;
+}
+.datos_f{
+	text-align: left;
+	padding-left: 80px;
+}

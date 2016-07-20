@@ -62,4 +62,11 @@ Route::get('/examen/deshabilitar/{id}', 'ExamenController@deshabilitar');
 Route::get('/pregunta/lista_preguntas/{id}','PreguntaController@lista_preguntas');
 Route::get('/respuesta/lista_respuestas/{id}','RespuestaController@lista_respuestas');
 Route::post('/examen/actualizar/{id}','ExamenController@actualizar');
+Route::get('/examen/ver/{id}','ExamenController@ver');
+Route::get('/examen/ver_examen/{id}','ExamenController@ver_examen');
 
+Route::get('/asignacion_examen/asignar/{id}/{titulo}','AsignacionExamenController@asignar');
+Route::post('/asignacion_examen/asignar_e','AsignacionExamenController@asignar_e');
+Route::get('/registrar_pwd/{id}','LoginTempController@registrar_pwd');
+
+Route::post('/registrar_pwd/almacenar','LoginTempController@almacenar');

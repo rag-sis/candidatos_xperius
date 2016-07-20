@@ -12,7 +12,7 @@ class Examen extends Model
     public $primaryKey = 'cod_e';
 
 
-    protected $fillable = ['cod_v','codigo_evaluador','titulo_e','descripcion_e', 'puntaje_maximo_e','tiempo_minutos_e','num_preguntas_e'];
+    protected $fillable = ['codigo_evaluador','titulo_e','descripcion_e', 'puntaje_maximo_e','tiempo_minutos_e','num_preguntas_e'];
 
     
     

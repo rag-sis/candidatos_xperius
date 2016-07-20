@@ -11,7 +11,7 @@ class Vacante extends Model
     public $primaryKey = 'cod_v';
 
 
-    protected $fillable = ['titulo_v', 'lugar_v', 'posicion_v','tiempo_trabajo_v', 'tipo_trabajo_v', 'descripcion_v','tipo_examen_v','estado_v'];
+    protected $fillable = ['titulo_v', 'lugar_v', 'posicion_v','tiempo_trabajo_v', 'tipo_trabajo_v', 'descripcion_v','nro_examenes_v','estado_v'];
 
     
     public function invitacion(){

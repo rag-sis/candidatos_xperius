@@ -95,10 +95,6 @@ $(document).ready(function(){
 
 				<div class="table-responsive">
 
-				<img src="{{asset('img/bg-th-left.gif')}}" width="8" height="7" alt="" class="left" />
-				<img src="{{asset('img/bg-th-right.gif')}}" width="7" height="7" alt="" class="right" />
-				<!--class="table table-bordered table-hover table-condensed"-->
-
 
 				<table class="table table-bordered table-hover table-condensed" width="80%"  cellpadding="0" cellspacing="0" >
 					<thead>
@@ -107,6 +103,7 @@ $(document).ready(function(){
 						<th class="first">E-mail</th>
 						<th class="first">Nombre</th>
 						<th class="first">Vacante</th>
+						<th class="first">N° Exámenes</th>
 						<th class="first">Invitar</th>
 						
 						
@@ -125,9 +122,15 @@ $(document).ready(function(){
 							
 						</td>
 						<td>{{ $invitacion->usuario_v->titulo_v }}</td>
+						<td>{{ $invitacion->usuario_v->nro_examenes_v }}</td>
 						<td>
-							<input type="checkbox" name="invitacion[]" value="{{ $invitacion->cod_i }}">
+
 							
+							@if($invitacion->usuario_v->nro_examenes_v > 0)
+							<input type="checkbox" name="invitacion[]" value="{{ $invitacion->cod_i }}">
+							@else
+								Sin exámenes.
+							@endif
 						</td>
 						
 								

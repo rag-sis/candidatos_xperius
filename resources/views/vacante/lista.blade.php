@@ -133,6 +133,9 @@ $(document).ready(function(){
 							<a class="boton" href="#" data-toggle="modal" data-target="#ver_datos_vacante" onclick="mostrar_datos_vacante('{{$vacante->cod_v}}')"> Ver</a>
 							<!--<a class="boton" href="#" data-toggle="modal" data-target="#enviar_email_vacante" onclick="enviar_email_vacante('{{$vacante->cod_v}}')"> Invitar</a>-->
 							
+							<a href="/asignacion_examen/asignar/{{$vacante->cod_v}}/{{$vacante->titulo_v}}" title="Asignar Exámen">
+								Asig
+							</a>
 							<a href="/vacante/editar/{{$vacante->cod_v}}" title="Editar">
 								<img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="edit" />
 							</a>

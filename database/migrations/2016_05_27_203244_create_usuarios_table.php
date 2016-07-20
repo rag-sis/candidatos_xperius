@@ -27,6 +27,7 @@ class CreateUsuariosTable extends Migration
             $table->string('url_curriculum')->nullable();
             $table->enum('tipo', ['adm', 'pro','can']);
             $table->enum('activo', [1, 0])->default(1);
+            $table->enum('act_pwd', [1, 0])->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

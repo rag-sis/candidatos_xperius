@@ -28,7 +28,7 @@
 <div class="col-lg-8 col-md-8 col-sm-10 col-lg-offset-2 col-md-offset-2 col-sm-offset-1">
 	<div class="panel panel-primary">
 		<div class="panel-heading">
-			<h4>Editar Usuario</h4>
+			<h4>Editar Examén</h4>
 		</div>
 		{!! Form::model($examen, ['url' => '/examen/actualizar/' . $examen->cod_e , 'files' => true]) !!}
 		@include('examen.formulario_editar')			
