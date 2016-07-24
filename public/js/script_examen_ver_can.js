@@ -30,34 +30,25 @@ $(document).ready(function(){
 
                         var lugar= $('#automatic');
 
-        var h = document.createElement("H4")                // Create a <h1> element
-        var t = document.createTextNode("PREGUNTA #"+cont_pre_a);     // Create a text node
-        h.appendChild(t);
-        
-        
-        var hr = document.createElement("hr"); 
+                        var h = document.createElement("H4")                // Create a <h1> element
+                        var t = document.createTextNode("PREGUNTA #"+cont_pre_a);     // Create a text node
+                        h.appendChild(t);
 
-       
-        
-        var div_pre = document.createElement('div');
-        div_pre.id = 'div_pre'+cont_pre_a;
-        div_pre.className = 'well well-large';
-        //div_pre.className = 'cname_pre'+cont_pre;
-        lugar.append(div_pre);
+                        var hr = document.createElement("hr"); 
+                        var div_pre = document.createElement('div');
+                        div_pre.id = 'div_pre'+cont_pre_a;
+                        div_pre.className = 'well well-large';
+                        //div_pre.className = 'cname_pre'+cont_pre;
+                        lugar.append(div_pre);
 
-        var div_pre_int = document.createElement('div');
-        div_pre_int.id = 'div_pre_int'+cont_pre_a;
-        div_pre_int.className = 'cname_pre_int'+cont_pre_a;
+                        var div_pre_int = document.createElement('div');
+                        div_pre_int.id = 'div_pre_int'+cont_pre_a;
+                        div_pre_int.className = 'cname_pre_int'+cont_pre_a;
         
-        div_pre.appendChild(h);
-        //div_pre.appendChild(hr);
-        div_pre.appendChild(div_pre_int);
+                        div_pre.appendChild(h);
+                        //div_pre.appendChild(hr);
+                        div_pre.appendChild(div_pre_int);
 
-        
-
-       
-
-        
                         var id_sel="#id_preg_"+cont_pre_a;
                         var ultimo_caracter=cont_pre_a;
             
@@ -67,39 +58,39 @@ $(document).ready(function(){
                         var div_pre_int="div_pre_int"+ultimo_caracter;
                         var div_pre_int=document.getElementById(div_pre_int);
 
-                        if(tipo_pre == 'Falso o Verdadero'){
+                    if(tipo_pre == 'Falso o Verdadero'){
                             
                             $(id_sel+" option[value='opc1']").prop('selected', 'selected');
                             
 
                             
-                var h = document.createElement("H4")                // Create a <h1> element
-                var t = document.createTextNode(valor_pre);     // Create a text node
-                h.appendChild(t);
+                            var h = document.createElement("H4")                // Create a <h1> element
+                            var t = document.createTextNode(valor_pre);     // Create a text node
+                            h.appendChild(t);
 
-                var label_res = document.createElement("Label");
-                label_res.for = "n_res_inp" + ultimo_caracter;
-                label_res.innerHTML="Seleccione la respuesta:";
+                            var label_res = document.createElement("Label");
+                            label_res.for = "n_res_inp" + ultimo_caracter;
+                            label_res.innerHTML="Seleccione la respuesta:";
 
-                var respuesta_inp_f = document.createElement('input');
-                respuesta_inp_f.type="radio";
-                respuesta_inp_f.value="falso";
-                respuesta_inp_f.name="n_res_inp"+ultimo_caracter;
-                var text_f = document.createTextNode("Falso");
-                var respuesta_inp_v = document.createElement('input');
-                respuesta_inp_v.type="radio";
-                respuesta_inp_v.value="verdadero";
-                respuesta_inp_v.name="n_res_inp"+ultimo_caracter;
-                var text_v = document.createTextNode("Verdadero");
+                            var respuesta_inp_f = document.createElement('input');
+                            respuesta_inp_f.type="radio";
+                            respuesta_inp_f.value="falso";
+                            respuesta_inp_f.name=id_pregunta+"_res_1";
+                            var text_f = document.createTextNode("Falso");
+                            var respuesta_inp_v = document.createElement('input');
+                            respuesta_inp_v.type="radio";
+                            respuesta_inp_v.value="verdadero";
+                            respuesta_inp_v.name=id_pregunta+"_res_1";
+                            var text_v = document.createTextNode("Verdadero");
 
-                //Accediendo a obtener la repuesta de esta pregunta
+                            //Accediendo a obtener la repuesta de esta pregunta
                            
-                div_pre_int.appendChild(h);
-                div_pre_int.appendChild(label_res);
-                div_pre_int.appendChild(text_f);
-                div_pre_int.appendChild(respuesta_inp_f);
-                div_pre_int.appendChild(text_v);
-                div_pre_int.appendChild(respuesta_inp_v);
+                            div_pre_int.appendChild(h);
+                            div_pre_int.appendChild(label_res);
+                            div_pre_int.appendChild(text_f);
+                            div_pre_int.appendChild(respuesta_inp_f);
+                            div_pre_int.appendChild(text_v);
+                            div_pre_int.appendChild(respuesta_inp_v);
                             
                             
 
@@ -114,18 +105,11 @@ $(document).ready(function(){
                         
 
                             var textArea = document.createElement("textarea");
-                            textArea.setAttribute("name","n_preg_inp"+ultimo_caracter);
+                            textArea.setAttribute("name",id_pregunta+"_res_2");
                             textArea.setAttribute("id","id_preg_inp"+ultimo_caracter);
                             textArea.setAttribute("cols","20");
                             textArea.style.height = "42px";
                             textArea.style.width = "496px";
-
-
-                            var pregunta_inp = document.createElement('input');
-                            pregunta_inp.type="text";
-                            pregunta_inp.name="n_preg_inp"+ultimo_caracter;
-                            pregunta_inp.id="id_preg_inp"+ultimo_caracter;
-                            pregunta_inp.value=valor_pre;
 
                             div_pre_int.appendChild(h);
                             div_pre_int.appendChild(textArea);
@@ -139,33 +123,20 @@ $(document).ready(function(){
                             h.appendChild(t);
 
                             var elemento_select = document.createElement('select');
-                            elemento_select.name="n_preg"+ultimo_caracter;
+                            elemento_select.name=id_pregunta+"_res_3";
                             elemento_select.id="id_preg_"+ultimo_caracter;
 
                             var option = document.createElement("option");
-                            option.value = "opc0";
+                            option.value = "0";
                             option.text = "Seleccione";
                             elemento_select.appendChild(option);
 
                 
-                            var br = document.createElement("br");
-                            var br2 = document.createElement("br");
-
-                           
-
-                            var opc_cont = document.createElement('input');
-                            opc_cont.type="hidden";
-                            opc_cont.value="0";
-                            opc_cont.name="opc_cont"+ultimo_caracter;
-                            opc_cont.id="opc_cont"+ultimo_caracter;
-                            opc_cont.readOnly=true;
-
-                  
+                            
                             div_pre_int.appendChild(h);
                             div_pre_int.appendChild(elemento_select);
-                             div_pre_int.appendChild(opc_cont);
 
-                //Accediendo a obtener la repuesta de esta pregunta
+                            //Accediendo a obtener la repuesta de esta pregunta
                             
                             var url = '/respuesta/lista_respuestas/'+id_pregunta;
       
@@ -194,43 +165,25 @@ $(document).ready(function(){
                                     
                                 }
                             });
-                //
-                
-                
-               
-
-                 
+                  
                         }else if(tipo_pre =='Seleccion Multiple'){
                            $(id_sel+" option[value='opc4']").prop('selected', 'selected');
                            
-                           
-                //Desde Aqui es copia del anterior codigo
+                
                             var h = document.createElement("H4")                // Create a <h1> element
                             var t = document.createTextNode(valor_pre);     // Create a text node
                             h.appendChild(t);
 
 
 
-                var label_opc_m = document.createElement("Label");
-                label_opc_m.for = "n_preg_opc_m" + ultimo_caracter;
-                label_opc_m.innerHTML="Seleccione la(s) respuesta(s):";
+                            var label_opc_m = document.createElement("Label");
+                            label_opc_m.for = "n_preg_opc_m" + ultimo_caracter;
+                            label_opc_m.innerHTML="Seleccione la(s) respuesta(s):";
 
+                            div_pre_int.appendChild(h);
+                            div_pre_int.appendChild(label_opc_m);
 
-                var br = document.createElement("br");
-
-                
-                var opc_contm = document.createElement('input');
-                opc_contm.type="hidden";
-                opc_contm.value="0";
-                opc_contm.name="opc_contm"+ultimo_caracter;
-                opc_contm.id="opc_contm"+ultimo_caracter;
-                opc_contm.readOnly=true;
-
-                div_pre_int.appendChild(h);
-                div_pre_int.appendChild(opc_contm);
-                div_pre_int.appendChild(label_opc_m);
-
-                //Accediendo a obtener la repuesta de esta pregunta
+                            //Accediendo a obtener la repuesta de esta pregunta
                             
                             var url = '/respuesta/lista_respuestas/'+id_pregunta;
       
@@ -255,7 +208,7 @@ $(document).ready(function(){
                                     var respuesta_opc_sn = document.createElement('input');
                                     respuesta_opc_sn.type="checkbox";
                                     respuesta_opc_sn.value=valor_iden;
-                                    respuesta_opc_sn.name="n_res_opc_m"+ultimo_caracter+"[]";
+                                    respuesta_opc_sn.name=id_pregunta+"_res_4[]";
                                     
                                     
                 

@@ -18,7 +18,7 @@ class Invitacion extends Model
     public function usuario(){
         return $this->belongsTo('App\Usuario','cod_u');
     }
-    public function usuario_v(){
+    public function vacante(){
         return $this->belongsTo('App\Vacante','cod_v');
     }
    

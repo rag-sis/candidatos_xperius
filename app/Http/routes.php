@@ -13,7 +13,25 @@
 
 Route::get('/', function () {
 	Session::flash('menu', '');
-    return view('inicio');
+	//Auth::user()->usuario;
+	if(Auth::check()){
+
+
+	$tipo=Auth::user()->tipo;
+
+	if($tipo==='can'){
+		//return view();
+		return redirect('/candidato');
+	}else{
+		return view('inicio');
+	}	
+
+
+	}else{
+		return view('inicio');
+	}
+	
+    
 });
 
 
@@ -70,3 +88,8 @@ Route::post('/asignacion_examen/asignar_e','AsignacionExamenController@asignar_e
 Route::get('/registrar_pwd/{id}','LoginTempController@registrar_pwd');
 
 Route::post('/registrar_pwd/almacenar','LoginTempController@almacenar');
+
+Route::get('/candidato','CandidatoController@inicio');
+
+Route::post('/candidato/rendir_examen','CandidatoController@rendir_examen');
+Route::post('/candidato/terminar_examen','CandidatoController@terminar_examen');

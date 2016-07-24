@@ -121,12 +121,12 @@ $(document).ready(function(){
 							{{ $invitacion->getNombresUsuario($invitacion->cod_u) }}
 							
 						</td>
-						<td>{{ $invitacion->usuario_v->titulo_v }}</td>
-						<td>{{ $invitacion->usuario_v->nro_examenes_v }}</td>
+						<td>{{ $invitacion->vacante->titulo_v }}</td>
+						<td>{{ $invitacion->vacante->nro_examenes_v }}</td>
 						<td>
 
 							
-							@if($invitacion->usuario_v->nro_examenes_v > 0)
+							@if($invitacion->vacante->nro_examenes_v > 0)
 							<input type="checkbox" name="invitacion[]" value="{{ $invitacion->cod_i }}">
 							@else
 								Sin exámenes.

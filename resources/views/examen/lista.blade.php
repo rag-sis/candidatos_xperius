@@ -107,7 +107,7 @@ $(document).ready(function(){
 						<th class="first">Estado</th>
 						
 							@if( ($tip === 'adm') or ($tip === 'pro') )
-									<th class="last">Acciones</th>
+									<th class="last" width="120px">Acciones</th>
 								
 							@endif
 							
@@ -144,6 +144,9 @@ $(document).ready(function(){
 							</a>
 							<a href="/examen/editar/{{$examen->cod_e}}" title="Editar">
 								<img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="edit" />
+							</a>
+							<a href="/examen/editar_reutilizar/{{$examen->cod_e}}" title="Crear un nuevo exámen">
+								N
 							</a>
 								
 							<a class="deshabilitar" title="deshabilitar" href="/examen/deshabilitar/{{$examen->cod_e}}">

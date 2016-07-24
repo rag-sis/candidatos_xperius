@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Usuario;
 use App\Vacante;
 use App\Invitacion;
+use App\Postulacion;
 
 use App\Http\Requests\FormCrearUsuario;
 use App\Http\Requests\FormEditarUsuario;
@@ -105,6 +106,10 @@ class UsuarioController extends Controller
                   'cod_u'=>$id_uc, 
                   'cod_v'=>$cod_v,
                 ]);
+                Postulacion::create([
+                    'cod_u'=>$id_uc, 
+                    'cod_v'=>$cod_v,
+                    ]);
             }
             
             Session::flash('usu_cre', 'Usuario creado');

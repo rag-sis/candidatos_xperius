@@ -61,7 +61,7 @@
 <div class="mainnav">
  <ul>
   <li><a href="/vacante/lista"><span class="icon16 entypo-icon-grid"></span>Vacantes</a></li>
- <li><a href="#"><span class="icon16 entypo-icon-grid"></span>Exámenes</a></li>
+ <li><a href="/examen/lista"><span class="icon16 entypo-icon-grid"></span>Exámenes</a></li>
  <li><a href="#"><span class="icon16 entypo-icon-grid"></span>Postulaciones</a></li>
  <li><a href="#"><span class="icon16 entypo-icon-grid"></span>Resultados</a></li>
  </ul>

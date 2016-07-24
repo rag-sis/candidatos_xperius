@@ -64,7 +64,8 @@ class InvitacionController extends Controller
             $data=['hola','mundo'];
             Mail::send('vacante.mensaje',$parametros,function($msg) use($email){
             $msg->subject('Mensaje de Xperius');
-            $msg->to( $email );});
+            $msg->to( $email );
+            });
 
             //actualiza el enviado de invitacion
             

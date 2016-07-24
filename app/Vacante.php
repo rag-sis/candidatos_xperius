@@ -17,6 +17,7 @@ class Vacante extends Model
     public function invitacion(){
         return $this->hashOne('App\Invitacion','cod_v');
     }
+    
 
     public function scopeBuscar($query, $titulo_v){
         return $query->where('titulo_v', 'ilike', "%$titulo_v%");

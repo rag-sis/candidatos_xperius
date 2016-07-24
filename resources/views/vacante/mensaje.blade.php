@@ -15,7 +15,7 @@
 	<img src="https://media.licdn.com/media/AAEAAQAAAAAAAAfLAAAAJDhlN2Y5ODI4LWEyYzktNDI5NC1iYWRlLWU3NGNlNjY4NWI1Zg.png"/>
 	<h3>Estimad(o/a): Sr(a). {{ $invitacion->getNombresUsuario($invitacion->cod_u) }} .</h3>
 	<br />
-	<h4>Usted ha sido seleccionado para poder rendir los exámenes para el puesto: <span class="blue">{{ $invitacion->usuario_v->titulo_v }}</span></h4>
+	<h4>Usted ha sido seleccionado para poder rendir los exámenes para el puesto: <span class="blue">{{ $invitacion->vacante->titulo_v }}</span></h4>
 	<h5>Debe ingresar al sistema para poder empezar a resolver a los exámenes </h5>
 	<p>Para poder obtener acceso al sistema debe verificarse y agregar su contraseña,
 	Su nombre de usuario es: <span class="blue"> {{$invitacion->usuario->usuario}}</span>
