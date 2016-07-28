@@ -103,8 +103,9 @@ $(document).ready(function(){
 					<tr>
 				
 						<th class="first">Titulo</th>
-						<th class="first">Descripcion</th>
-						<th class="first">Estado</th>
+						<th class="first">Evaluador</th>
+						<th class="first">Tiempo</th>
+						<th class="first">N° de preguntas</th>
 						
 							@if( ($tip === 'adm') or ($tip === 'pro') )
 									<th class="last" width="120px">Acciones</th>
@@ -121,16 +122,9 @@ $(document).ready(function(){
 					<tr>
 				
 						<td width="200px">{{ $examen->titulo_e }}</td>
-				
-						<td>{{ $examen->descripcion_e }}</td>
-						<td width="2px">
-							<?php $est=$examen->estado_e; 
-								  $cd=$examen->cod_e;
-							?>
-							<!--ibuttonCheck nostyle-->
-								<input  type="checkbox" id="btn_estado_e<?php echo $cd ?>" <?php if($est == 1){ echo 'checked="checked"'; }  ?> class="ibuttonCheck nostyle" onchange="upd_estado_examen('{{$examen->cod_e}}')" />
-							 	
-						</td>
+						<td>{{ $examen->evaluador->nom_u }}</td>
+						<td>{{ $examen->tiempo_minutos_e }} min.</td>
+						<td>{{ $examen->num_preguntas_e }}</td>
 							
 							
 							@if( ($tip === 'adm') or ($tip === 'pro') )

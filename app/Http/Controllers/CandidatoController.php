@@ -311,7 +311,7 @@ class CandidatoController extends Controller
                                 \App\CalificacionPregunta::create([
                                           'cod_cae'=>$cod_cal_ex, 
                                           'cod_p'=>$cod_p,
-                                          'nota_cap'=>$puntaje_p,
+                                          'nota_cap'=>0,
                                           'estado_terminado_cap'=>1,
                               ]);
                              //Guardamos el registro de la respuesta Respondida
@@ -381,14 +381,20 @@ class CandidatoController extends Controller
                                     }
 
                             }else{
-
+                              
                                 echo "<br>Respuesta : INCORRECTA";
+                                \App\RegistroRespuesta::create([
+                                          'cod_cae'=>$cod_cal_ex, 
+                                          'cod_p'=>$cod_p,
+                                          'cod_r'=>(int)($resul),  
+                                        ]);
+                                /*
                                 \App\CalificacionPregunta::create([
                                           'cod_cae'=>$cod_cal_ex, 
                                           'cod_p'=>$cod_p,
                                           'nota_cap'=>0,
                                           'estado_terminado_cap'=>1,
-                              ]);
+                              ]);*/
                             }
                             
                            
@@ -430,11 +436,52 @@ class CandidatoController extends Controller
               }
               $j++;
           }
-          
-        //$cal_exa->estado_terminado_cae='1';
-        //$cal_exa->save();
-        //dd($peticion);
+        /*  
+        $cal_ex->estado_terminado_cae='1';
+        $cal_ex->save();
+
+        $cod_inv=$peticion['cod_inv'];
+        $cod_ex=$peticion['cod_ex'];
+        $cal_ex=$this->getCalificacionExamen($cod_ex,$cod_inv);
+        $cod_cal_ex=$cal_ex->cod_cae;
+        $examen=$this->getExamen($cod_ex);
+        $nro_pre=$examen->num_preguntas_e;
+        $preguntas=$this->getPregutas($cod_ex);
+*/
+        //$nro_pre=$nro_pre;
+        $nro_pre_finish=$this->getNroPreguntasTerminadas($cod_cal_ex);
+        $nota=$this->getNotaActualTerminados($cod_cal_ex);
+        
+        if($nro_pre == $nro_pre_finish){
+              //Guardamos la nota sobre 100 y terminamos el examen.
+              $cal_ex->estado_terminado_cae='1';
+              $cal_ex->nota_cae=$nota;
+              $cal_ex->save();
+        }else{
+              $cal_ex->nota_cae=$nota;
+              $cal_ex->save();
+        }
+
         return redirect('/');
+    }
+
+    public function getNotaActualTerminados($cod_cal_ex){
+        $lista = \App\CalificacionPregunta::select(\DB::raw('sum(nota_cap) as nota'))
+                                ->where('cod_cae', $cod_cal_ex)
+                                ->where('estado_terminado_cap',1)
+                                ->get();
+        $nota= $lista[0]->nota;
+        
+        return $nota;
+    }
+    public function getNroPreguntasTerminadas($cod_cal_ex){
+        $lista = \App\CalificacionPregunta::select(\DB::raw('count(*) as num_pre_ter'))
+                                ->where('cod_cae', $cod_cal_ex)
+                                ->where('estado_terminado_cap',1)
+                                ->get();
+        $nro= $lista[0]->num_pre_ter;
+        
+        return $nro;
     }
     public function getPregutas($cod_e){
         $lista = \App\Pregunta::where('cod_e', $cod_e)->get();

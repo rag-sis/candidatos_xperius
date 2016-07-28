@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Usuario;
 
 class Examen extends Model
 {
@@ -14,6 +15,9 @@ class Examen extends Model
 
     protected $fillable = ['codigo_evaluador','titulo_e','descripcion_e', 'puntaje_maximo_e','tiempo_minutos_e','num_preguntas_e'];
 
+    public function evaluador(){
+        return $this->belongsTo('App\Usuario','codigo_evaluador');
+    }
     
     
     public function scopeBuscar($query, $titulo_e){

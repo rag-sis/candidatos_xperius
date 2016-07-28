@@ -28,6 +28,7 @@
 @endif
   </a></li>
  <li><a href="/invitacion/lista"><span class="icon16 entypo-icon-grid"></span>Invitaciones</a></li>
+ <li><a href="/examen/calificaciones_pendientes"><span class="icon16 entypo-icon-grid"></span>Calificaciones Pendientes</a></li>
  <li><a href="#"><span class="icon16 entypo-icon-grid"></span>Resultados</a></li>
  </ul>
  </div>

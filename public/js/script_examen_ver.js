@@ -26,7 +26,7 @@ $(document).ready(function(){
                         var id_pregunta=pregunta[i].cod_p;
                         var valor_pre=pregunta[i].valor_p;
                         var tipo_pre=pregunta[i].tipo_p;
-                        var puntaje_pre=pregunta[i].tipo_p;
+                        var puntaje_pre=pregunta[i].puntaje_p;
 
                         var lugar= $('#automatic');
 
@@ -35,7 +35,22 @@ $(document).ready(function(){
         h.appendChild(t);
         
         
-        var hr = document.createElement("hr"); 
+        var hr = document.createElement("hr");
+
+        var div_peso = document.createElement('div');
+        div_peso.id = 'div_peso'+cont_pre_a;
+        div_peso.className = 'float-right';
+
+        var text_peso = document.createTextNode("Puntaje: ");
+        
+        var peso_pregunta = document.createElement('input');
+        peso_pregunta.type="text";
+        peso_pregunta.name="peso_preg_"+cont_pre_a;
+        peso_pregunta.id="id_peso_preg_"+cont_pre_a;
+        peso_pregunta.className="right inp2";
+        peso_pregunta.value=puntaje_pre;
+        div_peso.appendChild(text_peso);
+        div_peso.appendChild(peso_pregunta); 
 
         var elemento_select = document.createElement('select');
         elemento_select.name="n_preg"+cont_pre_a;
@@ -54,6 +69,7 @@ $(document).ready(function(){
         
         div_pre.appendChild(h);
         div_pre.appendChild(hr);
+        div_pre.appendChild(div_peso);
         div_pre.appendChild(elemento_select);
         div_pre.appendChild(div_pre_int);
 

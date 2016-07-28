@@ -27,7 +27,21 @@ $(document).ready(function(){
         a_del_pre.title = "Eliminar Pregunta";
         a_del_pre.href = "#";
         
-        var hr = document.createElement("hr"); 
+        var hr = document.createElement("hr");
+
+        var div_peso = document.createElement('div');
+        div_peso.id = 'div_peso'+cont_pre;
+        div_peso.className = 'float-right';
+
+        var text_peso = document.createTextNode("Puntaje: ");
+        
+        var peso_pregunta = document.createElement('input');
+        peso_pregunta.type="text";
+        peso_pregunta.name="peso_preg_"+cont_pre;
+        peso_pregunta.id="id_peso_preg_"+cont_pre;
+        peso_pregunta.className="right inp2";
+        div_peso.appendChild(text_peso);
+        div_peso.appendChild(peso_pregunta);
 
     	var elemento_select = document.createElement('select');
 		elemento_select.name="n_preg"+cont_pre;
@@ -46,6 +60,7 @@ $(document).ready(function(){
         div_pre.appendChild(a_del_pre);
         div_pre.appendChild(h);
         div_pre.appendChild(hr);
+        div_pre.appendChild(div_peso);
 		div_pre.appendChild(elemento_select);
         div_pre.appendChild(div_pre_int);
 		
@@ -57,7 +72,7 @@ $(document).ready(function(){
 
 		var option = document.createElement("option");
     	option.value = "opc0";
-    	option.text = "Seleccione";
+    	option.text = "Seleccione el tipo de pregunta";
     	elemento_select.appendChild(option);
     	var option = document.createElement("option");
     	option.value = "opc1";
@@ -301,29 +316,7 @@ $(document).ready(function(){
                 respuesta_opc_m2.value="2";
                 respuesta_opc_m2.name="n_res_opc_m"+ultimo_caracter+"[]";
 
-                var opc_inp_m3 = document.createElement('input');
-                opc_inp_m3.type="text";
-                opc_inp_m3.value="Todas son correctas";
-                opc_inp_m3.name="3_opc_inp_m"+ultimo_caracter;
-                opc_inp_m3.id="3_opc_inp_m"+ultimo_caracter;
-                opc_inp_m3.readOnly=true;
-
-                var respuesta_opc_m3 = document.createElement('input');
-                respuesta_opc_m3.type="checkbox";
-                respuesta_opc_m3.value="3";
-                respuesta_opc_m3.name="n_res_opc_m"+ultimo_caracter+"[]";
-
-                var opc_inp_m4 = document.createElement('input');
-                opc_inp_m4.type="text";
-                opc_inp_m4.value="Ninguna es correcta";
-                opc_inp_m4.name="4_opc_inp_m"+ultimo_caracter;
-                opc_inp_m4.id="4_opc_inp_m"+ultimo_caracter;
-                opc_inp_m4.readOnly=true;
-
-                var respuesta_opc_m4 = document.createElement('input');
-                respuesta_opc_m4.type="checkbox";
-                respuesta_opc_m4.value="4";
-                respuesta_opc_m4.name="n_res_opc_m"+ultimo_caracter+"[]";
+                
 
                 var br = document.createElement("br");
                 var br2 = document.createElement("br");
@@ -337,7 +330,7 @@ $(document).ready(function(){
                 a_add_opc_mu.title = "Agregar opción";
                 a_add_opc_mu.href = "#";
                 
-                var cont_opcm=5;
+                var cont_opcm=3;
                 $(a_add_opc_mu).click(function(){
                 var brn = document.createElement("br");
                 var text_opcn = document.createTextNode("opcion "+cont_opcm+" : ");
@@ -364,7 +357,7 @@ $(document).ready(function(){
 
                 var opc_contm = document.createElement('input');
                 opc_contm.type="hidden";
-                opc_contm.value="4";
+                opc_contm.value="2";
                 opc_contm.name="opc_contm"+ultimo_caracter;
                 opc_contm.id="opc_contm"+ultimo_caracter;
                 opc_contm.readOnly=true;
@@ -382,15 +375,7 @@ $(document).ready(function(){
                 div_pre_int.appendChild(respuesta_opc_m2);
                 div_pre_int.appendChild(br2);
 
-                div_pre_int.appendChild(text_opc_m3);
-                div_pre_int.appendChild(opc_inp_m3);
-                div_pre_int.appendChild(respuesta_opc_m3);
-                div_pre_int.appendChild(br3);
-
-                div_pre_int.appendChild(text_opc_m4);
-                div_pre_int.appendChild(opc_inp_m4);
-                div_pre_int.appendChild(respuesta_opc_m4);
-                div_pre_int.appendChild(br4);
+               
 
                 div_pre_int.appendChild(a_add_opc_mu);
     			

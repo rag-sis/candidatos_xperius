@@ -247,7 +247,7 @@
                 <button class="boton_nuevo" title="Logout" onClick="cerrar_sesion()" type="button"><img src="{{ asset('img/hr.gif') }}" width="16" height="16"> Cerrar Sesión </button>
             </li>
         </ul>
-        <h6 class="float-right">Versión 1.07</H6>
+        <h6 class="float-right">Versión 1.08</H6>
 		</div>
 
 			

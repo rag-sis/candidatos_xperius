@@ -76,10 +76,12 @@ Route::get('/examen/lista','ExamenController@lista');
 Route::get('/examen/crear','ExamenController@crear');
 Route::post('/examen/almacenar','ExamenController@almacenar');
 Route::get('/examen/editar/{id}','ExamenController@editar');
+Route::get('/examen/editar_reutilizar/{id}','ExamenController@editar_reutilizar');
 Route::get('/examen/deshabilitar/{id}', 'ExamenController@deshabilitar');
 Route::get('/pregunta/lista_preguntas/{id}','PreguntaController@lista_preguntas');
 Route::get('/respuesta/lista_respuestas/{id}','RespuestaController@lista_respuestas');
 Route::post('/examen/actualizar/{id}','ExamenController@actualizar');
+Route::post('/examen/guardar_nuevo/{id}','ExamenController@guardar_nuevo');
 Route::get('/examen/ver/{id}','ExamenController@ver');
 Route::get('/examen/ver_examen/{id}','ExamenController@ver_examen');
 
@@ -93,3 +95,9 @@ Route::get('/candidato','CandidatoController@inicio');
 
 Route::post('/candidato/rendir_examen','CandidatoController@rendir_examen');
 Route::post('/candidato/terminar_examen','CandidatoController@terminar_examen');
+
+Route::get('/examen/calificaciones_pendientes','CalificacionExamenController@calificaciones_pendientes');
+
+Route::get('/examen/calificar/{cod_cae}','CalificacionExamenController@calificar_pendientes');
+
+Route::post('/examen/calificar','CalificacionExamenController@calificar_examen');

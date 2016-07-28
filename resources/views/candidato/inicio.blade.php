@@ -76,6 +76,7 @@
                                     @else
                                         <br>
                                         <h3 class="red">Exámen Terminado</h3>
+                                        {{$cal_exa->getPuntaje()}}
                                     @endif
                                     </center>
                                 </div>

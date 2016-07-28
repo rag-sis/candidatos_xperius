@@ -119,7 +119,7 @@ class AsignacionExamenController extends Controller
            
             $cant_items=(int)$peticion['cantidad_items'];
 
-            
+            $cont=0;
             for ($i=1; $i <= $cant_items ; $i++) { 
                 # code...
                 $examen_id='examen_id_'.$i;
@@ -135,12 +135,14 @@ class AsignacionExamenController extends Controller
                         'valor_puntaje_ae'=>$valor_puntual,
 
                     ]);
-                    $vac=$this->getVacante($vacante_id);
-                    $vac->nro_examenes_v=$vac->nro_examenes_v +$i;
-                    $vac->save();
+                    $cont++;
+                    
 
                 }
             }
+            $vac=$this->getVacante($vacante_id);
+                    $vac->nro_examenes_v=($vac->nro_examenes_v) +$cont;
+                    $vac->save();
             
             
             return redirect('/asignacion_examen/asignar/'.$vacante_id.'/'.$titulo_vac);

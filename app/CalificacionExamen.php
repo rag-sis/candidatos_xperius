@@ -27,4 +27,43 @@ class CalificacionExamen extends Model
                     ->orWhere('tipo', 'ilike', "%$nombre%");
     }
 
+    public function getPuntaje(){
+
+        $estado_t=$this->estado_terminado_cae;
+        if($estado_t == 1){
+            $nota='Puntaje: '.$this->nota_cae.' / 100 %';
+            return $nota;
+        }else{
+
+            $suma_terminados=$this->nota_cae;
+            $total_puntaje_terminados=$this->getNotaTotalTerminados();
+            $nota80=(($suma_terminados*80)/$total_puntaje_terminados);
+            $nota80 =round($nota80 * 100) / 100;
+            $nota80='Puntaje: '.$nota80.' / 80 %';
+            return $nota80;
+        }
+        
+
+    }
+
+    public function getNotaTotalTerminados(){
+
+        $lista=\App\CalificacionPregunta::where('cod_cae', $this->cod_cae)
+                                          ->where('estado_terminado_cap',1)
+                                          ->get();
+        
+        $puntaje_total_t=0;
+        foreach ($lista as $cal) {
+                
+                $cod_p=$cal->cod_p;
+                $pregunta=\App\Pregunta::where('cod_p',$cod_p)
+                                     ->get();
+                $nota=$pregunta[0]->puntaje_p;    
+                $puntaje_total_t=$puntaje_total_t+$nota;
+
+        }
+        
+        return $puntaje_total_t;
+    }
+
 }
