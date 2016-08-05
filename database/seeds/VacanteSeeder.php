@@ -22,6 +22,8 @@ class VacanteSeeder extends Seeder
             'tiempo_trabajo_v'=>'Tiempo Completo',
         	'tipo_trabajo_v' => 'Fuera de Oficina',
             'descripcion_v'=>'fdskfhjdshfjksdhfkjshdfhsdkjhfksdjhfkjsheuheuie',
+            'fecha_ini_v'=>'2016-08-01',
+            'fecha_fin_v'=>'2016-10-10',
             'estado_v'=>'1',
         	]);
 
@@ -32,6 +34,8 @@ class VacanteSeeder extends Seeder
             'tiempo_trabajo_v'=>'Tiempo Completo',
         	'tipo_trabajo_v' => 'Fuera de Oficina',
             'descripcion_v'=>'fdskfhjdshfjksdhfkjshdfhsdkjhfksdjhfkjsheuheuie',
+            'fecha_ini_v'=>'2016-08-01',
+            'fecha_fin_v'=>'2016-10-10',
             'estado_v'=>'1',
         	]);
           Vacante::create([
@@ -41,6 +45,8 @@ class VacanteSeeder extends Seeder
             'tiempo_trabajo_v'=>'Tiempo Completo',
         	'tipo_trabajo_v' => 'Fuera de Oficina',
             'descripcion_v'=>'fdskfhjdshfjksdhfkjshdfhsdkjhfksdjhfkjsheuheuie',
+            'fecha_ini_v'=>'2016-08-01',
+            'fecha_fin_v'=>'2016-10-10',
             'estado_v'=>'1',
         	]);
            Vacante::create([
@@ -50,6 +56,8 @@ class VacanteSeeder extends Seeder
             'tiempo_trabajo_v'=>'Tiempo Completo',
         	'tipo_trabajo_v' => 'Fuera de Oficina',
             'descripcion_v'=>'fdskfhjdshfjksdhfkjshdfhsdkjhfksdjhfkjsheuheuie',
+            'fecha_ini_v'=>'2016-08-01',
+            'fecha_fin_v'=>'2016-10-10',
             'estado_v'=>'1',
         	]);
             Vacante::create([
@@ -59,6 +67,8 @@ class VacanteSeeder extends Seeder
             'tiempo_trabajo_v'=>'Tiempo Completo',
         	'tipo_trabajo_v' => 'Fuera de Oficina',
             'descripcion_v'=>'fdskfhjdshfjksdhfkjshdfhsdkjhfksdjhfkjsheuheuie',
+            'fecha_ini_v'=>'2016-08-01',
+            'fecha_fin_v'=>'2016-10-10',
             'estado_v'=>'1',
         	]);
         	 Vacante::create([
@@ -68,6 +78,8 @@ class VacanteSeeder extends Seeder
             'tiempo_trabajo_v'=>'Tiempo Completo',
         	'tipo_trabajo_v' => 'Fuera de Oficina',
             'descripcion_v'=>'fdskfhjdshfjksdhfkjshdfhsdkjhfksdjhfkjsheuheuie',
+            'fecha_ini_v'=>'2016-08-01',
+            'fecha_fin_v'=>'2016-10-10',
             'estado_v'=>'1',
         	]);
         	  Vacante::create([
@@ -77,6 +89,8 @@ class VacanteSeeder extends Seeder
             'tiempo_trabajo_v'=>'Tiempo Completo',
         	'tipo_trabajo_v' => 'Fuera de Oficina',
             'descripcion_v'=>'fdskfhjdshfjksdhfkjshdfhsdkjhfksdjhfkjsheuheuie',
+            'fecha_ini_v'=>'2016-08-01',
+            'fecha_fin_v'=>'2016-10-10',
             'estado_v'=>'1',
         	]);
 

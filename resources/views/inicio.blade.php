@@ -54,6 +54,7 @@
     <!-- Plugin stylesheets -->
     <link href="{{ asset('plugins/misc/qtip/jquery.qtip.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('plugins/forms/uniform/uniform.default.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('plugins/forms/validate/validate.css') }}" type="text/css" rel="stylesheet" />
 
     <!-- Main stylesheets -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet" type="text/css" />
@@ -77,7 +78,7 @@
     <link href="{{ asset('plugins/forms/ibutton/jquery.ibutton.css') }}" type="text/css" rel="stylesheet" />
     
     <!-- Important plugins put in all pages -->
-    <script type="text/javascript" src="{{ asset('/js/jquery/1.7.2/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery/1.7.2/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/bootstrap/bootstrap.js') }}"></script>  
     <script type="text/javascript" src="{{ asset('js/jquery.cookie.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/jquery.mousewheel.js') }}"></script>
@@ -111,17 +112,20 @@
     <script type="text/javascript" src="{{ asset('plugins/forms/tiny_mce/jquery.tinymce.js')}}"></script>
     <script type="text/javascript" src="{{ asset('plugins/forms/smartWizzard/jquery.smartWizard-2.0.min.js')}}"></script>
 
+    <script type="text/javascript" src="{{ asset('plugins/forms/validate/jquery.validate.min.js')}}"></script>
     <!-- Fix plugins -->
     <script type="text/javascript" src="{{ asset('plugins/fix/ios-fix/ios-orientationchange-fix.js') }}"></script>
 
     <!-- Important Place before main.js  -->
     <script type="text/javascript" src="{{ asset('js/jquery/1.9.2/jquery-ui.min.js')}}"></script>
+
     <script type="text/javascript" src="{{ asset('plugins/fix/touch-punch/jquery.ui.touch-punch.min.js') }}"></script><!-- Unable touch for JQueryUI -->
 
     <!-- Init plugins -->
     <script type="text/javascript" src="{{ asset('js/main.js') }}"></script><!-- Core js functions -->
     <script type="text/javascript" src="{{ asset('js/empty.js') }}"></script><!-- Init plugins only for page -->
     <script type="text/javascript" src="{{ asset('js/forms.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/form-validation.js') }}"></script>
 
 
 

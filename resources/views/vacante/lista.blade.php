@@ -99,6 +99,7 @@ $(document).ready(function(){
 				
 						<th class="first">Titulo</th>
 						<th class="first">Descripcion</th>
+						<th class="first">Nº de Exámenes</th>
 						<th class="first">Estado</th>
 						
 							@if( ($tip === 'adm') or ($tip === 'pro') )
@@ -118,6 +119,7 @@ $(document).ready(function(){
 						<td width="200px">{{ $vacante->titulo_v }}</td>
 				
 						<td>{{ $vacante->descripcion_v }}</td>
+						<td>{{ $vacante->nro_examenes_v }}</td>
 						<td width="2px">
 							<?php $est=$vacante->estado_v; 
 								  $cd=$vacante->cod_v;

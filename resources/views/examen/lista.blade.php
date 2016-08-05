@@ -136,9 +136,12 @@ $(document).ready(function(){
 							<a href="/examen/ver_examen/{{$examen->cod_e}}" title="Ver">
 								Mod
 							</a>
+
+							@if(($examen->ver_edicion_habilitado()) === 0)
 							<a href="/examen/editar/{{$examen->cod_e}}" title="Editar">
 								<img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="edit" />
 							</a>
+							@endif
 							<a href="/examen/editar_reutilizar/{{$examen->cod_e}}" title="Crear un nuevo exámen">
 								N
 							</a>

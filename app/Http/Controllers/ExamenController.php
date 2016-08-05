@@ -671,4 +671,6 @@ class ExamenController extends Controller
         return view('examen.ver_can', $parametros);
     }
 
+   
+
 }

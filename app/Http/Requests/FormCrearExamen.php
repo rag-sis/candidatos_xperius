@@ -28,7 +28,7 @@ class FormCrearExamen extends Request
         if($this->route()->uri() === 'examen/almacenar')
            
         return [
-            'titulo_e' => 'required|alpha_num',
+            'titulo_e' => 'required|regex:/(^[A-Za-z0-9 ]+$)+/', // letras , numeros y espacios
             'tiempo_minutos_e'=>'required|integer',
             'num_preguntas_e' => 'required|integer',
             

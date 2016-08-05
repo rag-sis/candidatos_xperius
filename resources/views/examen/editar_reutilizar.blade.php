@@ -30,7 +30,7 @@
 		<div class="panel-heading">
 			<h4>Crear Nuevo Exámen </h4>
 		</div>
-		{!! Form::model($examen, ['url' => '/examen/guardar_nuevo/' . $examen->cod_e , 'files' => true]) !!}
+		{!! Form::model($examen, ['url' => '/examen/guardar_nuevo/' . $examen->cod_e ,'id' => 'form-examen', 'files' => true]) !!}
 		@include('examen.formulario_editar_reutilizar')			
 		{!! Form::close() !!}
 	</div>

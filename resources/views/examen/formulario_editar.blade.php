@@ -77,6 +77,9 @@
                                     {!! Form::label('num_preguntas_e', 'N° Preguntas (*)', ['class' => 'control-label']) !!}
                                     {!! Form::text('num_preguntas_e', null, ['class' => 'form-control','readonly'],['id' => 'num_preguntas_e'],['readonly'=>'true']) !!}
                                     
+                                    {!! Form::label('suma_puntajes', 'Suma de Puntajes (*)', ['class' => 'control-label']) !!}
+                                    {!! Form::text('suma_puntajes', 0, ['class' => 'form-control','readonly'],['id' => 'suma_puntajes'],['readonly'=>'true']) !!}
+                                    
                                     {!! csrf_field() !!}
                                     
                                     <!--

@@ -73,6 +73,75 @@ class CandidatoController extends Controller
 
     }
 
+    public function ver_examen_finalizado($cal_e,$exa){
+
+        
+        $examen = $this->getExamen($exa);
+        $cal_ex = $this->getCalificacionExa($cal_e);
+        $cod_v=$cal_ex->postulacion->vacante->cod_v;
+
+
+        $parametros = ['examen' => $examen,'cal_e'=>$cal_e,'cal_exa'=>$cal_ex];
+        return view('candidato.ver_examen_terminado',$parametros);  
+
+    }
+    public function getCalificacionExa($id){
+        $cal_exa = \App\CalificacionExamen::where('cod_cae', $id)
+                ->first();
+        
+        return $cal_exa;
+    }
+
+    public function calificacion_pregunta($cod_cae,$id_pregunta){
+
+      $cal_pre = \App\CalificacionPregunta::where('cod_cae', $cod_cae)
+                                          ->where('cod_p',$id_pregunta)
+                                          ->where('estado_terminado_cap',1)
+                                          ->first();
+      if($cal_pre === null)
+            abort(500);
+        else return $cal_pre;
+        
+        
+
+    }
+    public function respuesta_correcta_fv($id_pregunta){
+      $res=\App\Respuesta::where('cod_p',$id_pregunta)
+                            ->where('result_r','correcto')
+                            ->first();
+      if($res === null)
+            abort(500);
+        else return $res;
+
+
+    }
+
+    public function respuesta_opcion_llenado($cod_cae,$id_pregunta){
+        $reg_r = \App\RegistroRespuesta::where('cod_cae', $cod_cae)
+                                          ->where('cod_p',$id_pregunta)
+                                          ->first();
+      if($reg_r === null)
+            return 'NULL';
+        else return $reg_r;
+    }
+    public function respuesta_opcion_simple($cod_cae,$id_pregunta){
+        $reg_r = \App\RegistroRespuesta::where('cod_cae', $cod_cae)
+                                          ->where('cod_p',$id_pregunta)
+                                          ->first();
+      if($reg_r === null)
+            return 'NULL';
+        else return $reg_r;
+    }
+    public function respuesta_opcion_multiple($cod_cae,$id_pregunta){
+        $reg_r = \App\RegistroRespuesta::where('cod_cae', $cod_cae)
+                                          ->where('cod_p',$id_pregunta)
+                                          ->get();
+      if($reg_r === null)
+            return 'NULL';
+        else return $reg_r;
+    }
+
+
     public function rendir_examen(Request $peticion){
 
             $exa=(int)($peticion['exa']);
@@ -217,12 +286,14 @@ class CandidatoController extends Controller
                                           'estado_terminado_cap'=>1,
                               ]);
                              //Guardamos el registro de la respuesta Respondida
-                             \App\RegistroRespuesta::create([
+                            
+                            /* \App\RegistroRespuesta::create([
                                           'cod_cae'=>$cod_cal_ex, 
                                           'cod_p'=>$cod_p,
                                           'cod_r'=>$response_ok_val_cod,  
                                           
                               ]);
+                              */
                             }
                       }else{
 

@@ -23,4 +23,18 @@ class Examen extends Model
     public function scopeBuscar($query, $titulo_e){
         return $query->where('titulo_e', 'ilike', "%$titulo_e%");
     }
+
+    public function ver_edicion_habilitado(){
+
+        $lista_a=\App\CalificacionExamen::select(\DB::raw('count(*) as cant'))
+                                        ->where('cod_e',$this->cod_e)
+                                        ->get();
+        $cant=(int)($lista_a[0]->cant); 
+        if($cant === 0){
+            return 0;
+        }else{
+            return 1;
+        }
+        
+    }
 }

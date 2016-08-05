@@ -86,6 +86,8 @@ Route::get('/examen/ver/{id}','ExamenController@ver');
 Route::get('/examen/ver_examen/{id}','ExamenController@ver_examen');
 
 Route::get('/asignacion_examen/asignar/{id}/{titulo}','AsignacionExamenController@asignar');
+Route::get('/desasignacion_examen/desasignar/{id_e}/{cod_v}','AsignacionExamenController@desasignar_e');
+
 Route::post('/asignacion_examen/asignar_e','AsignacionExamenController@asignar_e');
 Route::get('/registrar_pwd/{id}','LoginTempController@registrar_pwd');
 
@@ -101,3 +103,24 @@ Route::get('/examen/calificaciones_pendientes','CalificacionExamenController@cal
 Route::get('/examen/calificar/{cod_cae}','CalificacionExamenController@calificar_pendientes');
 
 Route::post('/examen/calificar','CalificacionExamenController@calificar_examen');
+
+Route::get('/resultados/lista','PostulacionController@lista_vacantes');
+Route::get('/resultados/examenes/{id}','PostulacionController@resultados_examenes');
+Route::get('/postulacion/lista','PostulacionController@lista');
+Route::get('/entrevista/formulario_crear/{id}','PostulacionController@crear');
+
+Route::post('/entrevista/almacenar','EntrevistaController@almacenar');
+Route::get('/entrevista/lista','EntrevistaController@lista');
+
+Route::get('/candidato/ver_examen_terminado/{cal_e}/{exa}','CandidatoController@ver_examen_finalizado');
+
+Route::get('/calificaciones/pregunta/{cod_cae}/{id_pregunta}','CandidatoController@calificacion_pregunta');
+
+Route::get('/respuesta_correcta_fv/{id_pregunta}','CandidatoController@respuesta_correcta_fv');
+Route::get('/respuesta_opcion_llenado/{cod_cae}/{id_pregunta}','CandidatoController@respuesta_opcion_llenado');
+
+Route::get('/respuesta_opcion_simple/{cod_cae}/{id_pregunta}','CandidatoController@respuesta_opcion_simple');
+
+Route::get('/respuesta_opcion_multiple/{cod_cae}/{id_pregunta}','CandidatoController@respuesta_opcion_multiple');
+
+Route::get('/examen/lista_terminados/{id}','CalificacionExamenController@lista_terminados');

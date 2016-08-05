@@ -33,7 +33,7 @@
 			<h4>Crear Examén</h4>
 		</div>
         <div class="well scroll" style="overflow:auto; margin-top:10px;">
-		{!! Form::open(['url' => '/examen/almacenar', 'files' => true]) !!}
+		{!! Form::open(['url' => '/examen/almacenar','id' => 'form-examen', 'files' => true]) !!}
 		@include('examen.formulario')
 		{!! Form::close() !!}
         </div>

@@ -113,7 +113,10 @@ class VacanteController extends Controller
 
      public function ver_informacion_vacante($id){
         $vacante = $this->getVacante($id);
-        $parametros = ['vacante' => $vacante];
+        $asig=\App\AsignacionExamen::where('cod_v',$id)
+                                    ->get();
+        $parametros = ['vacante' => $vacante,'asignaciones'=>$asig];
+
         return view('vacante.ver_informacion_vacante',$parametros);
     }
     

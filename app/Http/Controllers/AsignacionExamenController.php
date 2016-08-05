@@ -149,6 +149,22 @@ class AsignacionExamenController extends Controller
 
     }
 
+    public function desasignar_e($cod_e,$cod_v){
+        $vac=$this->getVacante($cod_v);
+        $asig=AsignacionExamen::where('cod_v',$cod_v)
+                                ->where('cod_e',$cod_e)
+                                ->first();
+        $cod_ae=$asig->cod_ae;
+        $nro_act=(int)($vac->nro_examenes_v);
+        $nro_fin=$nro_act-1;
+        $vac->nro_examenes_v=$nro_fin;
+        $vac->save();
+        AsignacionExamen::destroy($cod_ae);
+
+         return redirect('/vacante/lista/');
+
+    }
+
     public function getVacante($id){
         $vacante = Vacante::where('cod_v', $id)
             ->first();

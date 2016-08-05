@@ -115,6 +115,19 @@ class CalificacionExamenController extends Controller
         else return $cal_preg;
         
     }
-    
+     public function lista_terminados($id){
+
+        $lista = CalificacionExamen::where('estado_terminado_cae', 1)
+                        ->where('cod_po',$id)
+                        ->get();
+         $pos = \App\Postulacion::where('cod_po',$id)
+                                  ->first();
+       
+             
+        $parametros = ['cal_examenes' => $lista,'postulacion'=>$pos];
+        return view('reporte.lista_examenes', $parametros);
+
+
+    }
 
 }

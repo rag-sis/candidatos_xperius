@@ -34,4 +34,5 @@ class AsignacionExamen extends Model
         
         return $cal_exa;
     }
+
 }

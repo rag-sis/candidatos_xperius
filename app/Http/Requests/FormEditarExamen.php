@@ -28,7 +28,7 @@ class FormEditarExamen extends Request
         if($this->route()->uri() === 'examen/actualizar')
            
         return [
-            'titulo_e' => 'required|alpha_num',
+            'titulo_e' => 'required|regex:/(^[A-Za-z0-9 ]+$)+/',
             'tiempo_minutos_e'=>'required|integer',
             'num_preguntas_e' => 'required|integer',
             

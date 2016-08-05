@@ -1,5 +1,6 @@
 
-$(document).ready(function(){
+$(document).on('ready',function(){
+//$(document).ready(function(){
        // $('#num_preguntas_e').val('0');
 
     //var id_ex=document.getElementById("cod_e");
@@ -55,7 +56,62 @@ $(document).ready(function(){
         peso_pregunta.className="right inp2";
         peso_pregunta.value=puntaje_pre;
         div_peso.appendChild(text_peso);
-        div_peso.appendChild(peso_pregunta); 
+        div_peso.appendChild(peso_pregunta);
+
+        //accion validar nota
+        //$(peso_pregunta).change("click", function(){
+        $('#suma_puntajes').val(100);
+        $(peso_pregunta).on('change',function(){
+
+                    //var num1= parseInt($('#i1').val());
+                    //var num2= parseInt($('#i2').val());
+                    //var num3= parseInt($('#i3').val());
+                    //alert(cont_pre);
+                    var sum=0;
+                    var sum_nt=0;
+                    console.log(cont_pre);
+                    for (var i = 1; i <= cont_pre; i++) {
+                        id_peso='#id_peso_preg_'+i;
+                        
+                        console.log(($(id_peso).val()));
+                        if(typeof($(id_peso).val()) != 'undefined'){
+                            
+                            sum=sum+parseInt($(id_peso).val());
+
+                            
+                        }else{
+
+                        }
+                        
+                    }
+                    $('#suma_puntajes').val(sum);
+                    sum_nt_a=sum-parseInt(peso_pregunta.value);
+
+
+                    //var suma=  num1 + num2 + num3 ;
+                    sum_nt=100-(sum_nt_a);
+
+
+                    if(sum>100){
+                        $(peso_pregunta).val('0');
+                        $('#suma_puntajes').val(sum_nt_a);
+                         //$(peso_pregunta).attr("placeholder", "Valor menor o igual a: "+sum_nt);
+                         //$('#pre1').append(" ingrese un valor menor o igual a :"+suma_nt);  
+                         if(sum_nt < 0){
+                                alert('Error la suma de puntajes no debe sobrepasar 100');
+                            }else{
+                                alert('Error el puntaje tiene que ser menor que 100,\n  Ingrese un valor menor o igual a :'+sum_nt);        
+                            }
+                        
+                    }else{
+
+                    }
+
+                        //alert(suma);
+                });
+
+
+        //FIN ACCION VALIDAR NOTA 
 
         var elemento_select = document.createElement('select');
         elemento_select.name="n_preg"+cont_pre_a;
@@ -85,7 +141,7 @@ $(document).ready(function(){
         });
 
         var option = document.createElement("option");
-        option.value = "opc0";
+        option.value = "";
         option.text = "Seleccione el tipo de pregunta";
         elemento_select.appendChild(option);
         var option = document.createElement("option");
@@ -784,8 +840,64 @@ $(document).ready(function(){
         peso_pregunta.name="peso_preg_"+cont_pre;
         peso_pregunta.id="id_peso_preg_"+cont_pre;
         peso_pregunta.className="right inp2";
+        peso_pregunta.value=0;
         div_peso.appendChild(text_peso);
-        div_peso.appendChild(peso_pregunta); 
+        div_peso.appendChild(peso_pregunta);
+
+        //accion validar nota
+        //$(peso_pregunta).change("click", function(){
+        $(peso_pregunta).on('change',function(){
+
+                    //var num1= parseInt($('#i1').val());
+                    //var num2= parseInt($('#i2').val());
+                    //var num3= parseInt($('#i3').val());
+                    //alert(cont_pre);
+                    var sum=0;
+                    var sum_nt=0;
+                    console.log(cont_pre);
+                    for (var i = 1; i <= cont_pre; i++) {
+                        id_peso='#id_peso_preg_'+i;
+                        
+                        console.log(($(id_peso).val()));
+                        if(typeof($(id_peso).val()) != 'undefined'){
+                            
+                            sum=sum+parseInt($(id_peso).val());
+
+                            
+                        }else{
+
+                        }
+                        
+                    }
+                    $('#suma_puntajes').val(sum);
+                    sum_nt_a=sum-parseInt(peso_pregunta.value);
+
+
+                    //var suma=  num1 + num2 + num3 ;
+                    sum_nt=100-(sum_nt_a);
+
+
+                    if(sum>100){
+                        $(peso_pregunta).val('0');
+                        $('#suma_puntajes').val(sum_nt_a);
+                         //$(peso_pregunta).attr("placeholder", "Valor menor o igual a: "+sum_nt);
+                         //$('#pre1').append(" ingrese un valor menor o igual a :"+suma_nt);  
+                         if(sum_nt < 0){
+                                alert('Error la suma de puntajes no debe sobrepasar 100');
+                            }else{
+                                alert('Error el puntaje tiene que ser menor que 100,\n  Ingrese un valor menor o igual a :'+sum_nt);        
+                            }
+                        
+                    }else{
+
+                    }
+
+                        //alert(suma);
+                });
+
+
+        //FIN ACCION VALIDAR NOTA
+
 
     	var elemento_select = document.createElement('select');
 		elemento_select.name="n_preg"+cont_pre;
@@ -815,7 +927,7 @@ $(document).ready(function(){
         });
 
 		var option = document.createElement("option");
-    	option.value = "opc0";
+    	option.value = "";
     	option.text = "Seleccione el tipo de pregunta";
     	elemento_select.appendChild(option);
     	var option = document.createElement("option");

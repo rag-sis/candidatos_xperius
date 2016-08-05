@@ -30,7 +30,7 @@
 		<div class="panel-heading">
 			<h4>Editar Examén</h4>
 		</div>
-		{!! Form::model($examen, ['url' => '/examen/actualizar/' . $examen->cod_e , 'files' => true]) !!}
+		{!! Form::model($examen, ['url' => '/examen/actualizar/' . $examen->cod_e , 'id' => 'form-examen', 'files' => true]) !!}
 		@include('examen.formulario_editar')			
 		{!! Form::close() !!}
 	</div>
