@@ -15,15 +15,15 @@
                                     <span class="icon16 icomoon-icon-arrow-right-2"></span>
                                 </span>
                             </li>
-                            <li class="active">Exámenes <a class="float-right" href="/examen/lista" title="Editar">
-            <img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="edit" />
-            Atras
-        </a></li>
+                            <li class="active">Exámenes </li>
                         </ul>
 
 </div><!-- End .heading-->
 <div>
-    
+    <a class="float-right "  href="/examen/lista" title="Editar">
+        <span class="icomoon-icon-undo-2 green"></span>
+            Atras
+        </a>
 </div>
 <div class="col-lg-8 col-md-8 col-sm-10 col-lg-offset-2 col-md-offset-2 col-sm-offset-1">
 	<div class="panel panel-primary">

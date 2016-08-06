@@ -20,7 +20,7 @@ $(document).ready(function(){
 </head>
 <div class="heading">
 
-                        <h3>Vacantes</h3>                    
+                        <h3>Calificaciones Pendientes</h3>                    
 
                         
                         
@@ -34,7 +34,7 @@ $(document).ready(function(){
                                     <span class="icon16 icomoon-icon-arrow-right-2"></span>
                                 </span>
                             </li>
-                            <li class="active">Vacantes</li>
+                            <li class="active">Calificaciones pendientes</li>
                         </ul>
 
                     </div><!-- End .heading-->
@@ -63,34 +63,22 @@ $(document).ready(function(){
 				$tip=Auth::user()->tipo;
 				?>
 				@if( ($tip === 'adm') or ($tip === 'pro') )
-				<div class="top-bar">
-						<button class="boton_nuevo" onClick="boton_nuevo_vacante()" type="button"><img src="{{ asset('img/add-icon.gif') }}" width="16" height="16"> Nuevo </button>
 				
-						</div><br />
 				@endif
 			
 		  
 		  <form class="navbar navbar-form navbar-right espacio_contenido" action="/vacante/lista">
 					<div class="input-group">
-						<input type="text" name="titulo_v" class="form-control" placeholder="Titulo" />
+						<input type="text" name="titulo_v" class="form-control" placeholder="Nombre" />
 						<span class="input-group-btn">
 							<button type="submit" class="btn btn-primary">Buscar</button>
 						</span>
 
-						<a href="/lista_v_pdf" class="float-right">
-						<span class="box1">
-                        <span aria-hidden="true" class="icomoon-icon-file-pdf"></span>
-                        &nbsp;Descargar lista
-                        </span>
-                        </a>
+						
 					</div>
 			</form>
-
+<br>
 				<div class="table-responsive">
-
-				<img src="{{asset('img/bg-th-left.gif')}}" width="8" height="7" alt="" class="left" />
-				<img src="{{asset('img/bg-th-right.gif')}}" width="7" height="7" alt="" class="right" />
-				<!--class="table table-bordered table-hover table-condensed"-->
 
 
 				<table class="table table-bordered table-hover table-condensed" width="80%"  cellpadding="0" cellspacing="0" >
@@ -99,7 +87,7 @@ $(document).ready(function(){
 				
 						<th class="first">Nombre del Candidato</th>
 						<th class="first">Vacante</th>
-						<th class="first">Exámen</th>
+						<th class="first">Examen</th>
 						
 							@if( ($tip === 'adm') or ($tip === 'pro') )
 									<th class="last">Acciones</th>
@@ -124,8 +112,9 @@ $(document).ready(function(){
 							@if( ($tip === 'adm') or ($tip === 'pro') )
 							<td class="last" width="100px">
 							
-							<a href="/examen/calificar/{{$cali->cod_cae}}" title="Editar">
-								<img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="edit" />
+							<a href="/examen/calificar/{{$cali->cod_cae}}" title="Calificar Exámen">
+								
+								<span class="icomoon-icon-checkmark-3"></span>
 							</a>
 								
 							
@@ -136,7 +125,7 @@ $(document).ready(function(){
 					</tr>
 					@empty
 				<tr class="text-center">
-					<td colspan="5">No exiten exámenes pendientes para revisar</td>
+					<td colspan="4">No exiten exámenes pendientes para revisar</td>
 				</tr>
 				@endforelse
 					</tbody>

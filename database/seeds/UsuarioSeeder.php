@@ -14,13 +14,13 @@ class UsuarioSeeder extends Seeder
     {
         //
         Usuario::create([
-        	'nom_u' => 'Guido Alcón Llusco',
-        	'email_u' => 'guedux@gmail.com',
+        	'nom_u' => 'Admin Xperius',
+        	'email_u' => 'xperius.srl@gmail.com',
             'direccion_u'=>'dashdkjashdk',
             'telefono_u'=>'2354234',
             'celular_u'=>'23542334',
-        	'usuario' => 'guido',
-        	'password' => '123456',
+        	'usuario' => 'admin',
+        	'password' => 'proyecto2016',
             'tipo' => 'adm',
         	]);
         Usuario::create([

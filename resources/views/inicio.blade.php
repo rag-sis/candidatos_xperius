@@ -206,52 +206,23 @@
 
         </div>
 		
-		<div class="float-right"> 
+		<div class="float-right dere"> 
 
 			<ul id="status-infos">
-            <li class="spaced">Usuario: <strong>{{ Auth::user()->usuario }}</strong></li>
-            <!--
-            <li>
-                
-                <button class="boton_nuevo" title="5 messages" onClick="boton_nuevo_click()" type="button"> <img src="{{asset('images/icons/fugue/mail.png')}}" width="16" height="16"> 5 </button>
-                <div id="messages-list" class="result-block">
-                    <span class="arrow"><span></span></span>
-                    
-                    <ul class="small-files-list icon-mail">
-                        <li>
-                            <a href="#"><strong>10:15</strong> Please update...<br>
-                            <small>From: System</small></a>
-                        </li>
-                        
-                    </ul>
-                    
-                    <p id="messages-info" class="result-info"><a href="#">Go to inbox &raquo;</a></p>
-                </div>
-            </li>
-            <li>
-                
-                <button class="boton_nuevo" title="25 comments" onClick="boton_nuevo_click()" type="button"><img src="{{asset('images/icons/fugue/balloon.png')}}" width="16" height="16"> 25 </button>
-                <div id="comments-list" class="result-block">
-                    <span class="arrow"><span></span></span>
-                    
-                    <ul class="small-files-list icon-comment">
-                        <li>
-                            <a href="#"><strong>Jane</strong>: I don't think so<br>
-                            <small>On <strong>Post title</strong></small></a>
-                        </li>
-                        
-                    </ul>
-                    
-                    <p id="comments-info" class="result-info"><a href="#">Manage comments &raquo;</a></p>
-                </div>
-            </li>-->
+            <li class="spaced span2">
+                @if(Auth::user()->tipo == 'adm' ) <b>Administrador</b> @endif
+                @if(Auth::user()->tipo == 'pro' ) <b>Evaluador</b> @endif
+                @if(Auth::user()->tipo == 'can' ) <b>Candidato</b> @endif
+                : <strong>{{ Auth::user()->usuario }}</strong></li>
+           
             <li>
 
                 
-                <button class="boton_nuevo" title="Logout" onClick="cerrar_sesion()" type="button"><img src="{{ asset('img/hr.gif') }}" width="16" height="16"> Cerrar Sesión </button>
+                <!--<button class="boton_nuevo" title="Logout" onClick="cerrar_sesion()" type="button"><img src="{{ asset('img/hr.gif') }}" width="16" height="16"> Cerrar Sesión </button>-->
+                <a title="Cerrar Sesión" onClick="cerrar_sesion()"><b>Cerrar Sesión</b></a>
             </li>
         </ul>
-        <h6 class="float-right">Versión 1.08</H6>
+        
 		</div>
 
 			
@@ -288,7 +259,13 @@
                 <!--Body content-->
                 <div id="content" class="clearfix">
                     <!-- Build page from here: -->
-                   
+                    <center>
+<br>                    <!--
+                        <h2 class="slogan">Bienvenido al Sistema de Reclutamiento</h2>
+                        <h2 class=" slogan">y selección de Candidatos</h2>
+                        <img width="500px" heigth="200px" src="{{ asset('/img/xperius.jpg') }}">
+                      -->
+                      </center>
                    @yield('contenido')
 
 					<!-- Page end here -->

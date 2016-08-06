@@ -76,14 +76,8 @@
 						<th class="first">Nombre</th>
 						<th class="first">Vacante</th>
 						<th class="first">Fecha</th>
-						<th class="first">Evaluador</th>
 						<th class="first">Estado</th>
-						
-						
-							@if( ($tip === 'adm') or ($tip === 'pro') )
-									<th class="last">Acciones</th>
-								
-							@endif
+						<th class="last">Acciones</th>
 							
 						
 						
@@ -98,23 +92,17 @@
 				
 						<td>{{ $entrevista->postulacion->vacante->titulo_v }}</td>
 						<td>{{ $entrevista->fecha_en }}</td>
-						<td>{{ $entrevista->evaluador->nom_u }}</td>
 						<td>{{ $entrevista->estado_en() }}</td>
 							
 							
-							@if( ($tip === 'adm') or ($tip === 'pro') )
+							
 							<td class="last" width="100px">
 							<a class="boton" href="#" title="Ver" data-toggle="modal" data-target="#ver_datos" onclick="mostrar_datos_usuario('')"> 
 								<span class="icomoon-icon-grid-view-2"></span>
 							</a>
-							<a href="" title="Reprogramar Entrevista">
-								<span class="icomoon-icon-calendar-2"></span>
-							</a>
-							<a class="eliminar" title="Eliminar" href="">
-								<span class=" icon-remove"></span>
-								</a>
+							
 							</td>
-							@endif
+							
 							
 								
 					</tr>

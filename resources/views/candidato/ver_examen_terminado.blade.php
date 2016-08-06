@@ -16,7 +16,7 @@
 </head>
 <div class="heading">
 
-                        <h3>Exámenes</h3>                    
+                        <h3>Resultado de Exámen <span class=" icomoon-icon-arrow-right blue">{{ $examen->titulo_e}}</span></h3>                    
                         
                         <ul class="breadcrumb">
                             <li>Tu estas en:</li>
@@ -29,13 +29,13 @@
                                 </span>
                             </li>
 
-                            <li class="active">Exámenes </li>
+                            <li class="active">Resultado de Exámenes </li>
                         </ul>
 
 </div><!-- End .heading-->
 <div>
     <a class="float-right" href="/resultados/examenes/{{$cal_exa->postulacion->vacante->cod_v}}" title="Ir Atras">
-            <img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="Ir atras" />
+            <span class="icomoon-icon-undo-2 green"></span>
             Atras
         </a>
 </div>

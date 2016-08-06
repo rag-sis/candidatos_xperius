@@ -24,8 +24,8 @@
 
 </div><!-- End .heading-->
 <div>
-    <a class="float-right" href="/vacante/lista" title="Editar">
-            <img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="edit" />
+    <a class="float-right" href="/vacante/lista" title="Atras">
+            <span class="icomoon-icon-undo-2 green"></span>
             Atras
         </a>
 </div>

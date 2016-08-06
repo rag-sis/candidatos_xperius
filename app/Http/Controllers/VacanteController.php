@@ -79,6 +79,18 @@ class VacanteController extends Controller
         Session::flash('menu','vacante');
         return view('vacante.lista', $parametros);
     }
+    public function lista_vacantes(Request $peticion){
+        $tipo_u=Auth::user()->tipo;
+        Session::flash('tipo_u', $tipo_u);
+        $titulo_v = $peticion->input('titulo_v');
+        $lista = Vacante::buscar($titulo_v)
+            ->where('estado_v',1)
+            ->orderBy('cod_v')
+            ->paginate(10);
+        $parametros = ['vacantes' => $lista];
+        Session::flash('menu','vacante');
+        return view('vacante.lista_v', $parametros);
+    }
 
      public function listapdf(){
         $lista= Vacante::all();

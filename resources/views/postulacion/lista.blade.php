@@ -34,7 +34,7 @@ $(document).ready(function(){
                                     <span class="icon16 icomoon-icon-arrow-right-2"></span>
                                 </span>
                             </li>
-                            <li class="active">Vacantes</li>
+                            <li class="active">Postulaciones</li>
                         </ul>
 
                     </div><!-- End .heading-->
@@ -69,20 +69,15 @@ $(document).ready(function(){
 		  
 		  <form class="navbar navbar-form navbar-right espacio_contenido" action="/vacante/lista">
 					<div class="input-group">
-						<input type="text" name="titulo_v" class="form-control" placeholder="Titulo" />
+						<input type="text" name="titulo_v" class="form-control" placeholder="Nombre" />
 						<span class="input-group-btn">
 							<button type="submit" class="btn btn-primary">Buscar</button>
 						</span>
 
 					</div>
 			</form>
-
+<br>
 				<div class="table-responsive">
-
-				<img src="{{asset('img/bg-th-left.gif')}}" width="8" height="7" alt="" class="left" />
-				<img src="{{asset('img/bg-th-right.gif')}}" width="7" height="7" alt="" class="right" />
-				<!--class="table table-bordered table-hover table-condensed"-->
-
 
 				<table class="table table-bordered table-hover table-condensed" width="80%"  cellpadding="0" cellspacing="0" >
 					<thead>
@@ -90,8 +85,8 @@ $(document).ready(function(){
 				
 						<th class="first">Nombre</th>
 						<th class="first">Vacante</th>
-						<th class="first">Nro Exámenes terminados</th>
-						<th class="first">Nro Exámenes pendientes</th>
+						<th class="first">Exámenes terminados</th>
+						<th class="first">Exámenes pendientes</th>
 						<th class="first">Puntaje Total</th>
 						
 							@if( ($tip === 'adm') or ($tip === 'pro') )
@@ -117,7 +112,7 @@ $(document).ready(function(){
 							
 							
 							@if( ($tip === 'adm') or ($tip === 'pro') )
-							<td class="last">
+							<td class="last" width="100px">
 										{{$pos->getEstado()}}				
 							</td>
 							@endif

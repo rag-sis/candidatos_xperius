@@ -61,7 +61,7 @@
 	</div>-->
 	<div class="form-group">
 		{!! Form::label('descripcion_v', 'Descripción', ['class' => 'control-label']) !!}
-	{{ Form::textarea('descripcion_v',null, ['class' => 'form-control']) }}
+	{{ Form::textarea('descripcion_v',null, ['class' => 'form-control area_text']) }}
 	</div>
 	@if($errors->has('estado_v'))
 	<div class="alert alert-danger">

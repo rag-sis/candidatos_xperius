@@ -46,6 +46,7 @@ class UsuarioController extends Controller
     public function lista(Request $peticion){
         $nombre = $peticion->input('nombre');
         $lista = Usuario::where('activo', 1)
+            ->where('tipo','<>','adm')
             ->buscar($nombre)
             ->orderBy('cod_u')
             ->paginate(10);
@@ -81,7 +82,7 @@ class UsuarioController extends Controller
             $val_t=$peticion['telefono_u'];
           }
           if($peticion['celular_u'] != null){
-            $val_t=$peticion['celular_u'];
+            $val_c=$peticion['celular_u'];
           }
             Usuario::create([
                 'nom_u'=>$peticion['nom_u'], 

@@ -1,15 +1,5 @@
 @extends('inicio')
 @section('contenido')
-<?php
-  $valor_v='';
-  $valor_t='';
-?>
-@if(Session::has('vacante_id'))
-      <?php
-        $valor_v=Session::get('vacante_id');
-        $valor_t=Session::get('vacante_titulo');
-      ?>
-@endif
 <head>
 <script type="text/javascript" src="{{ asset('js/script_examen.js') }}"></script>
 <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
@@ -30,7 +20,7 @@ $(document).ready(function(){
 </head>
 <div class="heading">
 
-                        <h3>Vacante <span class=" icomoon-icon-arrow-right blue"></span>Asignación de Exámenes<span class=" icomoon-icon-arrow-right blue"></span><span class="blue">{{$valor_t}}</span></h3>                    
+                        <h3>Examenes</h3>                    
 
                         
                         
@@ -44,7 +34,7 @@ $(document).ready(function(){
                                     <span class="icon16 icomoon-icon-arrow-right-2"></span>
                                 </span>
                             </li>
-                            <li class="active">Asignación de Exámenes</li>
+                            <li class="active">examenes</li>
                         </ul>
 
                     </div><!-- End .heading-->
@@ -77,103 +67,84 @@ $(document).ready(function(){
 			<?php 
 				$tip=Auth::user()->tipo;
 				?>
+				@if( ($tip === 'adm') or ($tip === 'pro') )
+				<div class="top-bar">
+						<button class="boton_nuevo" onClick="boton_nuevo_examen()" type="button"><img src="{{ asset('img/add-icon.gif') }}" width="16" height="16"> Nuevo </button>
 				
-			<div>
-				<a class="float-right" href="/vacante/lista" title="Editar">
-				<span class="icomoon-icon-undo-2 green"></span>
-            	Atras
-        		</a>
-			</div>
-		  <div>
-		  	
-		  	
-		  	
-		  </div>
-
-
+						</div><br />
+				@endif
+			
 		  
-
-		  <form class="navbar navbar-form navbar-right espacio_contenido" action="/asignacion_examen/asignar/{{$valor_v}}/{{$valor_t}}">
+		  <form class="navbar navbar-form navbar-right espacio_contenido" action="/examen/lista">
 					<div class="input-group">
 						<input type="text" name="titulo_e" class="form-control" placeholder="Titulo" />
 						<span class="input-group-btn">
 							<button type="submit" class="btn btn-primary">Buscar</button>
 						</span>
 
+						<a href="/lista_e_pdf" class="float-right">
+						<span class="box1">
+                        <span aria-hidden="true" class="icomoon-icon-file-pdf"></span>
+                        &nbsp;Descargar lista
+                        </span>
+                        </a>
 					</div>
 			</form>
-			<form class="navbar navbar-form navbar-right espacio_contenido" method="post" action="/asignacion_examen/asignar_e">
-				<div class="input-group">
-						<input type="hidden" name="vacante_id" value="{{$valor_v}}" />
-						<input type="hidden" name="vacante_ti" value="{{$valor_t}}" />
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <button class="float-right btn btn-primary"  type="submit"> Asignar Exámenes </button>
-
-							
-					</div>
-					<br />
-					<br />
-					<br />
+<br>
 				<div class="table-responsive">
 
-				<!--class="table table-bordered table-hover table-condensed"-->
-				
 
 				<table class="table table-bordered table-hover table-condensed" width="80%"  cellpadding="0" cellspacing="0" >
 					<thead>
 					<tr>
 				
-						<th class="first">Título</th>
-						<th class="first">Descripción</th>
-						<th class="first">Puntuación</th>
+						<th class="first">Titulo</th>
 						
+						<th class="first">Tiempo</th>
+						<th class="first">N° de preguntas</th>
+						<th class="first">Nota</th>
+						
+							
+									<th class="last" width="120px">Acciones</th>
+								
 							
 						
 						
 					</tr>
 					</thead>
 					<tbody>
-					<?php
-						$i=1;
-					?>	
-					@forelse($examenes as $examen)
-					<!--<form action="/asignacion_examen/asignar_e/" method="get" >-->
+					@forelse($asignaciones as $asig)
+
 					<tr>
 				
-						<td width="200px">{{ $examen->titulo_e }}</td>
-				
-						<td class="alinear_izquierda" >{{ $examen->descripcion_e }}</td>
-						<td width="50px">
-							
-								<input type="hidden" name="examen_id_{{$i}}" value="{{$examen->cod_e}}" />
-								
-								<input class="span1" type="text" name="valor_puntual_{{$i}}"  />
-							
-
-							 	
-						</td>
+						<td width="200px">{{ $asig->examen->titulo_e }}</td>
+						
+						<td>{{ $asig->examen->tiempo_minutos_e }} min.</td>
+						<td>{{ $asig->examen->num_preguntas_e }}</td>
+						<td></td>
 							
 							
-						<?php
-							$i++;
-						?>	
+							<td class="last" width="100px">
+							
+							<a title="Rendir examen" href="">
+								<span class=" entypo-icon-clock"></span>
+							</a>
+							</td>
+							
+							
 								
 					</tr>
-					
 					@empty
 				<tr class="text-center">
 					<td colspan="5">No exiten examenes</td>
 				</tr>
-
 				@endforelse
-				<input type="hidden" name="cantidad_items" value="{{$i=$i-1}}" />
-				</form>
-				</tbody>
+					</tbody>
 				</table>
 				<div id="effect">
 				</div>
 				<div class="select">
-				{!! $examenes->appends(['titulo_e' => Request::input('titulo_e')])->render() !!}
+				
 				</div>
 
 		</div>

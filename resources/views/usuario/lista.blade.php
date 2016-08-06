@@ -36,7 +36,7 @@
 			</div>
 			@endif
 			<div class="top-bar">
-				<button class="boton_nuevo" onClick="boton_nuevo_usuario()" type="button"><img src="{{ asset('img/add-icon.gif') }}" width="16" height="16"> Nuevo </button>
+				<button class="boton_nuevo" onClick="boton_nuevo_usuario()" type="button"><span class="cut-icon-plus-2"></span> Nuevo </button>
 				
 			</div><br />
 		  
@@ -55,10 +55,8 @@
                         </a>
 					</div>
 			</form>
-
+<br>
 			<div class="table-responsive">
-				<img src="{{asset('img/bg-th-left.gif')}}" width="8" height="7" alt="" class="left" />
-				<img src="{{asset('img/bg-th-right.gif')}}" width="7" height="7" alt="" class="right" />
 				<table class="table table-bordered table-hover table-condensed" cellpadding="0" cellspacing="0" >
 					<thead>
 					<tr>
@@ -87,16 +85,27 @@
 							@endif
 							</td>
 						<td class="last">
-							<a class="boton" href="#" data-toggle="modal" data-target="#ver_datos" onclick="mostrar_datos_usuario('{{$usuario->cod_u}}')"> Ver</a>
+
+							<a class="boton" href="#" title="Ver" data-toggle="modal" data-target="#ver_datos" onclick="mostrar_datos_usuario('{{$usuario->cod_u}}')"> 
+								<span class="icomoon-icon-grid-view-2"></span>
+							</a>
+
+							<a href="" title="Asignar Vacante">
+								<span class=" iconic-icon-transfer"></span>
+							</a>
 							<a href="/usuario/editar/{{$usuario->cod_u}}" title="Editar">
-								<img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="edit" />
+								<span class=" icon-pencil"></span>
 							</a>
 							
 								
-							<a class="eliminar" title="eliminar" href="/usuario/eliminar/{{$usuario->cod_u}}">
-								<img src="{{asset('img/hr.gif')}}" width="16" height="16" alt="" />
+							<a class="eliminar" title="Eliminar" href="/usuario/eliminar/{{$usuario->cod_u}}">
+								<span class=" icon-remove"></span>
 								</a>
-						</a>
+
+								
+						
+
+
 							</td>
 								
 					</tr>

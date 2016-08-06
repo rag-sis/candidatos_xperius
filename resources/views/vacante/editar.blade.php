@@ -7,7 +7,7 @@
 </head>
 <div class="heading">
 
-                        <h3>Vacantes</h3>                    
+                        <h3>Vacantes<span class=" icomoon-icon-arrow-right blue"></span>Editar</h3>                    
                         
                         <ul class="breadcrumb">
                             <li>Tu estas en:</li>
@@ -24,15 +24,15 @@
 
 </div><!-- End .heading-->
 <div>
-    <a class="float-right" href="/vacante/lista" title="Editar">
-            <img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="edit" />
-            Atras
-        </a>
+    <a class="float-right" href="/vacante/lista" title="Atras">
+                <span class="icomoon-icon-undo-2 green"></span>
+                Atras
+    </a>
 </div>
 <div class="col-lg-8 col-md-8 col-sm-10 col-lg-offset-2 col-md-offset-2 col-sm-offset-1">
 	<div class="panel panel-primary">
 		<div class="panel-heading">
-			<h4>Editar Vacante</h4>
+			
 		</div>
 		{!! Form::model($vacante, ['url' => '/vacante/actualizar/' . $vacante->cod_v]) !!}
 		@include('vacante.formulario_edt')			

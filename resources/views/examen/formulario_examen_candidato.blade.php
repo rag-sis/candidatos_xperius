@@ -73,9 +73,6 @@
                                     
                                     
                                     <hr />
-                                    <center>
-                                        {!! Form::submit('Terminar Exámen', ['class' => 'btn btn-primary']) !!}
-                                    </center>
                                 </div>
 
                             </div><!-- End .box -->

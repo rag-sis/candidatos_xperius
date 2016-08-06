@@ -118,7 +118,7 @@ class Postulacion extends Model
     public function getInvitado(){
 
         $inv = \App\Entrevista::where('cod_po_en', $this->cod_po)
-            ->where('invitado_en', 1)->first();
+            ->where('estado_en', 1)->first();
         if($inv != null){
             return true;
         }else{

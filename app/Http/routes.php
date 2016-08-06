@@ -50,6 +50,7 @@ Route::get('/lista_usr_pdf', 'UsuarioController@listapdf');
 
 //Rutas para vacantes
 Route::get('/vacante/lista', 'VacanteController@lista');
+Route::get('/vacante/lista_vac', 'VacanteController@lista_vacantes');
 Route::get('/vacante/eliminar/{id}', 'VacanteController@eliminar');
 Route::get('/vacante/crear','VacanteController@crear');
 Route::post('/vacante/almacenar','VacanteController@almacenar');
@@ -73,6 +74,7 @@ Route::get('/invitacion/lista','InvitacionController@lista');
 Route::post('/invitacion/invitar','InvitacionController@enviar_invitacion');
 
 Route::get('/examen/lista','ExamenController@lista');
+Route::get('/examen/lista_ex','ExamenController@lista_ex');//Lista vista candidatos
 Route::get('/examen/crear','ExamenController@crear');
 Route::post('/examen/almacenar','ExamenController@almacenar');
 Route::get('/examen/editar/{id}','ExamenController@editar');
@@ -124,3 +126,4 @@ Route::get('/respuesta_opcion_simple/{cod_cae}/{id_pregunta}','CandidatoControll
 Route::get('/respuesta_opcion_multiple/{cod_cae}/{id_pregunta}','CandidatoController@respuesta_opcion_multiple');
 
 Route::get('/examen/lista_terminados/{id}','CalificacionExamenController@lista_terminados');
+Route::get('/entrevista/lista_en','EntrevistaController@lista_en');

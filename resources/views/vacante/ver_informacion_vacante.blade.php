@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 <head>
 	<meta charset="utf-8">
@@ -37,19 +38,23 @@
 				<table class="table table-bordered">
 					<thead>
 						<tr><th>EXAMENES ASIGNADOS</th>
+							@if(Auth::user()->tipo != 'can')
 							<th>Acciones</th>
+							@endif
 							</tr>
 					</thead>
 					<tbody>
 						@forelse($asignaciones as $asig)
 						<tr>
 						<td>{{$asig->examen->titulo_e}}</td>
+						@if(Auth::user()->tipo != 'can')
 						<td> 
-						
+									
 						@if( $asig->examen->ver_edicion_habilitado() == 0 )
-						<a href="/desasignacion_examen/desasignar/{{$asig->examen->cod_e}}/{{$vacante->cod_v}}">des-asignar</a>
+						<a href="/desasignacion_examen/desasignar/{{$asig->examen->cod_e}}/{{$vacante->cod_v}}">desasignar</a>
 						@endif
 						 </td>
+						 @endif
 						</tr>
 						@empty
 						<tr><td>Sin asignaciones</td><td></td></tr>
@@ -58,9 +63,11 @@
 					</tbody>
 
 				</table>
+				@if(Auth::user()->tipo != 'can')
 				<a href="/asignacion_examen/asignar/{{$vacante->cod_v}}/{{$vacante->titulo_v}}" title="Asignar Exámen">
 								Asignar Nuevos Exámenes
-							</a>
+				</a>
+				@endif
 			</td>
 		</tr>
 		<tr>

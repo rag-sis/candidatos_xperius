@@ -5,7 +5,7 @@
 </head>
 <div class="heading">
 
-                        <h3>Inicio</h3>                    
+                        <h3>Bienvenido al Sistema</h3>                    
                         
                         <ul class="breadcrumb">
                             <li>Tu estas en:</li>

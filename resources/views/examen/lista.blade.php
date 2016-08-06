@@ -20,7 +20,7 @@ $(document).ready(function(){
 </head>
 <div class="heading">
 
-                        <h3>Examenes</h3>                    
+                        <h3>Exámenes</h3>                    
 
                         
                         
@@ -34,7 +34,7 @@ $(document).ready(function(){
                                     <span class="icon16 icomoon-icon-arrow-right-2"></span>
                                 </span>
                             </li>
-                            <li class="active">examenes</li>
+                            <li class="active">Exámenes</li>
                         </ul>
 
                     </div><!-- End .heading-->
@@ -69,7 +69,7 @@ $(document).ready(function(){
 				?>
 				@if( ($tip === 'adm') or ($tip === 'pro') )
 				<div class="top-bar">
-						<button class="boton_nuevo" onClick="boton_nuevo_examen()" type="button"><img src="{{ asset('img/add-icon.gif') }}" width="16" height="16"> Nuevo </button>
+						<button class="boton_nuevo" onClick="boton_nuevo_examen()" type="button"><span class="cut-icon-plus-2"></span> Nuevo </button>
 				
 						</div><br />
 				@endif
@@ -90,13 +90,10 @@ $(document).ready(function(){
                         </a>
 					</div>
 			</form>
-
+<br>
 				<div class="table-responsive">
 
-				<img src="{{asset('img/bg-th-left.gif')}}" width="8" height="7" alt="" class="left" />
-				<img src="{{asset('img/bg-th-right.gif')}}" width="7" height="7" alt="" class="right" />
-				<!--class="table table-bordered table-hover table-condensed"-->
-
+				
 
 				<table class="table table-bordered table-hover table-condensed" width="80%"  cellpadding="0" cellspacing="0" >
 					<thead>
@@ -131,25 +128,40 @@ $(document).ready(function(){
 							<td class="last" width="100px">
 							
 							<a href="/examen/ver/{{$examen->cod_e}}" title="Ver">
-								Ver
+								<span class="icomoon-icon-grid-view-2"></span>
 							</a>
-							<a href="/examen/ver_examen/{{$examen->cod_e}}" title="Ver">
-								Mod
-							</a>
+							
 
+							
+							<a 
 							@if(($examen->ver_edicion_habilitado()) === 0)
-							<a href="/examen/editar/{{$examen->cod_e}}" title="Editar">
-								<img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="edit" />
-							</a>
+								href="/examen/editar/{{$examen->cod_e}}"
+								title="Editar"
+							@else
+							title="Este exámen no esta disponible para su edición"
 							@endif
-							<a href="/examen/editar_reutilizar/{{$examen->cod_e}}" title="Crear un nuevo exámen">
-								N
+							
+							 
+							 >
+								<span 
+								@if(($examen->ver_edicion_habilitado()) === 0)
+								class="icon-pencil "
+								@else
+								class="icon-pencil"
+								@endif
+								>
+							</span>
 							</a>
+							
+							<a href="/examen/editar_reutilizar/{{$examen->cod_e}}" title="Reutilizar examen">
+								<span class="eco-pencil-2"></span>
+							</a>
+							
 								
-							<a class="deshabilitar" title="deshabilitar" href="/examen/deshabilitar/{{$examen->cod_e}}">
-								<img src="{{asset('img/hr.gif')}}" width="16" height="16" alt="" />
+							<a class="deshabilitar" title="eliminar" href="/examen/deshabilitar/{{$examen->cod_e}}">
+								<span class=" icon-remove"></span>
 								</a>
-							</a>
+							
 							</td>
 							@endif
 							

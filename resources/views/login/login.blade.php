@@ -152,7 +152,7 @@
 		
 		<div class="block-border"><div class="block-content">
 				
-			<div class="block-header">Ingrese su Login
+			<div class="block-header">Inicie Sesión
 
 			</div>
 				

@@ -16,7 +16,16 @@
 	<b>Nombre de Usuario:</b> {{$usuario->usuario}}
 	</div>
 	<div>
-	<b>Tipo de Usuario:</b> {{$usuario->tipo}}
+	<b>Tipo de Usuario:</b> 
+	@if($usuario->tipo == 'can')
+	Candidato
+	@endif
+	@if($usuario->tipo == 'pro')
+	Evaluador
+	@endif
+	@if($usuario->tipo == 'adm')
+	Administrador
+	@endif
 	</div>
 	<div>
 	<b>E-mail:</b> {{$usuario->email_u}}

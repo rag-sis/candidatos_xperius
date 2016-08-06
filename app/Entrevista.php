@@ -11,7 +11,7 @@ class Entrevista extends Model
     public $primaryKey = 'cod_en';
 
 
-    protected $fillable = ['cod_po_en','cod_eva_en','descripcion_en','puntaje_en','fecha_en','invitado_en','entrevistado_en'];
+    protected $fillable = ['cod_po_en','cod_eva_en','descripcion_en','puntaje_en','fecha_en','estado_en','entrevistado_en'];
 
      
     /*

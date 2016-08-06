@@ -64,7 +64,7 @@ $(document).ready(function(){
 				?>
 				@if( ($tip === 'adm') or ($tip === 'pro') )
 				<div class="top-bar">
-						<button class="boton_nuevo" onClick="boton_nuevo_vacante()" type="button"><span class="cut-icon-plus-2"></span>Nuevo </button>
+						<button class="boton_nuevo" onClick="boton_nuevo_vacante()" type="button"><img src="{{ asset('img/add-icon.gif') }}" width="16" height="16"> Nuevo </button>
 				
 						</div><br />
 				@endif
@@ -85,10 +85,13 @@ $(document).ready(function(){
                         </a>
 					</div>
 			</form>
-<br>
+
 				<div class="table-responsive">
 
-			
+				<img src="{{asset('img/bg-th-left.gif')}}" width="8" height="7" alt="" class="left" />
+				<img src="{{asset('img/bg-th-right.gif')}}" width="7" height="7" alt="" class="right" />
+				<!--class="table table-bordered table-hover table-condensed"-->
+
 
 				<table class="table table-bordered table-hover table-condensed" width="80%"  cellpadding="0" cellspacing="0" >
 					<thead>
@@ -130,25 +133,21 @@ $(document).ready(function(){
 						
 							
 							<td class="last" width="100px">
-								<a class="boton" href="#" data-toggle="modal" data-target="#ver_datos_vacante" alt="Ver vacante" title="Ver vacante" onclick="mostrar_datos_vacante('{{$vacante->cod_v}}')"> 
-									<span class="icomoon-icon-grid-view-2"></span>
-									</a>
-
+								<a class="boton" href="#" data-toggle="modal" data-target="#ver_datos_vacante" onclick="mostrar_datos_vacante('{{$vacante->cod_v}}')"> Ver</a>
 							@if( ($tip === 'adm') or ($tip === 'pro') )
 							
 							
 							<!--<a class="boton" href="#" data-toggle="modal" data-target="#enviar_email_vacante" onclick="enviar_email_vacante('{{$vacante->cod_v}}')"> Invitar</a>-->
 							
 							<a href="/asignacion_examen/asignar/{{$vacante->cod_v}}/{{$vacante->titulo_v}}" title="Asignar Exámen">
-								<span class=" iconic-icon-transfer"></span>
-								
+								Asig
 							</a>
 							<a href="/vacante/editar/{{$vacante->cod_v}}" title="Editar">
-								<span class=" icon-pencil"></span>
+								<img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="edit" />
 							</a>
 								
-							<a class="eliminar" title="Eliminar" href="/vacante/eliminar/{{$vacante->cod_v}}">
-								<span class=" icon-remove"></span>
+							<a class="eliminar" title="eliminar" href="/vacante/eliminar/{{$vacante->cod_v}}">
+								<img src="{{asset('img/hr.gif')}}" width="16" height="16" alt="" />
 								</a>
 							</a>
 							

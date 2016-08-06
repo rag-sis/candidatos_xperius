@@ -10,11 +10,11 @@ $(document).ready(function(){
     	if(valorSeleccionado=='can'){
     		$("#curri").show("slow");
             $("#url_curri").show("slow");
-            $("#vac").show("slow");
+            $("#vacs").show("slow");
     	}else{
     		$("#curri").hide("slow");		
             $("#url_curri").hide("slow");
-            $("#vac").hide("slow");
+            $("#vacs").hide("slow");
     	}
    	});
    
@@ -26,11 +26,11 @@ $(document).ready(function(){
     	if(valorSeleccionado=='can'){
     		$("#curri").show("slow");
             $("#url_curri").show("slow");
-            $("#vac").show("slow");
+            $("#vacs").show("slow");
     	}else{
     		$("#curri").hide("slow");
             $("#url_curri").hide("slow");
-            $("#vac").hide("slow");		
+            $("#vacs").hide("slow");		
     	}
         
     //Script para cargar datos al seleccionable de vacantes

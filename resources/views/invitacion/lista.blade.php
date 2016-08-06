@@ -20,7 +20,7 @@ $(document).ready(function(){
 </head>
 <div class="heading">
 
-                        <h3>Lista de Candidatos</h3>                    
+                        <h3>Invitación a Candidatos</h3>                    
 
                         
                         
@@ -34,7 +34,7 @@ $(document).ready(function(){
                                     <span class="icon16 icomoon-icon-arrow-right-2"></span>
                                 </span>
                             </li>
-                            <li class="active">Vacantes</li>
+                            <li class="active">Invitaciones</li>
                         </ul>
 
                     </div><!-- End .heading-->
@@ -71,7 +71,7 @@ $(document).ready(function(){
 			
 		  <form class="navbar navbar-form navbar-right espacio_contenido" method="post" action="/invitacion/lista">
 					<div class="input-group">
-						<input type="text" name="titulo_vacante" class="form-control" placeholder="Titulo" />
+						<input type="text" name="titulo_vacante" class="form-control" placeholder="Nombre" />
 						<span class="input-group-btn">
 							<button type="submit" class="btn btn-primary">Buscar</button>
 						</span>
@@ -88,9 +88,12 @@ $(document).ready(function(){
                         </span>
                         </a>-->
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <button class="float-right btn btn-primary"  type="submit"> Invitar </button>
-							
+                        <button class="float-right btn btn-primary"   type="submit">
+                        	<span class="icon16 icomoon-icon-mail-3 white"></span> Invitar </button>
+							<br>
+							<br>
 					</div>
+					<br>
 
 
 				<div class="table-responsive">
@@ -99,10 +102,11 @@ $(document).ready(function(){
 				<table class="table table-bordered table-hover table-condensed" width="80%"  cellpadding="0" cellspacing="0" >
 					<thead>
 					<tr>
-				
-						<th class="first">E-mail</th>
 						<th class="first">Nombre</th>
+						<th class="first">E-mail</th>
+						
 						<th class="first">Vacante</th>
+
 						<th class="first">N° Exámenes</th>
 						<th class="first">Invitar</th>
 						
@@ -114,13 +118,13 @@ $(document).ready(function(){
 					@forelse($invitaciones as $invitacion)
 
 					<tr>
-						
-						<td width="200px">{{ $invitacion->usuario->email_u }}
-							</td>
 						<td>
 							{{ $invitacion->getNombresUsuario($invitacion->cod_u) }}
 							
 						</td>
+						<td width="200px">{{ $invitacion->usuario->email_u }}
+							</td>
+						
 						<td>{{ $invitacion->vacante->titulo_v }}</td>
 						<td>{{ $invitacion->vacante->nro_examenes_v }}</td>
 						<td>

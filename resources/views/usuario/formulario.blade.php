@@ -53,7 +53,7 @@
 		<div class="seleccionador">
 
 		{!! Form::label('tipo', 'Tipo de usuario (*)') !!}
-		{!! Form::select('tipo', ['pro' => 'Profesor', 'can' => 'Candidato' ], null, ['placeholder' => 'Seleccione un tipo de usuario' ,'class' => 'form-label span6 seleccionador','id'=>'tipo_usuario']) !!}
+		{!! Form::select('tipo', ['pro' => 'Evaluador', 'can' => 'Candidato' ], null, ['placeholder' => 'Seleccione un tipo de usuario' ,'class' => 'form-label span6 seleccionador','id'=>'tipo_usuario']) !!}
 		</div>
 	</div>
 	
@@ -62,7 +62,7 @@
 		{{ $errors->first('vac') }}
 	</div>
 	@endif
-	<div class="form-label span6" id="vac">
+	<div class="form-label span6" id="vacs">
 		<br />
 		<div class="seleccionador">
 		{!! Form::label('vac', 'Vacante (*)') !!}

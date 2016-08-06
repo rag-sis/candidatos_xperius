@@ -37,6 +37,36 @@ class ExamenController extends Controller
         $parametros = ['examenes' => $lista];
         return view('examen.lista', $parametros);
     }
+    
+    public function lista_ex(Request $peticion){
+        $titulo_e = $peticion->input('titulo_e');
+        Auth::user()->usuario;
+        $tipo=Auth::user()->tipo;
+        $cod_u=Auth::user()->cod_u;
+        if($tipo='can'){
+
+
+            $invitacion = \App\Invitacion::where('estado_i', 1)
+            ->where('cod_u',$cod_u)
+            ->where('invitado_i',1)
+            ->first();
+            
+            //exit();
+            if($invitacion === null){
+                return view('candidato.inicio');
+            }else{
+                $cod_v=$invitacion->cod_v;
+                $lista_ae=\App\AsignacionExamen::where('estado_ae', 1)
+                ->where('cod_v',$cod_v)
+                ->get();
+
+                $parametros = ['asignaciones' => $lista_ae];
+                //dd($parametros);
+            }
+        }
+            
+        return view('examen.lista_ae', $parametros);
+    }
     public function crear(){
         
         return view('examen.crear');

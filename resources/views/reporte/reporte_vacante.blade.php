@@ -20,7 +20,7 @@ $(document).ready(function(){
 </head>
 <div class="heading">
 
-                        <h3>Vacantes</h3>                    
+                        <h3>Resultados de Exámenes</h3>                    
 
                         
                         
@@ -34,7 +34,7 @@ $(document).ready(function(){
                                     <span class="icon16 icomoon-icon-arrow-right-2"></span>
                                 </span>
                             </li>
-                            <li class="active">Vacantes</li>
+                            <li class="active">Resultados de Exámenes</li>
                         </ul>
 
                     </div><!-- End .heading-->
@@ -75,13 +75,10 @@ $(document).ready(function(){
 						</span>
 
 					</div>
+					<br>
 			</form>
 
 				<div class="table-responsive">
-
-				<img src="{{asset('img/bg-th-left.gif')}}" width="8" height="7" alt="" class="left" />
-				<img src="{{asset('img/bg-th-right.gif')}}" width="7" height="7" alt="" class="right" />
-				<!--class="table table-bordered table-hover table-condensed"-->
 
 
 				<table class="table table-bordered table-hover table-condensed" width="80%"  cellpadding="0" cellspacing="0" >
@@ -89,7 +86,7 @@ $(document).ready(function(){
 					<tr>
 				
 						<th class="first">Título</th>
-						<th class="first">Nro de Cand's Reg's</th>
+						<th class="first">Candidatos registrados</th>
 						
 						
 							@if( ($tip === 'adm') or ($tip === 'pro') )
@@ -106,16 +103,16 @@ $(document).ready(function(){
 
 					<tr>
 				
-						<td width="200px">{{ $vacante->titulo_v }}</td>
+						<td width="400px">{{ $vacante->titulo_v }}</td>
 				
-						<td>{{$vacante->getCantidadCandidatos()}}</td>
+						<td width="200px">{{$vacante->getCantidadCandidatos()}}</td>
 						
 							
 							
 							@if( ($tip === 'adm') or ($tip === 'pro') )
-							<td class="last" width="400px">
+							<td class="last" width="200px">
 							<a  href="/resultados/examenes/{{$vacante->cod_v}}"title="Ver resultados de Exámenes" > 
-								Ver resultados de Exámenes
+								<span class="iconic-icon-magnifying-glass"></span>Ver resultados
 							</a>
 							<!--<a class="boton" href="#" data-toggle="modal" data-target="#enviar_email_vacante" onclick="enviar_email_vacante('{{$vacante->cod_v}}')"> Invitar</a>-->
 							<!--

@@ -20,7 +20,7 @@ $(document).ready(function(){
 </head>
 <div class="heading">
 
-                        <h3>Vacantes</h3>                    
+                        <h3>Resultados de Exámenes <span class=" icomoon-icon-arrow-right blue">  {{ $vacante->titulo_v}} </span></h3>                    
 
                         
                         
@@ -34,7 +34,7 @@ $(document).ready(function(){
                                     <span class="icon16 icomoon-icon-arrow-right-2"></span>
                                 </span>
                             </li>
-                            <li class="active">Vacantes</li>
+                            <li class="active">Resultados de Exámenes</li>
                         </ul>
 
                     </div><!-- End .heading-->
@@ -66,35 +66,34 @@ $(document).ready(function(){
 				
 				@endif
 			
-		  <h3>Lista de Candidatos de la vacante: <span class="blue">{{ $vacante->titulo_v}}</span></h3>
+		  
 		  <form class="navbar navbar-form navbar-right espacio_contenido" action="/vacante/lista">
 					<div class="input-group">
-						<input type="text" name="titulo_v" class="form-control" placeholder="Titulo" />
+						<input type="text" name="titulo_v" class="form-control" placeholder="Nombre" />
 						<span class="input-group-btn">
 							<button type="submit" class="btn btn-primary">Buscar</button>
 						</span>
 
 					</div>
+
 			</form>
+			<br>
 
 				<div class="table-responsive">
 
-				<img src="{{asset('img/bg-th-left.gif')}}" width="8" height="7" alt="" class="left" />
-				<img src="{{asset('img/bg-th-right.gif')}}" width="7" height="7" alt="" class="right" />
-				<!--class="table table-bordered table-hover table-condensed"-->
-
+				
 
 				<table class="table table-bordered table-hover table-condensed" width="80%"  cellpadding="0" cellspacing="0" >
 					<thead>
 					<tr>
 				
 						<th class="first">Nombre</th>
-						<th class="first">Nro Exámenes terminados</th>
-						<th class="first">Nro Exámenes pendientes</th>
+						<th class="first">Exámenes terminados</th>
+						<th class="first">Exámenes pendientes</th>
 						<th class="first">Puntaje Total</th>
 						
 							@if( ($tip === 'adm') or ($tip === 'pro') )
-								<th>Ver Exámenes</th>
+								
 									<th class="last">Acciones</th>
 								
 							@endif
@@ -117,18 +116,17 @@ $(document).ready(function(){
 							
 							
 							@if( ($tip === 'adm') or ($tip === 'pro') )
-							<td>
-								
-							<a class="boton" title="Ver Exámenes resueltos" href="#" data-toggle="modal" data-target="#pro_ex" onclick="mostrar_examenes('{{$pos->cod_po}}')"> 
-								Ver Exámenes
-							</a>
-							</td>
-							<td class="last" width="100px">
 							
+							<td class="last" width="100px">
+							<a class="boton" title="Ver Exámenes" href="#" data-toggle="modal" data-target="#pro_ex" onclick="mostrar_examenes('{{$pos->cod_po}}')"> 
+								<span class="icomoon-icon-grid-view-2"></span>
+
+							</a>
 							
 							@if( ($pos->getInvitado())=== false )
-							<a class="boton" title="Ver reporte de Entrevistas" href="#" data-toggle="modal" data-target="#pro_ent" onclick="mostrar_form_nueva_entrevista('{{$pos->cod_po}}')"> 
-								Programar Entrevista
+							<a class="boton" title="Programar Entrevista" href="#" data-toggle="modal" data-target="#pro_ent" onclick="mostrar_form_nueva_entrevista('{{$pos->cod_po}}')"> 
+								<span class="icomoon-icon-calendar"></span>
+								
 							</a>
 							@else
 							Entrevista Programada

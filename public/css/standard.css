@@ -1865,3 +1865,25 @@ article {
 	background-color:#7BCA3D;
 	 
 }
+.text-center{
+
+	text-align: justify;
+}
+.dere{
+
+	padding-right: 100px;
+}
+.nom_us{
+	padding-right: 150px;
+}
+.alinear_izquierda{
+
+	text-align: justify;
+}
+.area_text{
+	width:850px;
+	height:100px;
+	border: 2px 
+	solid #990000;
+
+}

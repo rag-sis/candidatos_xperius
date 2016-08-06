@@ -109,8 +109,84 @@ $(document).ready(function() {
 		$('#wizzard-form').submit();
     }
     
+
+
 	//--------------- Form validation ------------------//
 	//$('#select1').select2({placeholder: "Select"});
+$("#form_user").validate({
+    	ignore: null,
+    	ignore: 'input[type="hidden"]',
+
+    	rules: {
+    		select1: "required",
+			required: "required",
+			requiredArea: "required",
+			required1: {
+				required: true,
+				minlength: 4
+			},
+			vac:{
+				required:true,
+
+			},
+			nom_u:{
+				required:true,
+			},
+			usuario:{
+				required:true,
+			},
+			password:{
+				required:true,
+				minlength: 6
+			},
+			rpassword:{
+				required:true,
+				minlength: 6,
+				equalTo: "#password"
+			},
+			tipo:{
+				required:true,
+			},
+			email_u:{
+				required:true,
+				email: true
+			},
+			
+
+
+
+			},
+		messages: {
+			required: "Please enter a something",
+			peso_preg_1:{
+				required:"campo requerido",
+			},
+			suma_puntajes:{
+				max:"La Suma de puntajes tiene que ser 100",
+				min:"La Suma de puntajes tiene que ser 100"
+			},
+			num_preguntas_e:{
+				min:"Agregue preguntas al exámen.",
+				max:"Cantidad máxima de preguntas debe ser 50"
+			},
+			required1: {
+				required: "This field is required",
+				minlength: "This field must consist of at least 4 characters"
+			},
+			password: {
+				required: "Ingrese un password",
+				minlength: "El password debe tener al menos 6 caracteres"
+			},
+			rpassword: {
+				required: "Ingrese un password",
+				minlength: "El password debe tener al menos 6 caracteres",
+				equalTo: "Please enter the same password as above"
+			},
+			email_u: "Ingrese un email valido",
+			agree: "Please accept our policy"
+		}
+    });
+
     $("#form-examen").validate({
     	ignore: null,
     	ignore: 'input[type="hidden"]',

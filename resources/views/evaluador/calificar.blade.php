@@ -5,7 +5,7 @@
 </head>
 <div class="heading">
 
-                        <h3>Inicio</h3>                    
+                        <h3>Calificaciones</h3>                    
                         
                         <ul class="breadcrumb">
                             <li>Tu estas en:</li>
@@ -17,11 +17,16 @@
                                     <span class="icon16 icomoon-icon-arrow-right-2"></span>
                                 </span>
                             </li>
-                            <li class="active">Inicio</li>
+                            <li class="active">Calificaciones</li>
                         </ul>
 
 </div><!-- End .heading-->
-
+<div>
+    <a class="float-right" href="/examen/calificaciones_pendientes" title="Atras">
+            <span class="icomoon-icon-undo-2 green"></span>
+            Atras
+        </a>
+</div>
 
 
 <div class="">
@@ -58,6 +63,7 @@
                                         <textarea disabled="disabled" class="span8" >{{$res->valor_rr}}</textarea>
                                         <br>
                                         <div>
+                                            <br>
                                         SELECCIONAR EL PUNTAJE:
                                         <table>
                                             <tr>

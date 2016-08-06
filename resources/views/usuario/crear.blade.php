@@ -22,8 +22,8 @@
 
 </div><!-- End .heading-->
 <div>
-    <a class="float-right" href="/usuario/lista" title="Editar">
-            <img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="edit" />
+    <a class="float-right" href="/usuario/lista" title="Atras">
+            <span class="icomoon-icon-undo-2 green"></span>
             Atras
         </a>
 </div>
@@ -33,7 +33,7 @@
 			<h4>Crear Usuario</h4>
 		</div>
         <div class="well scroll" style="overflow:auto; margin-top:10px;">
-		{!! Form::open(['url' => '/usuario/almacenar', 'files' => true]) !!}
+		{!! Form::open(['url' => '/usuario/almacenar','id'=>'form_user', 'files' => true]) !!}
 		@include('usuario.formulario')
 		{!! Form::close() !!}
         </div>

@@ -51,12 +51,25 @@ class EntrevistaController extends Controller
    		$tipo_u=Auth::user()->tipo;
         Session::flash('tipo_u', $tipo_u);
         //$titulo_v = $peticion->input('titulo_v');
-        $lista = Entrevista::where('invitado_en',1)
+        $lista = Entrevista::where('estado_en',1)
             ->orderBy('cod_en')
             ->paginate(10);
         $parametros = ['entrevistas' => $lista];
         Session::flash('menu','entrevista');
         return view('entrevista.lista', $parametros);
    	}
+
+    public function lista_en(Request $peticion){
+
+      $tipo_u=Auth::user()->tipo;
+        Session::flash('tipo_u', $tipo_u);
+        //$titulo_v = $peticion->input('titulo_v');
+        $lista = Entrevista::where('estado_en',1)
+            ->orderBy('cod_en')
+            ->paginate(10);
+        $parametros = ['entrevistas' => $lista];
+        Session::flash('menu','entrevista');
+        return view('entrevista.lista_can', $parametros);
+    }
     
   }
