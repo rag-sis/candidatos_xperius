@@ -113,6 +113,38 @@ $(document).ready(function() {
 
 	//--------------- Form validation ------------------//
 	//$('#select1').select2({placeholder: "Select"});
+
+$("#form-asignar-vacante").validate({
+    	ignore: null,
+    	ignore: 'input[type="hidden"]',
+
+    	rules: {
+    		select1: "required",
+			required: "required",
+			requiredArea: "required",
+			required1: {
+				required: true,
+				minlength: 4
+			},
+			vac:{
+				required:true,
+
+			},
+			
+			
+			},
+		messages: {
+			required: "Please enter a something",
+			peso_preg_1:{
+				required:"campo requerido",
+			},
+			
+			
+			email_u: "Ingrese un email valido",
+			agree: "Please accept our policy"
+		}
+    });
+
 $("#form_user").validate({
     	ignore: null,
     	ignore: 'input[type="hidden"]',

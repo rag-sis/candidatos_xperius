@@ -71,11 +71,11 @@
                                     
                                     <hr />
                                     <center>
-                                        <input type="text" value="{{$cod_inv}}" name="cod_inv"/>
-                                        <input type="text" id="min_total_res" value="{{$min_total}}"/>
-                                        <input type="text" id="min_total" value="{{$examen->tiempo_minutos_e}}"/>
-                                        <input type="text" id="tiempo_start" value="{{$tiempo_comienzo}}"/>
-                                        <input type="text" id="tiempo_end" value="{{$tiempo_final}}"/>
+                                        <input type="hidden" value="{{$cod_inv}}" name="cod_inv"/>
+                                        <input type="hidden" id="min_total_res" value="{{$min_total}}"/>
+                                        <input type="hidden" id="min_total" value="{{$examen->tiempo_minutos_e}}"/>
+                                        <input type="hidden" id="tiempo_start" value="{{$tiempo_comienzo}}"/>
+                                        <input type="hidden" id="tiempo_end" value="{{$tiempo_final}}"/>
                                         <input type="submit" id="boton_terminar" value="Terminar Exámen" />
                                     
                                     </center>

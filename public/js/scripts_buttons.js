@@ -44,7 +44,7 @@ function boton_eliminar(){
 }
 function mostrar_datos_usuario(id) {
         //$(document).ready(function () {
-            $("#result").hide("slow");
+            $("#ver_datos").hide("slow");
             $("#cargar_reporte").show("slow");
             $("#editar_resul").load("/usuario/ver_informacion_usuario/" + id, " ", function () {
                 $("#editar_resul").show("slow");
@@ -73,6 +73,17 @@ function mostrar_datos_usuario(id) {
                 $("#cargar_vista_invitar").hide("slow");
             });
         //});
+    }
+
+    function asignar_vacante(id) {
+        //$(document).ready(function () {
+            $("#asig_vac").hide("slow");
+            $("#cargar_datos").show("slow");
+            $("#asignar_resul").load("/usuario/ver_asignar_vacante/" + id, " ", function () {
+                $("#asignar_resul").show("slow");
+                $("#cargar_datos").hide("slow");
+            });
+       //});
     }
 
 

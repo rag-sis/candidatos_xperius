@@ -20,3 +20,25 @@ function mostrar_form_nueva_entrevista(id) {
 
 
  }
+
+ function mostrar_form_reasignar_entrevista(id) {
+        //$(document).ready(function () {
+            $("#pro_ent_r").hide("slow");
+            $("#cargar_datos_pro_ent_r").show("slow");
+            $("#datos_pro_ent_r").load("/entrevista/formulario_editar/" + id, " ", function () {
+                $("#datos_pro_ent_r").show("slow");
+                $("#cargar_datos_pro_ent_r").hide("slow");
+            });
+        //});
+    }
+
+ function ver_entrevista(id) {
+        //$(document).ready(function () {
+            $("#pro_ent_ver").hide("slow");
+            $("#cargar_datos_pro_ent_ver").show("slow");
+            $("#datos_pro_ent_ver").load("/entrevista/ver_datos/" + id, " ", function () {
+                $("#datos_pro_ent_ver").show("slow");
+                $("#cargar_datos_pro_ent_ver").hide("slow");
+            });
+        //});
+    }

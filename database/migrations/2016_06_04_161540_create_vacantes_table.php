@@ -21,8 +21,6 @@ class CreateVacantesTable extends Migration
             $table->enum('tiempo_trabajo_v',['Tiempo Completo', 'Medio Tiempo']);
             $table->enum('tipo_trabajo_v',['Fuera de Oficina', 'Dentro de Oficina']);
             $table->text('descripcion_v');
-            $table->datetime('fecha_ini_v');
-            $table->datetime('fecha_fin_v');
             $table->integer('nro_examenes_v')->default(0);
             $table->enum('estado_v',[1, 0])->default(1);
             $table->rememberToken();

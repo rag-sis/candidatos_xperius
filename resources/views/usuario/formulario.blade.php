@@ -57,18 +57,6 @@
 		</div>
 	</div>
 	
-	@if($errors->has('vac'))
-	<div class="alert alert-danger span6">
-		{{ $errors->first('vac') }}
-	</div>
-	@endif
-	<div class="form-label span6" id="vacs">
-		<br />
-		<div class="seleccionador">
-		{!! Form::label('vac', 'Vacante (*)') !!}
-		{!! Form::select('vac', [ ], null, ['placeholder' => 'Seleccione una vacante' ,'class' => 'form-label span6 seleccionador','id'=>'sel_vacante']) !!}
-		</div>
-	</div>
 	@if($errors->has('curriculum'))
 	<div class="alert alert-danger span6">
 		{{ $errors->first('curriculum') }}

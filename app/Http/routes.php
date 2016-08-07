@@ -109,10 +109,14 @@ Route::post('/examen/calificar','CalificacionExamenController@calificar_examen')
 Route::get('/resultados/lista','PostulacionController@lista_vacantes');
 Route::get('/resultados/examenes/{id}','PostulacionController@resultados_examenes');
 Route::get('/postulacion/lista','PostulacionController@lista');
-Route::get('/entrevista/formulario_crear/{id}','PostulacionController@crear');
+Route::get('/entrevista/formulario_crear/{id}','PostulacionController@crear_entrevista');
+Route::get('/entrevista/formulario_editar/{id}','PostulacionController@editar_entrevista');
 
 Route::post('/entrevista/almacenar','EntrevistaController@almacenar');
+Route::post('/entrevista/editar','EntrevistaController@editar');
 Route::get('/entrevista/lista','EntrevistaController@lista');
+Route::get('/entrevista/eliminar/{id}','EntrevistaController@eliminar');
+Route::get('/entrevista/ver_datos/{id}','EntrevistaController@ver_datos');
 
 Route::get('/candidato/ver_examen_terminado/{cal_e}/{exa}','CandidatoController@ver_examen_finalizado');
 
@@ -127,3 +131,5 @@ Route::get('/respuesta_opcion_multiple/{cod_cae}/{id_pregunta}','CandidatoContro
 
 Route::get('/examen/lista_terminados/{id}','CalificacionExamenController@lista_terminados');
 Route::get('/entrevista/lista_en','EntrevistaController@lista_en');
+Route::get('/usuario/ver_asignar_vacante/{cod_u}','UsuarioController@ver_asignar_vacante');
+Route::post('/usuario/asignar_vacante','UsuarioController@asignar_vacante');

@@ -51,14 +51,6 @@
 	</div>
 	@endif
 	
-	<!--<div class="form-group">
-		{!! Form::label('descripcion_v', 'Descripción', ['class' => 'control-label']) !!}
-		{!! Form::text('descripcion_v', null, ['class' => 'form-control']) !!}
-	</div>-->
-	<!--<div class="form-group">
-		<label for="descripcion_v">Descripción</label>
-		<textarea name="descripcion_v" id="descripcion_v" class="form-control"></textarea>
-	</div>-->
 	<div class="form-group">
 		{!! Form::label('descripcion_v', 'Descripción', ['class' => 'control-label']) !!}
 	{{ Form::textarea('descripcion_v',null, ['class' => 'form-control area_text']) }}

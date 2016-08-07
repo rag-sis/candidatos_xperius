@@ -98,21 +98,6 @@ class UsuarioController extends Controller
 
                 ]);
             
-            
-            if ($peticion['tipo'] == 'can') {
-                $cod_v=$peticion['vac'];
-                $usuario_creado=$this->getUsuarioA($peticion['usuario']);
-                $id_uc=$usuario_creado->cod_u;
-                Invitacion::create([
-                  'cod_u'=>$id_uc, 
-                  'cod_v'=>$cod_v,
-                ]);
-                Postulacion::create([
-                    'cod_u'=>$id_uc, 
-                    'cod_v'=>$cod_v,
-                    ]);
-            }
-            
             Session::flash('usu_cre', 'Usuario creado');
             return redirect('/usuario/lista');
         }        
@@ -200,6 +185,35 @@ class UsuarioController extends Controller
        }
         Session::flash('usu_edi', 'Usuario modificado');
         return redirect('/usuario/lista');
+    }
+
+    public function ver_asignar_vacante($cod_u){
+            $usuario=$this->getUsuario($cod_u);
+            $lista=\App\Vacante::where('estado_v',1)
+                                 ->get();
+            $parametros=['vacantes'=>$lista,'user'=>$usuario];
+
+            return view('usuario.asignar_vacante',$parametros);
+
+    }
+
+    public function asignar_vacante(Request $peticion){
+
+            $cod_u=$peticion['user'];
+            $cod_v=$peticion['vac'];
+            
+            Invitacion::create([
+                  'cod_u'=>$cod_u, 
+                  'cod_v'=>$cod_v,
+                ]);
+            Postulacion::create([
+                    'cod_u'=>$cod_u, 
+                    'cod_v'=>$cod_v,
+                    ]);
+            
+            Session::flash('asig_valido', 'Se ha asigando la vacante exitosamente');
+            return redirect('/usuario/lista');
+
     }
 
     //Autentificación

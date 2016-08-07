@@ -33,7 +33,7 @@
 @else
 	No existen nuevas invitaciones
 @endif
-
+@if(isset($asignaciones))
 @forelse($asignaciones as $asig)
 <div class="span4">
 
@@ -90,4 +90,5 @@
 @empty
 @endforelse
 </div>
+@endif
 @endsection

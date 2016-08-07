@@ -82,12 +82,7 @@ $(document).ready(function(){
 							<button type="submit" class="btn btn-primary">Buscar</button>
 						</span>
 
-						<a href="/lista_e_pdf" class="float-right">
-						<span class="box1">
-                        <span aria-hidden="true" class="icomoon-icon-file-pdf"></span>
-                        &nbsp;Descargar lista
-                        </span>
-                        </a>
+						
 					</div>
 			</form>
 <br>
@@ -117,18 +112,38 @@ $(document).ready(function(){
 
 					<tr>
 				
-						<td width="200px">{{ $asig->examen->titulo_e }}</td>
+						<td width="200px" >{{ $asig->examen->titulo_e }}</td>
 						
 						<td>{{ $asig->examen->tiempo_minutos_e }} min.</td>
 						<td>{{ $asig->examen->num_preguntas_e }}</td>
-						<td></td>
+						<td>
+							@if($asig->estado_terminado() )
+								{{ $asig->nota_examen() }}
+							@else
+								
+							@endif
+							</td>
 							
 							
-							<td class="last" width="100px">
-							
-							<a title="Rendir examen" href="">
-								<span class=" entypo-icon-clock"></span>
+							<td class="last" width="100px" valign="top">
+							@if($asig->estado_tiempo_terminado() )
+							<a title="Exámen Terminado" href="#">
+								
+								<button type="submit" title="Exámen Terminado" disabled class="btn btn-info marginT10 entypo-icon-clock white"></button>
 							</a>
+							@else
+							<form class="form-horizontal" action="/candidato/rendir_examen" method="post">
+                                                {!! csrf_field() !!}
+                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                <input type="hidden" name="exa" value="{{$asig->examen->cod_e}}"/>
+                                                <input type="hidden" name="inv" value="{{$asig->cod_invitacion()}}"/>
+                                                <button type="submit" title="Empezar Examen" class="btn btn-info marginT10 entypo-icon-clock white"></button>
+                                                <!--<a type="submit" title="Rendir examen" href="#">
+													<span class=" entypo-icon-clock"></span>
+												</a>-->
+                            </form>
+							
+							@endif
 							</td>
 							
 							

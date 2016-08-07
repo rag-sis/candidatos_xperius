@@ -133,7 +133,9 @@ $(document).ready(function(){
 						
 							
 							<td class="last" width="100px">
-								<a class="boton" href="#" data-toggle="modal" data-target="#ver_datos_vacante" onclick="mostrar_datos_vacante('{{$vacante->cod_v}}')"> Ver</a>
+								<a class="boton" href="#" data-toggle="modal" data-target="#ver_datos_vacante" onclick="mostrar_datos_vacante('{{$vacante->cod_v}}')"> 
+									<span class="icomoon-icon-grid-view-2"></span>
+								</a>
 							@if( ($tip === 'adm') or ($tip === 'pro') )
 							
 							

@@ -42,7 +42,7 @@
 </head>
 <div class="heading">
 
-                        <h3>Exámenes</h3>                    
+                        <h3>Examen : <span class=" icomoon-icon-arrow-right blue"> {{$examen->titulo_e}}</span></h3>                    
                         
                         <ul class="breadcrumb">
                             <li>Tu estas en:</li>
@@ -54,10 +54,7 @@
                                     <span class="icon16 icomoon-icon-arrow-right-2"></span>
                                 </span>
                             </li>
-                            <li class="active">Exámenes <a class="float-right" href="/examen/lista" title="Editar">
-            <img src="{{asset('img/edit-icon.gif')}}" width="16" height="16" alt="edit" />
-            Atras
-        </a></li>
+                            <li class="active">Exámenes </li>
                         </ul>
 
 </div><!-- End .heading-->

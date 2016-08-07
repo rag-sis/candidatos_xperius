@@ -28,8 +28,17 @@ class PostulacionController extends Controller
     }
     
     public function lista(Request $peticion){
-        $lista = Postulacion::where('estado_po', 1)
+        $tipo_u=Auth::user()->tipo;
+        $cod_u=Auth::user()->cod_u;
+        if($tipo_u == 'can'){
+            $lista=Postulacion::where('estado_po', 1)
+                                ->where('cod_u',$cod_u)
+                            ->paginate(10);
+        }else{
+            $lista = Postulacion::where('estado_po', 1)
             ->paginate(10);
+            
+        }
             
         $parametros = ['postulacion' => $lista];
         return view('postulacion.lista', $parametros);
@@ -80,11 +89,21 @@ class PostulacionController extends Controller
         else return $vac;
     }
 
-    public function crear($id){
+    public function crear_entrevista($id){
         //Recibe id de postulacion 
         $pos=$this->getPostulacion($id);
         $parametros = ['postulacion' => $pos];
         return view('entrevista.crear', $parametros);
+
+    }
+     public function editar_entrevista($id){
+        //Recibe id de postulacion 
+        
+        $ent=\App\Entrevista::where('cod_en',$id)
+                              ->first();
+
+        $parametros = ['entrevista' => $ent];
+        return view('entrevista.editar', $parametros);
 
     }
 

@@ -107,7 +107,13 @@ $(document).ready(function(){
 						<td width="200px">{{$pos->vacante->titulo_v}}</td>
 						<td>{{$pos->getNumeroExamenesTerminados()}}</td>
 						<td>{{$pos->getNumeroExamenesPendientes()}}</td>
-						<td>{{$pos->getPuntajeTotal()}}</td>
+						<td>
+							@if(($pos->getNumeroExamenesPendientes()) > 0)
+								
+							@else
+								{{$pos->getPuntajeTotal()}}
+							@endif
+						</td>
 						
 							
 							

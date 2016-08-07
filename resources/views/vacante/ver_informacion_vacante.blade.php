@@ -57,7 +57,7 @@
 						 @endif
 						</tr>
 						@empty
-						<tr><td>Sin asignaciones</td><td></td></tr>
+						<tr><td>Sin asignaciones</td></tr>
 						@endforelse
 						
 					</tbody>

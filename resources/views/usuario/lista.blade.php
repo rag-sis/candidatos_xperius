@@ -35,6 +35,12 @@
 				{{ Session::get('usu_eli') }}
 			</div>
 			@endif
+
+			@if(Session::has('asig_valido'))
+			<div class="alert alert-success">
+				{{ Session::get('asig_valido') }}
+			</div>
+			@endif
 			<div class="top-bar">
 				<button class="boton_nuevo" onClick="boton_nuevo_usuario()" type="button"><span class="cut-icon-plus-2"></span> Nuevo </button>
 				
@@ -89,10 +95,23 @@
 							<a class="boton" href="#" title="Ver" data-toggle="modal" data-target="#ver_datos" onclick="mostrar_datos_usuario('{{$usuario->cod_u}}')"> 
 								<span class="icomoon-icon-grid-view-2"></span>
 							</a>
-
-							<a href="" title="Asignar Vacante">
+							@if($usuario->tipo === 'can')
+							@if($usuario->habilitado_asignacion())
+								
+								<a class="boton" href="#" title="Asignar Vacante" data-toggle="modal" data-target="#asig_vac" onclick="asignar_vacante('{{$usuario->cod_u}}')"> 
 								<span class=" iconic-icon-transfer"></span>
 							</a>
+							@else
+								<a href="#" title="Ya fue asignado una vacante a este usuario">
+								<span class=" iconic-icon-transfer gray"></span>
+							</a>
+							@endif
+							
+							@else
+							<a href="#" title="No permitido">
+								<span class=" iconic-icon-transfer gray"></span>
+							</a>
+							@endif
 							<a href="/usuario/editar/{{$usuario->cod_u}}" title="Editar">
 								<span class=" icon-pencil"></span>
 							</a>
@@ -137,7 +156,7 @@
         		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
         			<span aria-hidden="true">&times;</span>
         		</button>
-        		<h4 class="modal-title">Datos de Usuario</h4>
+        		<h4 class="modal-title">DATOS DE USUARIO</h4>
 			</div>
 			<div class="modal-body">
 				
@@ -148,6 +167,36 @@
                                     </div></center>
  
                                 <div class="panel-body" id="editar_resul" >
+ 
+                                </div>
+                            </div>
+                        </div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+			</div>
+			</div>
+		</div>
+</div>
+
+<div class="modal fade hide" id="asig_vac">
+ 	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        			<span aria-hidden="true">&times;</span>
+        		</button>
+        		<h4 class="modal-title">ASIGNAR VACANTE</h4>
+			</div>
+			<div class="modal-body">
+				
+				 <div class="widget-body">
+                            <div class="modal-body datagrid table-responsive" >
+                                <center><div id="cargar_datos" >
+                                        Espere!!! Cargando datos...
+                                    </div></center>
+ 
+                                <div class="panel-body" id="asignar_resul" >
  
                                 </div>
                             </div>

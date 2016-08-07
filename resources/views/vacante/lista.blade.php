@@ -95,7 +95,7 @@ $(document).ready(function(){
 					<tr>
 				
 						<th class="first">Titulo</th>
-						<th class="first">Descripcion</th>
+						<th class="first">Descripción</th>
 						<th class="first">Nº de Exámenes</th>
 						
 						

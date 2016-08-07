@@ -59,7 +59,7 @@
                                     <h4>Nº de Preguntas:</h4>
                                     <h5><span class="blue">{{$cal_exa->examen->num_preguntas_e}}</span></h5>
                                     <h4>Nota de Exámen:</h4>
-                                    <h5><span class="blue">{{$cal_exa->nota_cae}}</span></h5>
+                                    <h5><span class="blue">{{$cal_exa->nota_cae}} / 100</span></h5>
 
                                     <input type="hidden" name="cod_ex" id="cod_ex" value="{{ $examen->cod_e}}" readOnly>
                                    

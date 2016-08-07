@@ -34,4 +34,21 @@ class Usuario extends User
         return $query->where('nom_u', 'ilike', "%$nombre%")
                     ->orWhere('tipo', 'ilike', "%$nombre%");
     }
+
+    public function habilitado_asignacion(){
+
+        $lista = \App\Postulacion::select(\DB::raw('count(*) as num'))
+                                ->where('cod_u', $this->cod_u)
+                                ->where('estado_po',1)
+                                ->get();
+        $nro= (int)($lista[0]->num);
+
+        if($nro == 0){
+            return true;
+        }else{
+            return false;
+        }
+
+
+    }
 }

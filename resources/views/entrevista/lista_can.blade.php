@@ -1,7 +1,7 @@
 @extends('inicio')
 @section('contenido')
 <head>
-<script type="text/javascript" src="{{ asset('js/script_vacante.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/script_resultado_examenes.js') }}"></script>
 <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 <link href="{{ asset('css/multi-switch.min.css') }}" rel="stylesheet" type="text/css">
 
@@ -97,10 +97,9 @@
 							
 							
 							<td class="last" width="100px">
-							<a class="boton" href="#" title="Ver" data-toggle="modal" data-target="#ver_datos" onclick="mostrar_datos_usuario('')"> 
+							<a class="boton" href="#" title="Ver" data-toggle="modal" data-target="#pro_ent_ver" onclick="ver_entrevista('{{$entrevista->cod_en}}')"> 
 								<span class="icomoon-icon-grid-view-2"></span>
 							</a>
-							
 							</td>
 							
 							
@@ -122,6 +121,36 @@
 		</div>
 
 			
+<div class="modal fade hide" id="pro_ent_ver">
+ 	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        			<span aria-hidden="true">&times;</span>
+        		</button>
+        		<h4 class="modal-title">VER DATOS DE ENTREVISTA</h4>
+			</div>
+			<div class="modal-body">
+				
+				 <div class="widget-body">
+                            <div class="modal-body datagrid table-responsive" >
+                                <center><div id="cargar_datos_pro_ent_ver" >
+                                        Espere!!! Cargando datos...
+                                    </div></center>
+ 
+                                <div class="panel-body" id="datos_pro_ent_ver" >
+ 
+                                </div>
+                            </div>
+                        </div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+			</div>
+			</div>
+		</div>
+	</div>
+
 		  
 
 @endsection

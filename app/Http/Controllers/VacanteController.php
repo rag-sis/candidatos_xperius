@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Vacante;
 
 use App\Http\Requests\FormCrearVacante;
+use App\Http\Requests\FormEditarVacante;
 
 use \Session;
 use Mail;
